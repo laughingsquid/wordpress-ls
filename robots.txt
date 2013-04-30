@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /readme.html
+Disallow: /license.txt
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
