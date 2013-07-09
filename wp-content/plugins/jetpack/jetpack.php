@@ -5,7 +5,7 @@
  * Plugin URI: http://wordpress.org/extend/plugins/jetpack/
  * Description: Bring the power of the WordPress.com cloud to your self-hosted WordPress. Jetpack enables you to connect your blog to a WordPress.com account to use the powerful features normally only available to WordPress.com users.
  * Author: Automattic
- * Version: 2.3
+ * Version: 2.3.1
  * Author URI: http://jetpack.me
  * License: GPL2+
  * Text Domain: jetpack
@@ -17,11 +17,20 @@ define( 'JETPACK__API_VERSION', 1 );
 define( 'JETPACK__MINIMUM_WP_VERSION', '3.3' );
 defined( 'JETPACK_CLIENT__AUTH_LOCATION' ) or define( 'JETPACK_CLIENT__AUTH_LOCATION', 'header' );
 defined( 'JETPACK_CLIENT__HTTPS' ) or define( 'JETPACK_CLIENT__HTTPS', 'AUTO' );
-define( 'JETPACK__VERSION', '2.3' );
+define( 'JETPACK__VERSION', '2.3.1' );
 define( 'JETPACK__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'JETPACK__GLOTPRESS_LOCALES_PATH' ) or define( 'JETPACK__GLOTPRESS_LOCALES_PATH', JETPACK__PLUGIN_DIR . 'locales.php' );
 
 define( 'JETPACK_MASTER_USER', true );
+
+// Constants for expressing human-readable intervals
+// in their respective number of seconds.
+// Introduced in WordPress 3.5, specified here for backward compatability.
+defined( 'MINUTE_IN_SECONDS' ) or define( 'MINUTE_IN_SECONDS', 60 );
+defined( 'HOUR_IN_SECONDS' )   or define( 'HOUR_IN_SECONDS',   60 * MINUTE_IN_SECONDS );
+defined( 'DAY_IN_SECONDS' )    or define( 'DAY_IN_SECONDS',    24 * HOUR_IN_SECONDS   );
+defined( 'WEEK_IN_SECONDS' )   or define( 'WEEK_IN_SECONDS',    7 * DAY_IN_SECONDS    );
+defined( 'YEAR_IN_SECONDS' )   or define( 'YEAR_IN_SECONDS',  365 * DAY_IN_SECONDS    );
 
 /*
 Options:
@@ -236,6 +245,8 @@ class Jetpack {
 		add_action( 'wp_enqueue_scripts', array( $this, 'devicepx' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'devicepx' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'devicepx' ) );
+
+		add_action( 'jetpack_admin_menu', array( $this, 'admin_menu_modules' ) );
 
 		add_action( 'jetpack_activate_module', array( $this, 'activate_module_actions' ) );
 
@@ -684,7 +695,7 @@ class Jetpack {
 
 		Jetpack::state( 'message', 'modules_activated' );
 		Jetpack::activate_default_modules( $jetpack_version, JETPACK__VERSION, $reactivate_modules );
-		wp_safe_redirect( Jetpack::admin_url() );
+		wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 		exit;
 	}
 
@@ -905,7 +916,7 @@ class Jetpack {
 			$url = add_query_arg( array(
 				'action' => 'activate_default_modules',
 				'_wpnonce' => wp_create_nonce( 'activate_default_modules' ),
-			), add_query_arg( compact( 'min_version', 'max_version', 'other_modules' ), Jetpack::admin_url() ) );
+			), add_query_arg( compact( 'min_version', 'max_version', 'other_modules' ), Jetpack::admin_url( 'page=jetpack_modules' ) ) );
 			wp_safe_redirect( $url );
 			exit;
 		}
@@ -944,7 +955,7 @@ class Jetpack {
 			}
 
 			// we'll override this later if the plugin can be included without fatal error
-			wp_safe_redirect( Jetpack::admin_url() );
+			wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 			Jetpack::state( 'error', 'module_activation_failed' );
 			Jetpack::state( 'module', $module );
 			ob_start();
@@ -1010,7 +1021,7 @@ class Jetpack {
 		// Check the file for fatal errors, a la wp-admin/plugins.php::activate
 		Jetpack::state( 'module', $module );
 		Jetpack::state( 'error', 'module_activation_failed' ); // we'll override this later if the plugin can be included without fatal error
-		wp_safe_redirect( Jetpack::admin_url() );
+		wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 
 		Jetpack::catch_errors( true );
 		ob_start();
@@ -1051,7 +1062,7 @@ class Jetpack {
 
 	public static function module_configuration_url( $module ) {
 		$module = Jetpack::get_module_slug( $module );
-		return Jetpack::admin_url( array( 'configure' => $module ) );
+		return Jetpack::admin_url( array( 'page' => 'jetpack_modules', 'configure' => $module ) );
 	}
 
 	public static function module_configuration_load( $module, $method ) {
@@ -1255,6 +1266,10 @@ p {
 			);
 		}
 
+		if( current_user_can( 'manage_options' ) && self::check_identity_crisis() ) {
+			add_action( 'admin_notices', array( $this, 'alert_identity_crisis' ) );
+		}
+
 		add_action( 'load-plugins.php', array( $this, 'intercept_plugin_error_scrape_init' ) );
 		add_action( 'admin_head', array( $this, 'admin_menu_css' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
@@ -1386,7 +1401,18 @@ p {
 
 		add_action( "admin_print_scripts-$hook", array( $this, 'admin_scripts' ) );
 
+
 		do_action( 'jetpack_admin_menu' );
+	}
+
+	function admin_menu_modules() {
+		$hook = add_submenu_page( 'jetpack', __( 'Jetpack Modules', 'jetpack' ), __( 'Modules', 'jetpack' ), 'edit_posts', 'jetpack_modules', array( $this, 'admin_page_modules' ) );
+
+		add_action( "load-$hook",                array( $this, 'admin_page_load' ) );
+		add_action( "load-$hook",                array( $this, 'admin_help'      ) );
+		add_action( "admin_head-$hook",          array( $this, 'admin_head'      ) );
+		add_action( "admin_print_styles-$hook",  array( $this, 'admin_styles'    ) );
+		add_action( "admin_print_scripts-$hook", array( $this, 'admin_scripts'   ) );		
 	}
 
 	function add_remote_request_handlers() {
@@ -1711,6 +1737,7 @@ p {
 			__( 'Jetpack now includes Jetpack Comments, which enables your visitors to use their WordPress.com, Twitter, or Facebook accounts when commenting on your site. To activate Jetpack Comments, <a href="%s">%s</a>.', 'jetpack' ),
 			wp_nonce_url(
 				Jetpack::admin_url( array(
+					'page'   => 'jetpack_modules',
 					'action' => 'activate',
 					'module' => 'comments',
 				) ),
@@ -1803,10 +1830,16 @@ p {
 				wp_redirect( $this->build_connect_url( true ) );
 				exit;
 			case 'activate' :
+				if ( ! current_user_can( 'activate_plugins' ) ) {
+					$error = 'cheatin';
+					break;
+				}
+
 				$module = stripslashes( $_GET['module'] );
 				check_admin_referer( "jetpack_activate-$module" );
 				Jetpack::activate_module( $module );
-				wp_safe_redirect( Jetpack::admin_url() );
+				// The following two lines will rarely happen, as Jetpack::activate_module normally exits at the end.
+				wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 				exit;
 			case 'activate_default_modules' :
 				check_admin_referer( 'activate_default_modules' );
@@ -1815,14 +1848,29 @@ p {
 				$max_version = isset( $_GET['max_version'] ) ? $_GET['max_version'] : false;
 				$other_modules = isset( $_GET['other_modules'] ) && is_array( $_GET['other_modules'] ) ? $_GET['other_modules'] : array();
 				Jetpack::activate_default_modules( $min_version, $max_version, $other_modules );
-				wp_safe_redirect( Jetpack::admin_url() );
+				wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 				exit;
 			case 'disconnect' :
 				check_admin_referer( 'jetpack-disconnect' );
 				Jetpack::disconnect();
 				wp_safe_redirect( Jetpack::admin_url() );
 				exit;
+			case 'reconnect' :
+				if ( ! current_user_can( 'manage_options' ) ) {
+					$error = 'cheatin';
+					break;
+				}
+
+				check_admin_referer( 'jetpack-reconnect' );
+				$this->disconnect();
+				wp_redirect( $this->build_connect_url( true ) );
+				exit;
 			case 'deactivate' :
+				if ( ! current_user_can( 'activate_plugins' ) ) {
+					$error = 'cheatin';
+					break;
+				}
+
 				$modules = stripslashes( $_GET['module'] );
 				check_admin_referer( "jetpack_deactivate-$modules" );
 				foreach ( explode( ',', $modules ) as $module ) {
@@ -1830,7 +1878,7 @@ p {
 					Jetpack::state( 'message', 'module_deactivated' );
 				}
 				Jetpack::state( 'module', $modules );
-				wp_safe_redirect( Jetpack::admin_url() );
+				wp_safe_redirect( Jetpack::admin_url( 'page=jetpack_modules' ) );
 				exit;
 			case 'unlink' :
 				check_admin_referer( 'jetpack-unlink' );
@@ -1846,6 +1894,9 @@ p {
 		}
 
 		switch ( $error ) {
+		case 'cheatin' :
+			$this->error = __( 'Cheatin&#8217; uh?', 'jetpack' );
+			break;
 		case 'access_denied' :
 			$this->error = __( 'You need to authorize the Jetpack connection between your site and WordPress.com to enable the awesome features.', 'jetpack' );
 			break;
@@ -2170,6 +2221,7 @@ p {
 				),
 				wp_nonce_url(
 					Jetpack::admin_url( array(
+						'page'   => 'jetpack_modules',
 						'action' => 'deactivate',
 						'module' => urlencode( $module_slugs ),
 					) ),
@@ -2238,7 +2290,7 @@ p {
 
 	function build_connect_url( $raw = false, $redirect = false ) {
 		if ( !Jetpack::get_option( 'blog_token' ) ) {
-			$url = wp_nonce_url( add_query_arg( 'action', 'register', menu_page_url( 'jetpack', false ) ), 'jetpack-register' );
+			$url = $this->nonce_url_no_esc( $this->admin_url( 'action=register' ), 'jetpack-register' );
 		} else {
 			$role = $this->translate_current_user_to_role();
 			$signed_role = $this->sign_role( $role );
@@ -2268,11 +2320,20 @@ p {
 		return $raw ? $url : esc_url( $url );
 	}
 
+	function build_reconnect_url( $raw = false ) {
+		$url = wp_nonce_url( $this->admin_url( 'action=reconnect' ), 'jetpack-reconnect' );
+		return $raw ? $url : esc_url( $url );
+	}
+
 	public static function admin_url( $args = null ) {
-		$url = admin_url( 'admin.php?page=jetpack' );
-		if ( is_array( $args ) )
-			$url = add_query_arg( $args, $url );
+		$args = wp_parse_args( $args, array( 'page' => 'jetpack' ) );
+		$url = add_query_arg( $args, admin_url( 'admin.php' ) );
 		return $url;
+	}
+
+	public static function nonce_url_no_esc( $actionurl, $action = -1, $name = '_wpnonce' ) {
+		$actionurl = str_replace( '&amp;', '&', $actionurl );
+		return add_query_arg( $name, wp_create_nonce( $action ), $actionurl );
 	}
 
 	function dismiss_jetpack_notice() {
@@ -2306,12 +2367,131 @@ p {
 					<div id="jp-disconnectors">
 						<?php if ( current_user_can( 'manage_options' ) ) : ?>
 						<div id="jp-disconnect" class="jp-disconnect">
-							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( array( 'action' => 'disconnect' ) ), 'jetpack-disconnect' ); ?>"><div class="deftext"><?php _e( 'Connected to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Disconnect from WordPress.com', 'jetpack' ) ?></div></a>
+							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>"><div class="deftext"><?php _e( 'Connected to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Disconnect from WordPress.com', 'jetpack' ) ?></div></a>
 						</div>
 						<?php endif; ?>
 						<?php if ( $is_user_connected && !$is_master_user ) : ?>
 						<div id="jp-unlink" class="jp-disconnect">
-							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( array( 'action' => 'unlink' ) ), 'jetpack-unlink' ); ?>"><div class="deftext"><?php _e( 'User linked to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Unlink user from WordPress.com', 'jetpack' ) ?></div></a>
+							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><div class="deftext"><?php _e( 'User linked to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Unlink user from WordPress.com', 'jetpack' ) ?></div></a>
+						</div>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+					<h3><?php _e( 'Jetpack by WordPress.com', 'jetpack' ) ?></h3>
+					<?php if ( !$is_connected ) : ?>
+					<div id="jp-notice">
+						<p><?php _e( 'Jetpack supercharges your self-hosted WordPress site with the awesome cloud power of WordPress.com.', 'jetpack' ); ?></p>
+					</div>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<?php if ( isset( $_GET['jetpack-notice'] ) && 'dismiss' == $_GET['jetpack-notice'] ) : ?>
+				<div id="message" class="error">
+					<p><?php _e( 'Jetpack is network activated and notices can not be dismissed.', 'jetpack' ); ?></p>
+				</div>
+			<?php endif; ?>
+
+			<?php do_action( 'jetpack_notices' ) ?>
+
+
+
+			<!-- Jetpack Landing Page Content To Go Here -->
+
+
+
+			<div id="survey" class="jp-survey">
+				<div class="jp-survey-container">
+					<div class="jp-survey-text">
+						<h4><?php _e( 'Have feedback on Jetpack?', 'jetpack' ); ?></h4>
+						<br />
+						<?php _e( 'Answer a short survey to let us know how we&#8217;re doing and what to add in the future.', 'jetpack' ); ?>
+					</div>
+					<div class="jp-survey-button-container">
+						<p class="submit"><?php printf( '<a id="jp-survey-button" class="button-primary" target="_blank" href="%1$s">%2$s</a>', 'http://jetpack.me/survey/?rel=' . JETPACK__VERSION, __( 'Take Survey', 'jetpack' ) ); ?></p>
+					</div>
+				</div>
+			</div>
+
+			<?php if ( $is_connected && $this->current_user_is_connection_owner() ) : ?>
+				<p id="news-sub"><?php _e( 'Checking email updates status&hellip;', 'jetpack' ); ?></p>
+				<script type="text/javascript">
+				jQuery(document).ready(function($){
+					$.get( ajaxurl, { action: 'jetpack-check-news-subscription', rand: jQuery.now().toString() + Math.random().toString() }, function( data ) {
+						if ( 'subscribed' == data ) {
+							$( '#news-sub' ).html( '<?php printf(
+														esc_js( _x( 'You are currently subscribed to email updates. %s', '%s = Unsubscribe link', 'jetpack' ) ),
+														'<a href="#" class="jp-news-link button">' . esc_js( __( 'Unsubscribe', 'jetpack' ) ) . '</a>'
+													); ?>' );
+						} else {
+							$( '#news-sub' ).html( '<?php printf(
+														esc_js( _x( 'Want to receive updates about Jetpack by email? %s', '%s = Subscribe link', 'jetpack' ) ),
+														'<a href="#" class="jp-news-link button-primary">' . esc_js( __( 'Subscribe', 'jetpack' ) ) . '</a>'
+													); ?>' );
+						}
+						$( '.jp-news-link' ).click( function() {
+							$( '#news-sub' ).append( ' <img src="<?php echo esc_js( esc_url( admin_url( 'images/loading.gif' ) ) ); ?>" align="absmiddle" id="jp-news-loading" />' );
+							$.get( ajaxurl, { action: 'jetpack-subscribe-to-news', rand: jQuery.now().toString() + Math.random().toString() }, function( data ) {
+								if ( 'subscribed' == data ) {
+									$( '#news-sub' ).text( '<?php echo esc_js( __( 'You have been subscribed to receive email updates.', 'jetpack' ) ); ?>' );
+								} else {
+									$( '#news-sub' ).text( '<?php echo esc_js( __( 'You will no longer receive email updates about Jetpack.', 'jetpack' ) ); ?>' );
+								}
+								$( '#jp-news-loading' ).remove();
+							} );
+							return false;
+						} );
+					} );
+				} );
+				</script>
+			<?php endif; ?>
+
+			<div id="jp-footer">
+				<p class="automattic"><?php _e( 'An <span>Automattic</span> Airline', 'jetpack' ) ?></p>
+				<p class="small">
+					<a href="http://jetpack.me/" target="_blank">Jetpack <?php echo esc_html( JETPACK__VERSION ); ?></a> |
+					<a href="http://automattic.com/privacy/" target="_blank"><?php _e( 'Privacy Policy', 'jetpack' ); ?></a> |
+					<a href="http://wordpress.com/tos/" target="_blank"><?php _e( 'Terms of Service', 'jetpack' ); ?></a> |
+<?php if ( current_user_can( 'manage_options' ) ) : ?>
+					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-ajax.php?action=jetpack_debug' ), 'jetpack_debug' ) ); ?>" id="jp-debug"><?php _e( 'Debug', 'jetpack' ); ?></a> |
+<?php endif; ?>
+					<a href="http://jetpack.me/support/" target="_blank"><?php _e( 'Support', 'jetpack' ); ?></a>
+				</p>
+			</div>
+
+			<div id="jetpack-configuration" style="display:none;">
+				<p><img width="16" src="<?php echo esc_url( plugins_url( '_inc/images/wpspin_light-2x.gif', __FILE__ ) ); ?>" alt="Loading ..." /></p>
+			</div>
+		</div>
+	<?php
+	}
+
+	function admin_page_modules() {
+		global $current_user;
+
+		$role = $this->translate_current_user_to_role();
+		$is_connected = Jetpack::is_active();
+		$user_token = Jetpack_Data::get_access_token($current_user->ID);
+		$is_user_connected = $user_token && !is_wp_error($user_token);
+		$is_master_user = $current_user->ID == Jetpack::get_option( 'master_user' );
+		$module = false;
+	?>
+		<div class="wrap" id="jetpack-settings">
+
+			<h2 style="display: none"></h2> <!-- For WP JS message relocation -->
+
+			<div id="jp-header"<?php if ( $is_connected ) : ?> class="small"<?php endif; ?>>
+				<div id="jp-clouds">
+					<?php if ( $is_connected ) : ?>
+					<div id="jp-disconnectors">
+						<?php if ( current_user_can( 'manage_options' ) ) : ?>
+						<div id="jp-disconnect" class="jp-disconnect">
+							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=disconnect' ), 'jetpack-disconnect' ); ?>"><div class="deftext"><?php _e( 'Connected to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Disconnect from WordPress.com', 'jetpack' ) ?></div></a>
+						</div>
+						<?php endif; ?>
+						<?php if ( $is_user_connected && !$is_master_user ) : ?>
+						<div id="jp-unlink" class="jp-disconnect">
+							<a href="<?php echo wp_nonce_url( Jetpack::admin_url( 'action=unlink' ), 'jetpack-unlink' ); ?>"><div class="deftext"><?php _e( 'User linked to WordPress.com', 'jetpack' ); ?></div><div class="hovertext"><?php _e( 'Unlink user from WordPress.com', 'jetpack' ) ?></div></a>
 						</div>
 						<?php endif; ?>
 					</div>
@@ -2376,78 +2556,13 @@ p {
 			<?php endif; // ! Jetpack::is_development_mode() ?>
 
 			<?php
-			// If we select the configure option for a module, show the configuration screen.
-			if ( isset( $_GET['configure'] ) && Jetpack::is_module( $_GET['configure'] ) && current_user_can( 'manage_options' ) ) :
+			if ( isset( $_GET['configure'] ) && Jetpack::is_module( $_GET['configure'] ) && current_user_can( 'manage_options' ) ) {
 				$this->admin_screen_configure_module( $_GET['configure'] );
-
-			// List all the available modules.
-			else :
+			} else {
 				$this->admin_screen_list_modules();
-				?>
+			}
+			?>
 
-				<div id="survey" class="jp-survey">
-					<div class="jp-survey-container">
-						<div class="jp-survey-text">
-							<h4><?php _e( 'Have feedback on Jetpack?', 'jetpack' ); ?></h4>
-							<br />
-							<?php _e( 'Answer a short survey to let us know how we&#8217;re doing and what to add in the future.', 'jetpack' ); ?>
-						</div>
-						<div class="jp-survey-button-container">
-							<p class="submit"><?php printf( '<a id="jp-survey-button" class="button-primary" target="_blank" href="%1$s">%2$s</a>', 'http://jetpack.me/survey/?rel=' . JETPACK__VERSION, __( 'Take Survey', 'jetpack' ) ); ?></p>
-						</div>
-					</div>
-				</div>
-
-				<?php if ( $is_connected && $this->current_user_is_connection_owner() ) : ?>
-					<p id="news-sub"><?php _e( 'Checking email updates status&hellip;', 'jetpack' ); ?></p>
-					<script type="text/javascript">
-					jQuery(document).ready(function($){
-						$.get( ajaxurl, { action: 'jetpack-check-news-subscription', rand: jQuery.now().toString() + Math.random().toString() }, function( data ) {
-							if ( 'subscribed' == data ) {
-								$( '#news-sub' ).html( '<?php printf(
-															esc_js( _x( 'You are currently subscribed to email updates. %s', '%s = Unsubscribe link', 'jetpack' ) ),
-															'<a href="#" class="jp-news-link button">' . esc_js( __( 'Unsubscribe', 'jetpack' ) ) . '</a>'
-														); ?>' );
-							} else {
-								$( '#news-sub' ).html( '<?php printf(
-															esc_js( _x( 'Want to receive updates about Jetpack by email? %s', '%s = Subscribe link', 'jetpack' ) ),
-															'<a href="#" class="jp-news-link button-primary">' . esc_js( __( 'Subscribe', 'jetpack' ) ) . '</a>'
-														); ?>' );
-							}
-							$( '.jp-news-link' ).click( function() {
-								$( '#news-sub' ).append( ' <img src="<?php echo esc_js( esc_url( admin_url( 'images/loading.gif' ) ) ); ?>" align="absmiddle" id="jp-news-loading" />' );
-								$.get( ajaxurl, { action: 'jetpack-subscribe-to-news', rand: jQuery.now().toString() + Math.random().toString() }, function( data ) {
-									if ( 'subscribed' == data ) {
-										$( '#news-sub' ).text( '<?php echo esc_js( __( 'You have been subscribed to receive email updates.', 'jetpack' ) ); ?>' );
-									} else {
-										$( '#news-sub' ).text( '<?php echo esc_js( __( 'You will no longer receive email updates about Jetpack.', 'jetpack' ) ); ?>' );
-									}
-									$( '#jp-news-loading' ).remove();
-								} );
-								return false;
-							} );
-						} );
-					} );
-					</script>
-				<?php endif; ?>
-			<?php endif; ?>
-
-			<div id="jp-footer">
-				<p class="automattic"><?php _e( 'An <span>Automattic</span> Airline', 'jetpack' ) ?></p>
-				<p class="small">
-					<a href="http://jetpack.me/" target="_blank">Jetpack <?php echo esc_html( JETPACK__VERSION ); ?></a> |
-					<a href="http://automattic.com/privacy/" target="_blank"><?php _e( 'Privacy Policy', 'jetpack' ); ?></a> |
-					<a href="http://wordpress.com/tos/" target="_blank"><?php _e( 'Terms of Service', 'jetpack' ); ?></a> |
-<?php if ( current_user_can( 'manage_options' ) ) : ?>
-					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-ajax.php?action=jetpack_debug' ), 'jetpack_debug' ) ); ?>" id="jp-debug"><?php _e( 'Debug', 'jetpack' ); ?></a> |
-<?php endif; ?>
-					<a href="http://jetpack.me/support/" target="_blank"><?php _e( 'Support', 'jetpack' ); ?></a>
-				</p>
-			</div>
-
-			<div id="jetpack-configuration" style="display:none;">
-				<p><img width="16" src="<?php echo esc_url( plugins_url( '_inc/images/wpspin_light-2x.gif', __FILE__ ) ); ?>" alt="Loading ..." /></p>
-			</div>
 		</div>
 	<?php
 	}
@@ -2567,6 +2682,7 @@ p {
 				$toggle     = __( 'Deactivate', 'jetpack' );
 				$toggle_url = wp_nonce_url(
 					Jetpack::admin_url( array(
+						'page'   => 'jetpack_modules',
 						'action' => 'deactivate',
 						'module' => $module
 					) ),
@@ -2577,6 +2693,7 @@ p {
 				$toggle     = __( 'Activate', 'jetpack' );
 				$toggle_url = wp_nonce_url(
 					Jetpack::admin_url( array(
+						'page'   => 'jetpack_modules',
 						'action' => 'activate',
 						'module' => $module
 					) ),
@@ -2630,7 +2747,7 @@ p {
 
 					<?php
 					if ( current_user_can( 'manage_options' ) && apply_filters( 'jetpack_module_configurable_' . $module, false ) ) {
-						echo '<a href="' . esc_attr( Jetpack::module_configuration_url( $module ) ) . '" class="jetpack-configure-button button-secondary">' . __( 'Configure', 'jetpack' ) . '</a>';
+						echo '<a href="' . esc_url( Jetpack::module_configuration_url( $module ) ) . '" class="jetpack-configure-button button-secondary">' . __( 'Configure', 'jetpack' ) . '</a>';
 					}
 					?><?php if ( $activated && $module_data['deactivate'] && current_user_can( 'manage_options' ) ) : ?><a style="display: none;" href="<?php echo esc_url( $toggle_url ); ?>" class="jetpack-deactivate-button button-secondary"><?php echo $toggle; ?></a>&nbsp;<?php endif; ?>
 
@@ -2639,13 +2756,17 @@ p {
 				<?php endif; ?>
 				</div>
 			</div>
-			<?php if ( 'inactive' == $css && $jetpack_connected ) : ?>
+			<?php if ( 'inactive' == $css && $jetpack_connected && current_user_can( 'manage_options' ) && apply_filters( 'jetpack_can_activate_' . $module, true ) ) : ?>
 			<script type="text/javascript">
 			jQuery( '#<?php echo esc_js( $module ); ?>' ).bind( 'click', function(e){
 				if ( !jQuery(e.target).hasClass('more-info-link') )
 					document.location.href = '<?php echo str_replace( '&amp;', '&', esc_js( esc_url( $toggle_url ) ) ); ?>';
 			} );
 			</script>
+			<?php else: ?>
+			<style>
+				#<?php echo $module; ?> { cursor: default; }
+			</style>
 			<?php endif; ?>
 
 			<div id="jp-more-info-<?php echo esc_attr( $module ); ?>" style="display:none;">
@@ -2738,7 +2859,12 @@ p {
 		$jetpack = Jetpack::init();
 
 		// Yay! Your host is good!
-		if ( wp_http_supports( array( 'ssl' => true ) ) ) {
+		if ( false === ( $jetpack_https_test = get_transient( 'jetpack_https_test' ) ) ) {
+			$jetpack_https_test = ( is_wp_error( wp_remote_get( JETPACK__API_BASE . '.test/1/' ) ) ? 0 : 1 );
+			set_transient( 'jetpack_https_test', $jetpack_https_test, HOUR_IN_SECONDS );
+	 	}
+		
+		if ( $jetpack_https_test && wp_http_supports( array( 'ssl' => true ) ) ) {
 			return $url;
 		}
 
@@ -3357,6 +3483,98 @@ p {
 			$class = wp_specialchars_decode( $class_matches[1], ENT_QUOTES );
 
 		return array( $url, $class );
+	}
+
+	/*
+	 * Pings the WordPress.com Mirror Site for the specified options.
+	 *
+	 * @param string|array $option_names The option names to request from the WordPress.com Mirror Site
+	 *
+	 * @return array An associative array of the option values as stored in the WordPress.com Mirror Site
+	 */
+	public static function get_cloud_site_options( $option_names ) {
+		$option_names = array_filter( (array) $option_names, 'is_string' );
+
+		Jetpack::load_xml_rpc_client();
+		$xml = new Jetpack_IXR_Client( array(
+			'user_id' => get_current_user_id(),
+		) );
+		$xml->query( 'jetpack.fetchSiteOptions', $option_names );
+		if ( $xml->isError() ) {
+			return array_flip( $option_names );
+		}
+		$cloud_site_options = $xml->getResponse();
+
+		// If we want to intentionally jumble the results to test it ...
+		if( isset( $_GET['spoof_identity_crisis'] ) ) {
+			foreach( $cloud_site_options as $key => $value ) {
+				$cloud_site_options[ $key ] = wp_generate_password();
+			}
+		}
+		return $cloud_site_options;
+	}
+
+	/*
+	 * Checks to make sure that local options have the same values as remote options.  Will cache the results for up to 24 hours.
+	 *
+	 * @param bool $force_recheck Whether to ignore any cached transient and manually re-check.
+	 *
+	 * @return array An array of options that do not match.  If everything is good, it will evaluate to false.
+	 */
+	public static function check_identity_crisis( $force_recheck = false ) {
+		if ( ! current_user_can( 'manage_options' ) )
+			return false;
+
+		if ( ! Jetpack::is_active() || Jetpack::is_development_mode() )
+			return false;
+
+		if ( isset( $_GET['spoof_identity_crisis'] ) )
+			$force_recheck = true;
+
+		if ( $force_recheck || false === ( $errors = get_transient( 'jetpack_has_identity_crisis' ) ) ) {
+			$options_to_check = array(
+				'siteurl',
+				'home',
+			);
+			$cloud_options = self::get_cloud_site_options( $options_to_check );
+			$errors = array();
+			foreach ( $cloud_options as $cloud_key => $cloud_value ) {
+				if ( $cloud_value !== get_option( $cloud_key ) ) {
+					$errors[ $cloud_key ] = $cloud_value;
+				}
+			}
+			// Make sure if we're spoofing it, that we don't let the spoof spill over.
+			if ( ! isset( $_GET['spoof_identity_crisis'] ) ) {
+				set_transient( 'jetpack_has_identity_crisis', $errors, DAY_IN_SECONDS );
+			}
+		}
+		return apply_filters( 'jetpack_has_identity_crisis', $errors, $force_recheck );
+	}
+
+	/*
+	 * Displays an admin_notice, alerting the user to an identity crisis.
+	 */
+	public function alert_identity_crisis() {
+		if ( ! current_user_can( 'manage_options' ) )
+			return;
+
+		if ( ! $errors = self::check_identity_crisis() )
+			return;
+		?>
+
+		<div id="message" class="updated jetpack-message jp-identity-crisis">
+			<div class="jetpack-wrap-container">
+				<div class="jetpack-text-container">
+					<h3><?php _e( 'Something has gotten mixed up!', 'jetpack' ); ?></h3>
+					<?php foreach ( $errors as $key => $value ) : ?>
+						<p><?php printf( __( 'Your <code>%1$s</code> option is set up as <strong>%2$s</strong>, but your WordPress.com connection lists it as <strong>%3$s</strong>!', 'jetpack' ), $key, (string) get_option( $key ), $value ); ?></p>
+					<?php endforeach; ?>
+					<p><?php _e( 'This problem can often be resolved by disconnecting, then reconnecting to WordPress.com.', 'jetpack' ); ?> <a href="<?php echo $this->build_reconnect_url() ?>" class="button-connector" id="wpcom-connect"><?php _e( 'Disconnect and Reconnect to WordPress.com', 'jetpack' ); ?></a></p>
+				</div>
+			</div>
+		</div>
+
+		<?php
 	}
 }
 
