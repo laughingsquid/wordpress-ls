@@ -79,26 +79,31 @@ class Jetpack {
 	 * Verified data for JSON authorization request
 	 */
 	var $json_api_authorization_request = array();
+	
+	/**
+	 * Holds the singleton instance of this class
+	 * @since 2.3.3
+	 * @var Jetpack 
+	 */
+	static $instance = false;
 
 	/**
 	 * Singleton
 	 * @static
 	 */
 	public static function init() {
-		static $instance = false;
-
-		if ( ! $instance ) {
+		if ( ! self::$instance ) {
 			if ( did_action( 'plugins_loaded' ) )
 				self::plugin_textdomain();
 			else
 				add_action( 'plugins_loaded', array( __CLASS__, 'plugin_textdomain' ) );
 
-			$instance = new Jetpack;
+			self::$instance = new Jetpack;
 
-			$instance->plugin_upgrade();
+			self::$instance->plugin_upgrade();
 		}
 
-		return $instance;
+		return self::$instance;
 	}
 
 	/**
@@ -150,7 +155,7 @@ class Jetpack {
 	/**
 	 * Constructor.  Initializes WordPress hooks
 	 */
-	function Jetpack() {
+	private function Jetpack() {
 		$this->sync = new Jetpack_Sync;
 
 		// Modules should do Jetpack_Sync::sync_options( __FILE__, $option, ... ); instead
@@ -224,6 +229,15 @@ class Jetpack {
 		 */
 		add_action( 'plugins_loaded', array( $this, 'check_open_graph' ),       999 );
 		add_action( 'plugins_loaded', array( $this, 'check_rest_api_compat' ), 1000 );
+	}
+
+	/**
+	 * If there are any stats that need to be pushed, but haven't been, push them now.
+	 */
+	function __destruct() {
+		if ( ! empty( $this->stats ) ) {
+			$this->do_stats( 'server_side' );
+		}
 	}
 
 	function require_jetpack_authentication() {
@@ -1132,8 +1146,10 @@ p {
 	 * Removes all connection options
 	 * @static
 	 */
-	public static function plugin_deactivation( $network_wide ) {
+	public static function plugin_deactivation( ) {
 		Jetpack::disconnect( false );
+
+		Jetpack_Heartbeat::init()->deactivate();
 	}
 
 	/**
@@ -1239,6 +1255,11 @@ p {
 			add_action( 'admin_notices', array( $this, 'alert_identity_crisis' ) );
 		}
 /**/
+
+		if ( current_user_can( 'manage_options' ) && 'ALWAYS' == JETPACK_CLIENT__HTTPS && ! self::permit_ssl() ) {
+			add_action( 'admin_notices', array( $this, 'alert_required_ssl_fail' ) );
+		}
+
 		add_action( 'load-plugins.php', array( $this, 'intercept_plugin_error_scrape_init' ) );
 		add_action( 'admin_head', array( $this, 'admin_menu_css' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
@@ -2209,7 +2230,7 @@ p {
 	}
 
 	/**
-	 * Record a stat for later output
+	 * Record a stat for later output.  This will only currently output in the admin_footer.
 	 */
 	function stat( $group, $detail ) {
 		if ( !isset( $this->stats[ $group ] ) )
@@ -2218,15 +2239,58 @@ p {
 	}
 
 	/**
-	 * Load stats pixels. $group is auto-prefixed with "jetpack-"
+	 * Load stats pixels. $group is auto-prefixed with "x_jetpack-"
 	 */
-	function do_stats() {
+	function do_stats( $method = '' ) {
 		if ( is_array( $this->stats ) && count( $this->stats ) ) {
 			foreach ( $this->stats as $group => $stats ) {
-				if ( is_array( $stats ) && count( $stats ) )
-					echo '<img src="' . ( is_ssl() ? 'https' : 'http' ) . '://stats.wordpress.com/g.gif?v=wpcom2&x_jetpack-' . esc_attr( $group ) . '=' . esc_attr( implode( ',', $stats ) ) . '&rand=' . md5( mt_rand( 0, 999 ) . time() ) . '" width="1" height="1" style="display:none;" />';
+				if ( is_array( $stats ) && count( $stats ) ) {
+					$args = array( "x_jetpack-{$group}" => implode( ',', $stats ) );
+					if ( 'server_side' === $method ) {
+						self::do_server_side_stat( $args );
+					} else {
+						echo '<img src="' . esc_url( self::build_stats_url( $args ) ) . '" width="1" height="1" style="display:none;" />';
+					}
+				}
+				unset( $this->stats[ $group ] );
 			}
 		}
+	}
+
+	/**
+	 * Runs stats code for a one-off, server-side.
+	 *
+	 * @param $args array|string The arguments to append to the URL. Should include `x_jetpack-{$group}={$stats}` or whatever we want to store.
+	 *
+	 * @return bool If it worked.
+	 */
+	static function do_server_side_stat( $args ) {
+		$response = wp_remote_get( self::build_stats_url( $args ) );
+		if ( is_wp_error( $response ) )
+			return false;
+
+		if ( 200 !== wp_remote_retrieve_response_code( $response ) )
+			return false;
+
+		return true;
+	}
+
+	/**
+	 * Builds the stats url.
+	 *
+	 * @param $args array|string The arguments to append to the URL.
+	 *
+	 * @return string The URL to be pinged.
+	 */
+	static function build_stats_url( $args ) {
+		$defaults = array(
+			'v'    => 'wpcom2',
+			'rand' => md5( mt_rand( 0, 999 ) . time() ),
+		);
+		$args = wp_parse_args( $args, $defaults );
+		$base_url = apply_filters( 'jetpack_stats_base_url', ( is_ssl() ? 'https' : 'http' ) . '://stats.wordpress.com/g.gif' );
+		$url = add_query_arg( $args, $base_url );
+		return $url;
 	}
 
 	function translate_current_user_to_role() {
@@ -2830,35 +2894,87 @@ p {
 		}
 
 		switch ( JETPACK_CLIENT__HTTPS ) {
-		case 'ALWAYS' :
-			return $url;
-		case 'NEVER' :
-			return substr_replace( $url, '', 4, 1 );
-		// default : case 'AUTO' :
+			case 'ALWAYS' :
+				return $url;
+			case 'NEVER' :
+				return self::force_url_to_non_ssl( $url );
+			// default : case 'AUTO' :
 		}
 
 		$jetpack = Jetpack::init();
 
-		if ( false === ( $jetpack_https_test = get_transient( 'jetpack_https_test' ) ) ) {
-			$response = wp_remote_get( JETPACK__API_BASE . '.test/1/' );
-			$jetpack_https_test = 0;
-			if ( ! is_wp_error( $response ) ) {
-				$body = wp_remote_retrieve_body( $response );
-				// Bad request, $body should be 'OK'
-				if ( ! empty( $body ) ) {
-					$jetpack_https_test = 1;
-				} 
-			}
-			set_transient( 'jetpack_https_test', $jetpack_https_test, HOUR_IN_SECONDS );
-	 	}
-
 		// Yay! Your host is good!
-		if ( $jetpack_https_test && wp_http_supports( array( 'ssl' => true ) ) ) {
+		if ( self::permit_ssl() && wp_http_supports( array( 'ssl' => true ) ) ) {
 			return $url;
 		}
 
 		// Boo! Your host is bad and makes Jetpack cry!
-		return substr_replace( $url, '', 4, 1 );
+		return self::force_url_to_non_ssl( $url );
+	}
+
+	/**
+	 * Checks to see if the URL is using SSL to connect with Jetpack
+	 * 
+	 * @since 2.3.3
+	 * @return boolean 
+	 */
+	public static function permit_ssl( $force_recheck = false ) {
+		// Do some fancy tests to see if ssl is being supported
+		if ( $force_recheck || false === ( $ssl = get_transient( 'jetpack_https_test' ) ) ) {
+
+			if ( 'https' !== substr( JETPACK__API_BASE, 0, 5 ) ) {
+				$ssl = 0;
+			} else {
+				switch ( JETPACK_CLIENT__HTTPS ) {
+					case 'NEVER':
+						$ssl = 0;
+						break;
+					case 'ALWAYS':
+					case 'AUTO':
+					default:
+						$ssl = 1;
+						break;
+				}
+
+				// If it's not 'NEVER', test to see 
+				if ( $ssl ) {
+					$response = wp_remote_get( JETPACK__API_BASE . 'test/1/' );
+					if ( is_wp_error( $response ) || ( 'OK' !== wp_remote_retrieve_body( $response ) ) ) {
+						$ssl = 0;
+					}
+				}
+			}
+			set_transient( 'jetpack_https_test', $ssl, DAY_IN_SECONDS );
+		}
+
+		return (bool) $ssl;
+	}
+
+	/**
+	 * Take any URL, and if it starts with https:// change it to http://
+	 */
+	public static function force_url_to_non_ssl( $url ) {
+		return preg_replace( '#^https://#i', 'http://', $url );
+	}
+
+	/*
+	 * Displays an admin_notice, alerting the user to their JETPACK_CLIENT__HTTPS constant being 'ALWAYS' but SSL isn't working.
+	 */
+	public function alert_required_ssl_fail() {
+		if ( ! current_user_can( 'manage_options' ) )
+			return;
+		?>
+
+		<div id="message" class="error jetpack-message jp-identity-crisis">
+			<div class="jetpack-wrap-container">
+				<div class="jetpack-text-container">
+					<h3><?php _e( 'Something is being cranky!', 'jetpack' ); ?></h3>
+					<p><?php _e( 'Your site is configured to only permit SSL connections to Jetpack, but SSL connections don\'t seem to be functional!', 'jetpack' ); ?></p>
+				</div>
+			</div>
+		</div>
+
+		<?php
 	}
 
 	/**
