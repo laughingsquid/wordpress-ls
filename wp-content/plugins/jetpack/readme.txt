@@ -3,7 +3,7 @@ Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebe
 Tags: WordPress.com, statistics, stats, views, tweets, twitter, widget, gravatar, hovercards, profile, equations, latex, math, maths, youtube, shortcode, archives, audio, blip, bliptv, dailymotion, digg, flickr, googlevideo, google, googlemaps, kyte, kytetv, livevideo, redlasso, rockyou, rss, scribd, slide, slideshare, soundcloud, vimeo, shortlinks, wp.me, subscriptions, notifications, notes, json, api, rest, mosaic, gallery, slideshow
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 2.3.1
+Stable tag: 2.3.3
 
 Supercharge your WordPress site with powerful features previously only available to WordPress.com users.
 
@@ -79,6 +79,16 @@ Easy! There are a couple of ways (more coming soon):
 8. Mobile Theme
 
 == Changelog ==
+
+= 2.3.3 =
+* Bug Fix: We were inadvertently overwriting cron schedules with our Jetpack heartbeat. This should now be fixed.
+* Enhancement: New Facebook Sharing icons.
+* Enhancement: Minor update to the Minileven stylesheet.
+
+= 2.3.2 =
+* Bug Fix: Fixed an issue where Facebook Pages were not available when connecting a Publicize account.
+* Bug Fix: For some web hosts, fixed an issue where 'Jetpack ID' error would occur consistently on connecting to WordPress.com.
+* Enhancement: Adding some new stats and heartbeat checking to Jetpack.
 
 = 2.3.1 =
 * Enhancement: Social Links: Retooling the class for better consistency and performance behind the scenes.

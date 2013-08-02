@@ -3,14 +3,6 @@
 class Jetpack_Heartbeat {
 
 	/**
-	 * Jetpack object
-	 * 
-	 * @since 2.3.3
-	 * @var Jetpack 
-	 */
-	var $jetpack = null;
-
-	/**
 	 * Holds the singleton instance of this class
 	 * 
 	 * @since 2.3.3
@@ -42,8 +34,6 @@ class Jetpack_Heartbeat {
 	 * @return Jetpack_Heartbeat 
 	 */
 	private function __construct() {
-		$this->jetpack = Jetpack::init();
-
 		// Add weekly interval for wp-cron
 		add_filter('cron_schedules', array( $this, 'add_cron_intervals' ) );
 
@@ -81,7 +71,7 @@ class Jetpack_Heartbeat {
 		 * - values should be an array that will be imploded to a string
 		 */
 
-		$jetpack = $this->jetpack;
+		$jetpack = Jetpack::init();
 
 		$jetpack->stat( 'active-modules', implode( ',', $this->jetpack->get_active_modules() ) );
 		$jetpack->stat( 'active',         JETPACK__VERSION                                     );
@@ -93,6 +83,7 @@ class Jetpack_Heartbeat {
 		$jetpack->stat( 'qty-posts',      wp_count_posts()->publish                            );
 		$jetpack->stat( 'qty-pages',      wp_count_posts( 'page' )->publish                    );
 		$jetpack->stat( 'qty-comments',   wp_count_comments()->approved                        );
+		$jetpack->stat( 'is-multisite',   is_multisite() ? 'multisite' : 'singlesite'          );
 
 		// Only check a few plugins, to see if they're currently active.
 		$plugins_to_check = array(
@@ -100,7 +91,10 @@ class Jetpack_Heartbeat {
 			'akismet/akismet.php',
 			'wp-super-cache/wp-cache.php',
 		);
-		$jetpack->stat( 'plugins', array_intersect( $plugins_to_check, get_option( 'active_plugins', array() ) ) );
+		$plugins = array_intersect( $plugins_to_check, get_option( 'active_plugins', array() ) );
+		foreach( $plugins as $plugin ) {
+			$jetpack->stat( 'plugins', $plugin );
+		}
 
 		$jetpack->do_stats( 'server_side' );
 	}
@@ -111,7 +105,7 @@ class Jetpack_Heartbeat {
 	 * @since 2.3.3
 	 * @return array 
 	 */
-	public function add_cron_intervals() {
+	public function add_cron_intervals( $schedules ) {
 		$schedules['jetpack_weekly'] = array(
 		    'interval' => WEEK_IN_SECONDS,
 		    'display' => __('Jetpack weekly')
@@ -124,4 +118,4 @@ class Jetpack_Heartbeat {
 		wp_unschedule_event($timestamp, $this->cron_name );
 	}
 
-}// end class
+}
