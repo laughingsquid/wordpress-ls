@@ -707,6 +707,8 @@ class Jetpack {
 			}
 		}
 
+		$modules = apply_filters( 'jetpack_get_available_modules', $modules, $min_version, $max_version );
+
 		if ( !$min_version && !$max_version ) {
 			return array_keys( $modules );
 		}
@@ -3537,7 +3539,8 @@ p {
 	 * Get $content_width, but with a <s>twist</s> filter.
 	 */
 	public static function get_content_width() {
-		return apply_filters( 'jetpack_content_width', $GLOBALS['content_width'] );
+		$content_width = isset( $GLOBALS['content_width'] ) ? $GLOBALS['content_width'] : 0;
+		return apply_filters( 'jetpack_content_width', $content_width );
 	}
 
 	/**
