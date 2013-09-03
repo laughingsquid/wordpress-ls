@@ -778,6 +778,22 @@ add_action( 'jetpack_learn_more_button_likes', 'jetpack_likes_more_link' );
 // Likes: STOP
 
 // Omnisearch: START
+function jetpack_omnisearch_more_info() {
+	?>
+
+	<h4><?php esc_html_e( 'Omnisearch' , 'jetpack' ); ?></h4>
+
+	<p><?php esc_html_e( 'Search once, get results from everything! Currently supports searching posts, pages, comments, and plugins.', 'jetpack' ); ?></p>
+
+	<p><?php esc_html_e( 'Omnisearch plays nice with other plugins by letting other providers offer results as well.', 'jetpack' ); ?></p>
+
+	<?php if( class_exists( 'Jetpack_Omnisearch' ) && current_user_can( 'edit_posts' ) ): ?>
+		<?php echo Jetpack_Omnisearch::get_omnisearch_form(); ?>
+	<?php endif; ?>
+
+	<?php
+}
+
 function jetpack_omnisearch_more_link() {
 	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/omnisearch/">' . __( 'Learn More', 'jetpack' ) . '</a>';
 }
@@ -823,3 +839,18 @@ function jetpack_wpcc_more_link() {
 add_action( 'jetpack_module_more_info_wpcc',  'jetpack_wpcc_more_info' );
 add_action( 'jetpack_learn_more_button_wpcc', 'jetpack_wpcc_more_link' );
 // WordPress.com Connect: STOP
+
+// VideoPress: START
+function jetpack_videopress_more_info() {
+	?>
+	<h4><?php esc_html_e( 'VideoPress', 'jetpack' ); ?></h4>
+	<p><?php _e( 'With the VideoPress module you can easily upload videos to your WordPress site and embed them in your posts and pages. This module requires a WordPress.com account with an active <a href="http://store.wordpress.com/premium-upgrades/videopress/" target="_blank">VideoPress subscription</a>.', 'jetpack' ); ?></p>
+	<?php
+}
+add_action( 'jetpack_module_more_info_videopress', 'jetpack_videopress_more_info' );
+
+function jetpack_videopress_more_link() {
+	echo '<a class="button-secondary more-info-link" href="#">' . __( 'Learn More', 'jetpack' ) . '</a>';
+}
+add_action( 'jetpack_learn_more_button_videopress', 'jetpack_videopress_more_link' );
+// VideoPress: STOP
