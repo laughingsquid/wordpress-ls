@@ -847,25 +847,6 @@ add_action( 'jetpack_module_more_info_widget-visibility',  'jetpack_widget_visib
 add_action( 'jetpack_learn_more_button_widget-visibility', 'jetpack_widget_visibility_more_link' );
 // Widget Visibility: STOP
 
-
-// WordPress.com Connect: START
-function jetpack_wpcc_more_info() { ?>
-	<h4><?php esc_html_e( 'WordPress.com Connect' , 'jetpack' ); ?></h4>
-
-	<p><?php esc_html_e( 'With WordPress.com Connect, your users will be able to log into your WordPress admin with the same credentials they use to log into WordPress.com.  It\'s safe and secure.' , 'jetpack' ); ?></p>
-	<p><?php esc_html_e( 'Once enabled, a "Connect with WordPress.com" option will be added to your existing log-in form.' , 'jetpack' ); ?></p>
-
-<?php
-}
-
-function jetpack_wpcc_more_link() {
-	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/wpcc/">' . __( 'Learn More', 'jetpack' ) . '</a>';
-}
-
-add_action( 'jetpack_module_more_info_wpcc',  'jetpack_wpcc_more_info' );
-add_action( 'jetpack_learn_more_button_wpcc', 'jetpack_wpcc_more_link' );
-// WordPress.com Connect: STOP
-
 // VideoPress: START
 function jetpack_videopress_more_info() {
 	?>
@@ -880,3 +861,21 @@ function jetpack_videopress_more_link() {
 }
 add_action( 'jetpack_learn_more_button_videopress', 'jetpack_videopress_more_link' );
 // VideoPress: STOP
+
+// SSO: START
+function jetpack_sso_more_info() { ?>
+	<h4><?php esc_html_e( 'Single Sign On' , 'jetpack' ); ?></h4>
+
+	<p><?php esc_html_e( 'With WordPress.com Single Sign On, your users will be able to log in to or register for your WordPress site with the same credentials they use on WordPress.com.  It\'s safe and secure.' , 'jetpack' ); ?></p>
+	<p><?php esc_html_e( 'Once enabled, a "Log in with WordPress.com" option will be added to your existing log in form.' , 'jetpack' ); ?></p>
+
+<?php
+}
+
+function jetpack_sso_more_link() {
+	echo '<a class="button-secondary more-info-link" href="http://jetpack.me/support/sso/">' . __( 'Learn More', 'jetpack' ) . '</a>';
+}
+
+add_action( 'jetpack_module_more_info_sso',  'jetpack_sso_more_info' );
+add_action( 'jetpack_learn_more_button_sso', 'jetpack_sso_more_link' );
+// SSO: STOP
