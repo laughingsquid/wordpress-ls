@@ -68,8 +68,8 @@ function wpme_get_shortlink( $id = 0, $context = 'post', $allow_slugs = true ) {
 		$id = wpme_dec2sixtwo( $post_id );
 		if ( 'page' == $post->post_type )
 			$type = 'P';
-		elseif ( 'post' == $post->post_type )
-			$type = 'p';
+		elseif ( 'post' == $post->post_type || post_type_supports( $post->post_type, 'shortlinks' ) )
+			$type= 'p';
 		elseif ( 'attachment' == $post->post_type )
 			$type = 'a';
 	}
