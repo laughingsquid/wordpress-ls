@@ -951,6 +951,7 @@ class Jetpack {
 			'free'                => 'Free',
 			'requires_connection' => 'Requires Connection',
 			'auto_activate'       => 'Auto Activate',
+			'module_tags'         => 'Module Tags',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -961,12 +962,11 @@ class Jetpack {
 		if ( empty( $mod['name'] ) )
 			return false;
 
-		$mod['name'] = translate( $mod['name'], 'jetpack' );
-		$mod['description'] = translate( $mod['description'], 'jetpack' );
-		if ( empty( $mod['sort'] ) )
-			$mod['sort'] = 10;
-		$mod['deactivate'] = empty( $mod['deactivate'] );
-		$mod['free'] = empty( $mod['free'] );
+		$mod['name']                = translate( $mod['name'], 'jetpack' );
+		$mod['description']         = translate( $mod['description'], 'jetpack' );
+		$mod['sort']                = empty( $mod['sort'] ) ? 10 : (int) $mod['sort'];
+		$mod['deactivate']          = empty( $mod['deactivate'] );
+		$mod['free']                = empty( $mod['free'] );
 		$mod['requires_connection'] = ( ! empty( $mod['requires_connection'] ) && 'No' == $mod['requires_connection'] ) ? false : true;
 
 		if ( empty( $mod['auto_activate'] ) || ! in_array( strtolower( $mod['auto_activate'] ), array( 'yes', 'no', 'public' ) ) ) {
@@ -975,7 +975,29 @@ class Jetpack {
 			$mod['auto_activate'] = (string) $mod['auto_activate'];
 		}
 
+		if ( $mod['module_tags'] ) {
+			$mod['module_tags'] = explode( ',', $mod['module_tags'] );
+			$mod['module_tags'] = array_map( 'trim', $mod['module_tags'] );
+			$mod['module_tags'] = array_map( array( __CLASS__, 'translate_module_tag' ), $mod['module_tags'] );
+		} else {
+			$mod['module_tags'] = array( self::translate_module_tag( 'Other' ) );
+		}
+
 		return $mod;
+	}
+
+	public static function translate_module_tag( $untranslated_tag ) {
+		return _x( $untranslated_tag, 'Module Tag', 'jetpack' );
+
+		// Calls here are to populate translation files.
+		_x( 'Photos and Videos',   'Module Tag', 'jetpack' );
+		_x( 'Social',              'Module Tag', 'jetpack' );
+		_x( 'WordPress.com Stats', 'Module Tag', 'jetpack' );
+		_x( 'Writing',             'Module Tag', 'jetpack' );
+		_x( 'Appearance',          'Module Tag', 'jetpack' );
+		_x( 'Developers',          'Module Tag', 'jetpack' );
+		_x( 'Mobile',              'Module Tag', 'jetpack' );
+		_x( 'Other',               'Module Tag', 'jetpack' );
 	}
 
 	/**
@@ -1132,6 +1154,8 @@ class Jetpack {
 	}
 
 	public static function activate_module( $module, $exit = true ) {
+		do_action( 'jetpack_pre_activate_module', $module, $exit );
+
 		$jetpack = Jetpack::init();
 
 		if ( ! strlen( $module ) )
@@ -1199,6 +1223,8 @@ class Jetpack {
 	}
 
 	public static function deactivate_module( $module ) {
+		do_action( 'jetpack_pre_deactivate_module', $module );
+
 		$active = Jetpack::get_active_modules();
 		$new    = array_filter( array_diff( $active, (array) $module ) );
 
@@ -1487,6 +1513,10 @@ p {
 		return $admin_body_class;
 	}
 
+	static function add_jetpack_pagestyles( $admin_body_class = '' ) {
+		return $admin_body_class . ' jetpack-pagestyles';
+	}
+
 	function prepare_connect_notice() {
 		add_action( 'admin_print_styles', array( $this, 'admin_styles' ) );
 
@@ -1587,7 +1617,7 @@ p {
 
 		add_action( "admin_print_scripts-$hook", array( $this, 'admin_scripts' ) );
 
-		do_action( 'jetpack_admin_menu' );
+		do_action( 'jetpack_admin_menu', $hook );
 	}
 /*
 	function admin_menu_modules() {
@@ -1984,6 +2014,9 @@ p {
 	function admin_page_load() {
 		$error = false;
 
+		// Make sure we have the right body class to hook stylings for subpages off of.
+		add_filter( 'admin_body_class', array( __CLASS__, 'add_jetpack_pagestyles' ) );
+
 		if ( ! empty( $_GET['jetpack_restate'] ) ) {
 			// Should only be used in intermediate redirects to preserve state across redirects
 			Jetpack::restate();
@@ -2036,7 +2069,7 @@ p {
 
 				$module = stripslashes( $_GET['module'] );
 				check_admin_referer( "jetpack_activate-$module" );
-				Jetpack::log( 'activate' );
+				Jetpack::log( 'activate', $module );
 				Jetpack::activate_module( $module );
 				// The following two lines will rarely happen, as Jetpack::activate_module normally exits at the end.
 				wp_safe_redirect( Jetpack::admin_url( 'page=jetpack' ) );
@@ -2081,8 +2114,8 @@ p {
 
 				$modules = stripslashes( $_GET['module'] );
 				check_admin_referer( "jetpack_deactivate-$modules" );
-				Jetpack::log( 'deactivate' );
 				foreach ( explode( ',', $modules ) as $module ) {
+					Jetpack::log( 'deactivate', $module );
 					Jetpack::deactivate_module( $module );
 					Jetpack::state( 'message', 'module_deactivated' );
 				}
@@ -2096,6 +2129,8 @@ p {
 				Jetpack::state( 'message', 'unlinked' );
 				wp_safe_redirect( Jetpack::admin_url() );
 				exit;
+			default:
+				do_action( 'jetpack_unrecognized_action', sanitize_key( $_GET['action'] ) );
 			}
 		}
 
