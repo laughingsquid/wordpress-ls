@@ -142,6 +142,8 @@ class Jetpack_Media_Meta_Extractor {
 					$attr = shortcode_parse_atts( $matches[3][ $key ] );
 
 					$shortcode_total_count++;
+					if ( ! isset( $shortcode_type_counts[$shortcode_name] ) )
+						$shortcode_type_counts[$shortcode_name] = 0; 
 					$shortcode_type_counts[$shortcode_name]++;
 
 					// Store (uniquely) presence of all shortcode regardless of whether it's a keeper (for those, get ID below)
@@ -191,22 +193,24 @@ class Jetpack_Media_Meta_Extractor {
 
 		if ( self::LINKS & $what_to_extract ) {
 
+			// To hold the extracted stuff we find
+			$links = array();
+
 			// @todo Get the text inside the links?
 
 			// Grab any links, whether in <a href="..." or not, but subtract those from shortcodes and images
 			// (we treat embed links as just another link)
 			if ( preg_match_all( '#(?:^|\s|"|\')(https?://([^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))))#', $content, $matches ) ) {
 
-				// To hold the extracted stuff we find
-				$links = array();
-
 				foreach ( $matches[1] as $link_raw ) {
 					$url = parse_url( $link_raw );
 
 					// Build a simple form of the URL so we can compare it to ones we found in IMAGES or SHORTCODES and exclude those
 					$simple_url = $url['scheme'] . '://' . $url['host'] . $url['path'];
-					if ( in_array( $simple_url, (array) $extracted['image']['url'] ) )
-						continue;
+					if ( isset( $extracted['image']['url'] ) ) {
+						if ( in_array( $simple_url, (array) $extracted['image']['url'] ) )
+							continue;
+					}
 
 					list( $proto, $link_all_but_proto ) = explode( '://', $link_raw );
 
@@ -235,7 +239,7 @@ class Jetpack_Media_Meta_Extractor {
 					}
 
 					// @todo Check unique before adding
-					$links[] = array( 
+					$links[] = array(
 						'url' => $link_all_but_proto,
 						'host_reversed' => $host_reversed,
 						'host' => $url['host'],
@@ -327,6 +331,7 @@ class Jetpack_Media_Meta_Extractor {
 
 		$image_list = array();
 		$image_booleans = array();
+		$image_booleans['gallery'] = 0;
 
 		$from_slideshow = Jetpack_PostImages::from_slideshow( $post->ID, $args['width'], $args['height'] );
 		if ( !empty( $from_slideshow ) ) {
