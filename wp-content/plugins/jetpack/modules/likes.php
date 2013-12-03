@@ -6,6 +6,7 @@
  * Sort Order: 4
  * Requires Connection: Yes
  * Auto Activate: No
+ * Module Tags: Social
  */
 class Jetpack_Likes {
 	var $version = '20131104';
@@ -514,19 +515,30 @@ class Jetpack_Likes {
 	/**
 	* Load the CSS needed for the wp-admin area.
 	*/
-	function load_admin_css() { ?>
+	function load_admin_css() {
+		include( ABSPATH . WPINC . '/version.php' );
+		?>
 		<style type="text/css">
 			.fixed .column-likes { width: 5em; padding-top: 8px; text-align: center !important; }
 			.fixed .column-stats { width: 5em; }
 			.fixed .column-likes .post-com-count { background-image: none; }
 			.fixed .column-likes .comment-count { background-color: #888; }
 			.fixed .column-likes .comment-count:hover { background-color: #D54E21; }
-			.mp6 .fixed .column-likes .post-com-count::after { border: none !important; }
-			.mp6 .fixed .column-likes .comment-count { background-color: #bbb; }
-			.mp6 .fixed .column-likes .comment-count:hover { background-color: #2ea2cc; }
-			.mp6 .fixed .column-likes .vers img { display: none; }
-			.mp6 .fixed .column-likes .vers:before {font:20px/1 dashicons;content: '\f155';-webkit-font-smoothing:antialiased;}
-		</style> <?php
+		<?php if ( version_compare( $wp_version, '3.8-alpha', '>=' ) ) : ?>
+			.fixed .column-likes .post-com-count::after { border: none !important; }
+			.fixed .column-likes .comment-count { background-color: #bbb; }
+			.fixed .column-likes .comment-count:hover { background-color: #2ea2cc; }
+			.fixed .column-likes .vers img { display: none; }
+			.fixed .column-likes .vers:before {
+				font: normal 20px/1 dashicons;
+				content: '\f155';
+				speak: none;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		<?php endif; ?>
+		</style>
+		<?php
 	}
 
 	/**
@@ -703,8 +715,17 @@ class Jetpack_Likes {
 		if ( is_ssl() )
 			$protocol = 'https';
 
+		if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '>=' ) ) {
+			add_filter( 'mp6_enabled', '__return_true', 97 );
+		}
+
 		$locale = ( '' == get_locale() || 'en' == get_locale() ) ? '' : '&amp;lang=' . strtolower( substr( get_locale(), 0, 2 ) );
         $src = sprintf( '%1$s://widgets.wp.com/likes/master.html?ver=%2$s#ver=%2$s%3$s&amp;mp6=%4$d', $protocol, $this->version, $locale, apply_filters( 'mp6_enabled', 0 ) );
+
+		// Tidy up after ourselves.
+		if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '>=' ) ) {
+			remove_filter( 'mp6_enabled', '__return_true', 97 );
+		}
 
         $likersText = wp_kses( __( '<span>%d</span> bloggers like this:', 'jetpack' ), array( 'span' => array() ) );
 ?>

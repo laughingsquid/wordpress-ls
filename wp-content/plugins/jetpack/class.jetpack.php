@@ -278,11 +278,14 @@ class Jetpack {
 
 		add_action( 'jetpack_activate_module', array( $this, 'activate_module_actions' ) );
 
+		add_action( 'plugins_loaded', array( $this, 'extra_oembed_providers' ) );
+
 		/**
 		 * These actions run checks to load additional files.
 		 * They check for external files or plugins, so they need to run as late as possible.
 		 */
 		add_action( 'plugins_loaded', array( $this, 'check_open_graph' ),       999 );
+		add_action( 'plugins_loaded', array( $this, 'check_twitter_tags' ),     999 );
 		add_action( 'plugins_loaded', array( $this, 'check_rest_api_compat' ), 1000 );
 
 		add_filter( 'map_meta_cap', array( $this, 'jetpack_custom_caps' ), 1, 4 );
@@ -352,6 +355,9 @@ class Jetpack {
 		 */
 		require_once( JETPACK__PLUGIN_DIR . '_inc/genericons.php' );
 		jetpack_register_genericons();
+
+		if ( ! wp_style_is( 'jetpack-icons', 'registered' ) )
+			wp_register_style( 'jetpack-icons', plugins_url( '_inc/jetpack-icons/jetpack-icons.css', __FILE__ ), false, JETPACK__VERSION );
 	}
 
 	/**
@@ -413,8 +419,16 @@ class Jetpack {
 	}
 
 	/**
-	* Synchronize connected user role changes
-	*/
+	 * Add any extra oEmbed providers that we know about and use on wpcom for feature parity.
+	 */
+	function extra_oembed_providers() {
+		// Cloudup: https://dev.cloudup.com/#oembed
+		wp_oembed_add_provider( 'https://cloudup.com/*' , 'https://cloudup.com/oembed' );
+	}
+
+	/**
+	 * Synchronize connected user role changes
+	 */
 	function user_role_change( $user_id ) {
 		if ( Jetpack::is_active() && Jetpack::is_user_connected( $user_id ) ) {
 			$current_user_id = get_current_user_id();
@@ -564,35 +578,30 @@ class Jetpack {
 		}
 
 		$conflicting_plugins = array(
-			'facebook/facebook.php',                                                								// Official Facebook plugin
-			'wordpress-seo/wp-seo.php',                                             								// WordPress SEO by Yoast
-			'add-link-to-facebook/add-link-to-facebook.php',                        								// Add Link to Facebook
-			'facebook-awd/AWD_facebook.php',                                        								// Facebook AWD All in one
-			'header-footer/plugin.php',                                             								// Header and Footer
-			'nextgen-facebook/nextgen-facebook.php',                                								// NextGEN Facebook OG
-			'seo-facebook-comments/seofacebook.php',                                								// SEO Facebook Comments
-			'seo-ultimate/seo-ultimate.php',                                        								// SEO Ultimate
-			'sexybookmarks/sexy-bookmarks.php',                                     								// Shareaholic
-			'shareaholic/sexy-bookmarks.php',                                       								// Shareaholic
-			'social-discussions/social-discussions.php',                            								// Social Discussions
-			'social-networks-auto-poster-facebook-twitter-g/NextScripts_SNAP.php',									// NextScripts SNAP
-			'wordbooker/wordbooker.php',                                            								// Wordbooker
-			'socialize/socialize.php',                                              								// Socialize
-			'simple-facebook-connect/sfc.php',                                      								// Simple Facebook Connect
-			'social-sharing-toolkit/social_sharing_toolkit.php',                    								// Social Sharing Toolkit
-			'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',                  								// WP Facebook Open Graph protocol
-			'opengraph/opengraph.php',                                              								// Open Graph
-			'sharepress/sharepress.php',                                            								// SharePress
-			'wp-facebook-like-send-open-graph-meta/wp-facebook-like-send-open-graph-meta.php',							// WP Facebook Like Send & Open Graph Meta
-			'network-publisher/networkpub.php',													// Network Publisher
-			'wp-ogp/wp-ogp.php',															// WP-OGP
-			'twitter-cards/twitter-cards.php',													// Twitter Cards
-			'twitter-cards-meta/twitter-cards-meta.php',												// Twitter Cards Meta
-			'ig-twitter-cards/ig-twitter-cards.php',												// IG:Twitter Cards
-			'kevinjohn-gallagher-pure-web-brilliants-social-graph-twitter-cards-extention/kevinjohn_gallagher___social_graph_twitter_output.php',	// Pure Web Brilliant's Social Graph Twitter Cards Extention
-			'jm-twitter-cards/jm-twitter-cards.php',												// JM Twitter Cards
-			'wp-twitter-cards/twitter_cards.php',													// WP Twitter Cards
-			'eewee-twitter-card/index.php',														// eewee twitter card
+			'facebook/facebook.php',                                                		// Official Facebook plugin
+			'wordpress-seo/wp-seo.php',                                             		// WordPress SEO by Yoast
+			'add-link-to-facebook/add-link-to-facebook.php',                        		// Add Link to Facebook
+			'facebook-awd/AWD_facebook.php',                                        		// Facebook AWD All in one
+			'header-footer/plugin.php',                                             		// Header and Footer
+			'nextgen-facebook/nextgen-facebook.php',                                		// NextGEN Facebook OG
+			'seo-facebook-comments/seofacebook.php',                                		// SEO Facebook Comments
+			'seo-ultimate/seo-ultimate.php',                                        		// SEO Ultimate
+			'sexybookmarks/sexy-bookmarks.php',                                     		// Shareaholic
+			'shareaholic/sexy-bookmarks.php',                                       		// Shareaholic
+			'social-discussions/social-discussions.php',                            		// Social Discussions
+			'social-networks-auto-poster-facebook-twitter-g/NextScripts_SNAP.php',			// NextScripts SNAP
+			'wordbooker/wordbooker.php',                                            		// Wordbooker
+			'socialize/socialize.php',                                              		// Socialize
+			'simple-facebook-connect/sfc.php',                                      		// Simple Facebook Connect
+			'social-sharing-toolkit/social_sharing_toolkit.php',                    		// Social Sharing Toolkit
+			'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',                  		// WP Facebook Open Graph protocol
+			'opengraph/opengraph.php',                                              		// Open Graph
+			'sharepress/sharepress.php',                                            		// SharePress
+			'wp-facebook-like-send-open-graph-meta/wp-facebook-like-send-open-graph-meta.php',	// WP Facebook Like Send & Open Graph Meta
+			'network-publisher/networkpub.php',							// Network Publisher
+			'wp-ogp/wp-ogp.php',									// WP-OGP
+			'open-graph-protocol-framework/open-graph-protocol-framework.php',			// Open Graph Protocol Framework
+			'all-in-one-seo-pack/all_in_one_seo_pack.php',						// All in One SEO Pack
 		);
 
 		foreach ( $conflicting_plugins as $plugin ) {
@@ -604,6 +613,48 @@ class Jetpack {
 
 		if ( apply_filters( 'jetpack_enable_open_graph', false ) )
 			require_once JETPACK__PLUGIN_DIR . 'functions.opengraph.php';
+	}
+
+	/**
+	 * Check if Jetpack's Twitter tags should be used.
+	 * If certain plugins are active, Jetpack's twitter tags are suppressed.
+	 *
+	 * @uses Jetpack::get_active_modules, add_filter, get_option, apply_filters
+	 * @action plugins_loaded
+	 * @return null
+	 */
+	public function check_twitter_tags() {
+
+		$active_plugins = get_option( 'active_plugins', array() );
+
+		if ( is_multisite() ) {
+			// Due to legacy code, active_sitewide_plugins stores them in the keys,
+			// whereas active_plugins stores them in the values.
+			$network_plugins = array_keys( get_site_option( 'active_sitewide_plugins', array() ) );
+			if ( $network_plugins ) {
+				$active_plugins = array_merge( $active_plugins, $network_plugins );
+			}
+		}
+
+		$conflicting_plugins = array(
+			'twitter-cards/twitter-cards.php',		// Twitter Cards
+			'twitter-cards-meta/twitter-cards-meta.php',	// Twitter Cards Meta
+			'ig-twitter-cards/ig-twitter-cards.php',	// IG:Twitter Cards
+			'jm-twitter-cards/jm-twitter-cards.php',	// JM Twitter Cards
+			'wp-twitter-cards/twitter_cards.php',		// WP Twitter Cards
+			'eewee-twitter-card/index.php',			// Eewee Twitter Card
+			'kevinjohn-gallagher-pure-web-brilliants-social-graph-twitter-cards-extention/kevinjohn_gallagher___social_graph_twitter_output.php',	// Pure Web Brilliant's Social Graph Twitter Cards Extention
+		);
+
+		foreach ( $conflicting_plugins as $plugin ) {
+			if ( in_array( $plugin, $active_plugins ) ) {
+				add_filter( 'jetpack_disable_twitter_cards', '__return_true', 99 );
+				break;
+			}
+		}
+
+		if ( apply_filters( 'jetpack_disable_twitter_cards', true ) )
+			require_once JETPACK__PLUGIN_DIR . 'functions.twitter-cards.php';
 	}
 
 /* Jetpack Options API */
@@ -867,6 +918,14 @@ class Jetpack {
 			'debug' => null,  // Closed out and moved to ./class.jetpack-debugger.php
 			'wpcc'  => 'sso', // Closed out in 2.6 -- SSO provides the same functionality.
 		);
+
+		// Don't activate SSO if they never completed activating WPCC.
+		if ( Jetpack::is_module_active( 'wpcc' ) ) {
+			$wpcc_options = Jetpack_Options::get_option( 'wpcc_options' );
+			if ( empty( $wpcc_options ) || empty( $wpcc_options['client_id'] ) || empty( $wpcc_options['client_id'] ) ) {
+				$deprecated_modules['wpcc'] = null;
+			}
+		}
 
 		foreach ( $deprecated_modules as $module => $replacement ) {
 			if ( Jetpack::is_module_active( $module ) ) {
@@ -1492,7 +1551,7 @@ p {
 		}
 
 		add_action( 'load-plugins.php', array( $this, 'intercept_plugin_error_scrape_init' ) );
-		add_action( 'admin_head', array( $this, 'admin_menu_css' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_menu_css' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( JETPACK__PLUGIN_DIR . 'jetpack.php' ), array( $this, 'plugin_action_links' ) );
 
 		if ( Jetpack::is_active() || Jetpack::is_development_mode() ) {
@@ -1505,12 +1564,17 @@ p {
 	}
 
 	function admin_body_class( $admin_body_class = '' ) {
-		if ( self::is_active() ) {
-			$admin_body_class .= ' jetpack-connected';
-		} else {
-			$admin_body_class .= ' jetpack-disconnected';
+		$classes = explode( ' ', trim( $admin_body_class ) );
+
+		$classes[] = self::is_active() ? 'jetpack-connected' : 'jetpack-disconnected';
+
+		// Handle pre-mp6 styling by adding a 'pre-mp6' body class.
+		include( ABSPATH . WPINC . '/version.php' );
+		if ( version_compare( $wp_version, '3.8-alpha', '<' ) ) {
+			$classes[] = 'pre-mp6';
 		}
-		return $admin_body_class;
+
+		return implode( ' ', array_unique( $classes ) );
 	}
 
 	static function add_jetpack_pagestyles( $admin_body_class = '' ) {
@@ -1821,24 +1885,49 @@ p {
 		);
 	}
 
-	function admin_menu_css() { ?>
-		<style type="text/css" id="jetpack-menu-css">
-			#toplevel_page_jetpack .wp-menu-image {
-				background: url( <?php echo plugins_url( '_inc/images/menuicon-sprite.png', __FILE__ ) ?> ) 0 90% no-repeat;
-			}
-			/* Retina Jetpack Menu Icon */
-			@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-				#toplevel_page_jetpack .wp-menu-image {
-					background: url( <?php echo plugins_url( '_inc/images/menuicon-sprite-2x.png', __FILE__ ) ?> ) 0 90% no-repeat;
-					background-size:30px 64px;
+	function admin_menu_css() {
+		// Make sure we're working off a clean version.
+		include( ABSPATH . WPINC . '/version.php' );
+		if ( version_compare( $wp_version, '3.8-alpha', '>=' ) ) {
+			wp_enqueue_style( 'jetpack-icons' );
+			$css = "
+				#toplevel_page_jetpack .wp-menu-image:before {
+					font-family: 'Jetpack' !important;
+					content: '\\e600';
 				}
-			}
-			#toplevel_page_jetpack.current .wp-menu-image,
-			#toplevel_page_jetpack.wp-has-current-submenu .wp-menu-image,
-			#toplevel_page_jetpack:hover .wp-menu-image {
-				background-position: top left;
-			}
-		</style><?php
+				#toplevel_page_jetpack .wp-menu-image {
+					background-repeat: no-repeat;
+				}
+				#menu-posts-feedback .wp-menu-image:before {
+					font-family: dashicons !important;
+					content: '\\f175';
+				}
+				#adminmenu #menu-posts-feedback div.wp-menu-image {
+					background: none !important;
+					background-repeat: no-repeat;
+				}";
+		} else {
+			$css = "
+				#toplevel_page_jetpack .wp-menu-image {
+					background: url( " . plugins_url( '_inc/images/menuicon-sprite.png', __FILE__ ) . " ) 0 90% no-repeat;
+				}
+				/* Retina Jetpack Menu Icon */
+				@media  only screen and (-moz-min-device-pixel-ratio: 1.5),
+						only screen and (-o-min-device-pixel-ratio: 3/2),
+						only screen and (-webkit-min-device-pixel-ratio: 1.5),
+						only screen and (min-device-pixel-ratio: 1.5) {
+					#toplevel_page_jetpack .wp-menu-image {
+						background: url( " . plugins_url( '_inc/images/menuicon-sprite-2x.png', __FILE__ ) . " ) 0 90% no-repeat;
+						background-size:30px 64px;
+					}
+				}
+				#toplevel_page_jetpack.current .wp-menu-image,
+				#toplevel_page_jetpack.wp-has-current-submenu .wp-menu-image,
+				#toplevel_page_jetpack:hover .wp-menu-image {
+					background-position: top left;
+				}";
+		}
+		wp_add_inline_style( 'wp-admin', $css );
 	}
 
 	function admin_menu_order() {
@@ -2172,6 +2261,27 @@ p {
 			if ( $php_errors = Jetpack::state( 'php_errors' ) ) {
 				$this->error .= "<br />\n";
 				$this->error .= $php_errors;
+			}
+			break;
+		case 'master_user_required' :
+			$module = Jetpack::state( 'module' );
+			$module_name = '';
+			if ( ! empty( $module ) && $mod = Jetpack::get_module( $module ) ) {
+				$module_name = $mod['name'];
+			}
+
+			$master_user = Jetpack_Options::get_option( 'master_user' );
+			$master_userdata = get_userdata( $master_user ) ;
+			if ( $master_userdata ) {
+				if ( ! in_array( $module, Jetpack::get_active_modules() ) ) {
+					$this->error = sprintf( __( '%s was not activated.' , 'jetpack' ), $module_name );
+				} else {
+					$this->error = sprintf( __( '%s was not deactivated.' , 'jetpack' ), $module_name );
+				}
+				$this->error .= '  ' . sprintf( __( 'This module can only be altered by %s, the user who initiated the Jetpack connection on this site.' , 'jetpack' ), esc_html( $master_userdata->display_name ) );
+
+			} else {
+				$this->error = sprintf( __( 'Only the user who initiated the Jetpack connection on this site can toggle %s, but that user no longer exists. This should not happen.' ), $module_name );
 			}
 			break;
 		case 'not_public' :
