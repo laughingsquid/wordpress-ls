@@ -28,15 +28,20 @@ class Jetpack {
 	var $HTTP_RAW_POST_DATA = null; // copy of $GLOBALS['HTTP_RAW_POST_DATA']
 
 	var $plugins_to_deactivate = array(
-		'stats'              => array( 'stats/stats.php', 'WordPress.com Stats' ),
-		'shortlinks'         => array( 'stats/stats.php', 'WordPress.com Stats' ),
-		'sharedaddy'         => array( 'sharedaddy/sharedaddy.php', 'Sharedaddy' ),
-		'twitter-widget'     => array( 'wickett-twitter-widget/wickett-twitter-widget.php', 'Wickett Twitter Widget' ),
-		'after-the-deadline' => array( 'after-the-deadline/after-the-deadline.php', 'After The Deadline' ),
-		'contact-form'       => array( 'grunion-contact-form/grunion-contact-form.php', 'Grunion Contact Form' ),
-		'custom-css'         => array( 'safecss/safecss.php', 'WordPress.com Custom CSS' ),
-		'random-redirect'    => array( 'random-redirect/random-redirect.php', 'Random Redirect' ),
-		'videopress'         => array( 'video/video.php', 'VideoPress' ),
+		'stats'              	 => array( 'stats/stats.php', 'WordPress.com Stats' ),
+		'shortlinks'         	 => array( 'stats/stats.php', 'WordPress.com Stats' ),
+		'sharedaddy'         	 => array( 'sharedaddy/sharedaddy.php', 'Sharedaddy' ),
+		'twitter-widget'     	 => array( 'wickett-twitter-widget/wickett-twitter-widget.php', 'Wickett Twitter Widget' ),
+		'after-the-deadline'	 => array( 'after-the-deadline/after-the-deadline.php', 'After The Deadline' ),
+		'contact-form'		 => array( 'grunion-contact-form/grunion-contact-form.php', 'Grunion Contact Form' ),
+		'custom-css'		 => array( 'safecss/safecss.php', 'WordPress.com Custom CSS' ),
+		'random-redirect'	 => array( 'random-redirect/random-redirect.php', 'Random Redirect' ),
+		'videopress'		 => array( 'video/video.php', 'VideoPress' ),
+		'widget-visibility'	 => array( 'jetpack-widget-visibility/widget-visibility.php', 'Jetpack Widget Visibility' ),
+		'widget-visibility'	 => array( 'widget-visibility-without-jetpack/widget-visibility-without-jetpack.php', 'Widget Visibility Without Jetpack' ),
+		'sharedaddy'		 => array( 'jetpack-sharing/sharedaddy.php', 'Jetpack Sharing' ),
+		'omnisearch'		 => array( 'jetpack-omnisearch/omnisearch.php', 'Jetpack Omnisearch' ),
+		'gravatar-hovercards'	 => array( 'jetpack-gravatar-hovercards/gravatar-hovercards.php', 'Jetpack Gravatar Hovercards' ),
 	);
 
 	var $capability_translations = array(
@@ -2281,7 +2286,7 @@ p {
 				$this->error .= '  ' . sprintf( __( 'This module can only be altered by %s, the user who initiated the Jetpack connection on this site.' , 'jetpack' ), esc_html( $master_userdata->display_name ) );
 
 			} else {
-				$this->error = sprintf( __( 'Only the user who initiated the Jetpack connection on this site can toggle %s, but that user no longer exists. This should not happen.' ), $module_name );
+				$this->error = sprintf( __( 'Only the user who initiated the Jetpack connection on this site can toggle %s, but that user no longer exists. This should not happen.', 'jetpack' ), $module_name );
 			}
 			break;
 		case 'not_public' :
