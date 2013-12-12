@@ -2,8 +2,8 @@
 Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebens, blobaugh, cfinke, chellycat, danielbachhuber, daniloercoli, designsimply, eoigal, ethitter, gibrown, georgestephanis, hew, hugobaeta, iammattthomas, jblz, jeherve, jkudish, Joen, johnjamesjacoby, jshreve, lancewillett, martinremy, matt, matveb, mcsf, mdawaffe, migueluy, nickmomrik, obenland, pento, richardmtl, stephdau, tmoorewp, Viper007Bond, westi, yoavf
 Tags: WordPress.com, statistics, stats, views, tweets, twitter, widget, gravatar, hovercards, profile, equations, latex, math, maths, youtube, shortcode, archives, audio, blip, bliptv, dailymotion, digg, flickr, googlevideo, google, googlemaps, kyte, kytetv, livevideo, redlasso, rockyou, rss, scribd, slide, slideshare, soundcloud, vimeo, shortlinks, wp.me, subscriptions, notifications, notes, json, api, rest, mosaic, gallery, slideshow, videopress, monitor, search, omnisearch, sso, jet pack
 Requires at least: 3.6
-Tested up to: 3.7.1
-Stable tag: 2.6.1
+Tested up to: 3.8
+Stable tag: 2.7
 
 Supercharge your WordPress site with powerful features previously only available to WordPress.com users.
 
@@ -88,6 +88,8 @@ Learn more (and get detailed instructions) in our [contribute guide](http://jetp
 
 == Changelog ==
 
+= 2.8 =
+
 = 2.7 =
 * Enhancement: Google+ Publicize
 * Enhancement: Add Cloudup as an oEmbed provider
@@ -99,7 +101,7 @@ Learn more (and get detailed instructions) in our [contribute guide](http://jetp
 * Bug Fix: Featured Content: Make sure $term is an object before we treat it as one
 * Bug Fix: GlotPress: Merge with latest GlotPress
 * Bug Fix: Infinite Scroll: prevent Undefined index notice that can cause IS to fail when user has WP_DEBUG set to true
-* Bug Fix: Infinite Scroll: Improved compatibility with Carousel, Tiled Galleries, VideoPress, and the `[audio]` and `[video]` shortcodes 
+* Bug Fix: Infinite Scroll: Improved compatibility with Carousel, Tiled Galleries, VideoPress, and the `[audio]` and `[video]` shortcodes
 * Bug Fix: Likes: Stop manually including version.php and trust the global. Some whitespace fixes, and if it's an attachment, follow the post_status of the parent post
 * Bug Fix: Mobile Theme: Display password field for Gallery format protected posts
 * Bug Fix: Sharing: Add new translation width for share button, and Google Plus icons
