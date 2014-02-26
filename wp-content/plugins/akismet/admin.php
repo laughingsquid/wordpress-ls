@@ -39,10 +39,10 @@ function akismet_load_js_and_css() {
 		'plugins_page_akismet-key-config', 
 		'jetpack_page_akismet-key-config',
 	) ) ) {
-		wp_register_style( 'akismet.css', AKISMET_PLUGIN_URL . 'akismet.css', array(), AKISMET_VERSION );
+		wp_register_style( 'akismet.css', AKISMET_PLUGIN_URL . 'akismet.css', array(), '2.5.9' );
 		wp_enqueue_style( 'akismet.css');
 	
-		wp_register_script( 'akismet.js', AKISMET_PLUGIN_URL . 'akismet.js', array('jquery'), AKISMET_VERSION );
+		wp_register_script( 'akismet.js', AKISMET_PLUGIN_URL . 'akismet.js', array('jquery'), '2.5.9' );
 		wp_enqueue_script( 'akismet.js' );
 		wp_localize_script( 'akismet.js', 'WPAkismet', array(
 			'comment_author_url_nonce' => wp_create_nonce( 'comment_author_url_nonce' )
@@ -65,7 +65,7 @@ function akismet_plugin_action_links( $links, $file ) {
 add_filter( 'plugin_action_links', 'akismet_plugin_action_links', 10, 2 );
 
 function akismet_conf() {
-	global $akismet_nonce, $wpcom_api_key, $current_user;
+	global $akismet_nonce, $current_user;
 	
 	$new_key_link    = 'https://akismet.com/get/';
 	$config_link     = esc_url( add_query_arg( array( 'page' => 'akismet-key-config', 'show' => 'enter-api-key' ), class_exists( 'Jetpack' ) ? admin_url( 'admin.php' ) : admin_url( 'plugins.php' ) ) );
@@ -85,38 +85,34 @@ function akismet_conf() {
 		$show_key_form = true;
 
 		check_admin_referer( $akismet_nonce );
-		
+		$key      = preg_replace( '/[^a-h0-9]/i', '', $_POST['key'] );
 		$home_url = parse_url( get_bloginfo('url') );
 		
 		if ( empty( $home_url['host'] ) )
 			$ms[] = 'bad_home_url';
-			
-		if ( !$wpcom_api_key ) {
-			$key = preg_replace( '/[^a-h0-9]/i', '', $_POST['key'] );
-			
-			if ( empty( $key ) ) {
-				if ( $api_key ) {
-					delete_option('wordpress_api_key');
-					$saved_ok = true;			
-					$ms[] = 'new_key_empty';
-				}
-				else
-					$ms[] = 'key_empty';
-			}  
-			else
-				$key_status = akismet_verify_key( $key );		
-			
-			if ( $key != $api_key && $key_status == 'valid' ) {
-				$ms[] = 'new_key_valid';
-				update_option('wordpress_api_key', $key);
+
+		if ( empty( $key ) ) {
+			if ( $api_key ) {
+				delete_option('wordpress_api_key');
+				$saved_ok = true;			
+				$ms[] = 'new_key_empty';
 			}
-			elseif ( $key_status == 'invalid' )
-				$ms[] = 'new_key_invalid';
-			elseif ( $key_status == 'failed' )
-				$ms[] = 'new_key_failed';
-	
-			$api_key = $key_status == 'valid' ? $key : false;
+			else
+				$ms[] = 'key_empty';
+		}  
+		else
+			$key_status = akismet_verify_key( $key );		
+		
+		if ( $key != $api_key && $key_status == 'valid' ) {
+			$ms[] = 'new_key_valid';
+			update_option('wordpress_api_key', $key);
 		}
+		elseif ( $key_status == 'invalid' )
+			$ms[] = 'new_key_invalid';
+		elseif ( $key_status == 'failed' )
+			$ms[] = 'new_key_failed';
+
+		$api_key = $key_status == 'valid' ? $key : false;
 
 		if ( isset( $_POST['akismet_discard_month'] ) )
 			update_option( 'akismet_discard_month', 'true' );
@@ -217,7 +213,6 @@ function akismet_conf() {
 		<form action="" method="post" id="akismet-conf">
 			<table class="form-table">
 				<tbody>
-					<?php if ( !$wpcom_api_key ) :?>
 					<tr>
 						<th><label for="key"><?php _e('Akismet API Key');?></label></th>
 						<td>
@@ -225,7 +220,6 @@ function akismet_conf() {
 							<p class="need-key description"><?php printf( __('You must enter a valid Akismet API key here. If you need an API key, you can <a href="%s">create one here</a>'), '#' );?></p>
 						</td>
 					</tr>
-					<?php endif; ?>
 					<?php if ( $api_key ):?>
 					<tr valign="top">
 						<th scope="row"><?php _e('Settings');?></th>
@@ -595,7 +589,6 @@ function akismet_check_for_spam_button($comment_status) {
 	else
 		$link = 'edit-comments.php?page=akismet-admin&amp;recheckqueue=true&amp;noheader=true';
 	echo "</div><div class='alignleft'><a class='button-secondary checkforspam' href='$link'>" . __('Check for Spam') . "</a>";
-	echo '<img src="'.esc_url(admin_url('images/wpspin_light.gif')).'" class="checkforspam-spinner" />';
 }
 add_action('manage_comments_nav', 'akismet_check_for_spam_button');
 
@@ -779,15 +772,7 @@ function akismet_recheck_queue() {
 	if ( ! ( isset( $_GET['recheckqueue'] ) || ( isset( $_REQUEST['action'] ) && 'akismet_recheck_queue' == $_REQUEST['action'] ) ) )
 		return;
 		
-	$paginate = ''; 
-	if ( isset( $_REQUEST['limit'] ) && isset( $_REQUEST['offset'] ) ) { 
-		$paginate = $wpdb->prepare("LIMIT %d OFFSET %d", array( 
-			$_REQUEST['limit'], 
-			$_REQUEST['offset'], 
-		)); 
- 	} 
- 	$moderation = $wpdb->get_results( "SELECT * FROM $wpdb->comments WHERE comment_approved = '0' $paginate", ARRAY_A );
- 	
+	$moderation = $wpdb->get_results( "SELECT * FROM $wpdb->comments WHERE comment_approved = '0'", ARRAY_A );
 	foreach ( (array) $moderation as $c ) {
 		$c['user_ip']    = $c['comment_author_IP'];
 		$c['user_agent'] = $c['comment_agent'];
@@ -830,20 +815,12 @@ function akismet_recheck_queue() {
 
 		delete_comment_meta( $c['comment_ID'], 'akismet_rechecking' );
 	}
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) { 
- 		wp_send_json( array( 
- 			'processed' => count((array) $moderation), 
- 		)); 
- 	} 
- 	else { 
- 		$redirect_to = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : admin_url( 'edit-comments.php' ); 
- 		wp_safe_redirect( $redirect_to ); 
- 		exit; 
- 	}
+	$redirect_to = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : admin_url( 'edit-comments.php' );
+	wp_safe_redirect( $redirect_to );
+	exit;
 }
 
 add_action('admin_action_akismet_recheck_queue', 'akismet_recheck_queue');
-add_action('wp_ajax_akismet_recheck_queue', 'akismet_recheck_queue'); 
 
 // Adds an 'x' link next to author URLs, clicking will remove the author URL and show an undo link
 function akismet_remove_comment_author_url() {

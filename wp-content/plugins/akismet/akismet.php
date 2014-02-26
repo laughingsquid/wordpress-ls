@@ -197,26 +197,17 @@ function akismet_http_post($request, $host, $path, $port = 80, $ip=null) {
 
 // filter handler used to return a spam result to pre_comment_approved
 function akismet_result_spam( $approved ) {
-	static $just_once = false;
-	if ( $just_once )
-		return $approved;
-		
 	// bump the counter here instead of when the filter is added to reduce the possibility of overcounting
 	if ( $incr = apply_filters('akismet_spam_count_incr', 1) )
 		update_option( 'akismet_spam_count', get_option('akismet_spam_count') + $incr );
-		
 	// this is a one-shot deal
-	$just_once = true;
+	remove_filter( 'pre_comment_approved', 'akismet_result_spam' );
 	return 'spam';
 }
 
 function akismet_result_hold( $approved ) {
-	static $just_once = false;
-	if ( $just_once )
-		return $approved;
-		
 	// once only
-	$just_once = true;
+	remove_filter( 'pre_comment_approved', 'akismet_result_hold' );
 	return '0';
 }
 
@@ -382,7 +373,6 @@ function akismet_auto_check_comment( $commentdata ) {
 	$commentdata['comment_as_submitted'] = $comment;
 
 	$response = akismet_http_post($query_string, $akismet_api_host, '/1.1/comment-check', $akismet_api_port);
-	
 	do_action( 'akismet_comment_check_response', $response );
 	akismet_update_alert( $response );
 	$commentdata['akismet_result'] = $response[1];
@@ -435,20 +425,9 @@ add_action('preprocess_comment', 'akismet_auto_check_comment', 1);
 function akismet_delete_old() {
 	global $wpdb;
 	$now_gmt = current_time('mysql', 1);
-	
-	$total_comments = (int) $wpdb->get_var("SELECT COUNT( comment_id ) FROM $wpdb->comments WHERE DATE_SUB('$now_gmt', INTERVAL 15 DAY) > comment_date_gmt AND comment_approved = 'spam'");
-	
-	if ( $total_comments == 0 )
+	$comment_ids = $wpdb->get_col("SELECT comment_id FROM $wpdb->comments WHERE DATE_SUB('$now_gmt', INTERVAL 15 DAY) > comment_date_gmt AND comment_approved = 'spam'");
+	if ( empty( $comment_ids ) )
 		return;
-		
-	$comment_ids = $wpdb->get_col("SELECT comment_id FROM $wpdb->comments WHERE DATE_SUB('$now_gmt', INTERVAL 15 DAY) > comment_date_gmt AND comment_approved = 'spam' ORDER BY comment_id DESC LIMIT 1000");
-	
-	if ( function_exists('wp_next_scheduled') && function_exists('wp_schedule_event') ) {
-		wp_clear_scheduled_hook( 'akismet_scheduled_delete' );
-		if ( $total_comments > 1000 ) {
-			wp_schedule_single_event( time() + 300, 'akismet_scheduled_delete' );
-		}
-	}
 		
 	$comma_comment_ids = implode( ', ', array_map('intval', $comment_ids) );
 
@@ -459,6 +438,7 @@ function akismet_delete_old() {
 	$n = mt_rand(1, 5000);
 	if ( apply_filters('akismet_optimize_table', ($n == 11)) ) // lucky number
 		$wpdb->query("OPTIMIZE TABLE $wpdb->comments");
+
 }
 
 function akismet_delete_old_metadata() { 
