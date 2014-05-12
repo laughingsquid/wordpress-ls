@@ -1,9 +1,9 @@
 === Jetpack by WordPress.com ===
 Contributors: automattic, alternatekev, andy, apeatling, azaozz, barry, beaulebens, blobaugh, cfinke, chellycat, danielbachhuber, daniloercoli, designsimply, eoigal, ethitter, gibrown, georgestephanis, hew, hugobaeta, iammattthomas, jblz, jeherve, jkudish, Joen, johnjamesjacoby, jshreve, kraftbj, lancewillett, martinremy, matt, matveb, mcsf, mdawaffe, migueluy, nickmomrik, obenland, pento, richardmtl, stephdau, tmoorewp, Viper007Bond, westi, yoavf
 Tags: WordPress.com, statistics, stats, views, tweets, twitter, widget, gravatar, hovercards, profile, equations, latex, math, maths, youtube, shortcode, archives, audio, blip, bliptv, dailymotion, digg, flickr, googlevideo, google, googlemaps, kyte, kytetv, livevideo, redlasso, rockyou, rss, scribd, slide, slideshare, soundcloud, vimeo, shortlinks, wp.me, subscriptions, notifications, notes, json, api, rest, mosaic, gallery, slideshow, videopress, monitor, search, omnisearch, sso, jet pack
-Stable tag: 2.8.2
+Stable tag: 2.9.3
 Requires at least: 3.7
-Tested up to: 3.8.1
+Tested up to: 3.9
 
 Supercharge your WordPress site with powerful features previously only available to WordPress.com users.
 
@@ -86,19 +86,41 @@ Learn more (and get detailed instructions) in our [contribute guide](http://jetp
 
 == Upgrade Notice ==
 
-= 2.8.2 =
-Jetpack 2.8.1 fixes a security bug, and 2.8.2 fixes a rare fatal error. Please upgrade immediately.
-
-= 2.8.1 =
-Jetpack 2.8.1 fixes a security bug. Please upgrade immediately.
+= 2.9.3 =
+Jetpack 2.9.3 fixes a security bug. Please upgrade immediately.
 
 == Changelog ==
 
-= 2.8.2 =
-* Bug Fix: Avoid function which isn't always defined.
-
-= 2.8.1 =
+= 2.9.3 =
 * Important security update. CVE-2014-0173
+
+= 2.9.2 =
+* Bugfix: Publicize: When publishing from a mobile app or third-party client, Publicize now works again.
+
+= 2.9.1 =
+* Bugfix: After the Deadline: Fix a Javascript glitch that could prevent publishing of posts.
+* Bugfix: SSO: Disable the implementation of an option that had been removed before release.  This would have only been an issue if a site administrator had enabled the module during an early beta of 2.9.
+
+= 2.9 =
+* Added Multisite network functionality
+* New Module: Related Posts
+* Enhancement: Single Sign On
+* Enhancement: Mixcloud shortcode and oEmbed
+* Enhancement: Gist shortcode and oEmbed
+* Enhancement: Modify Facebook Like Box widget to support new Facebook parameters
+* Enhancement: Rolled the Push Notifications module into the Notes module
+* Enhancement: Update kses with Markdown
+* Enhancement: Adding keyboard accessibility to sharing buttons config page
+* Enhancement: Pull WordPress testing bits from the new official git mirror at WordPress.org
+* Bugfix: Widget Visibility
+* Bugfix: Revisions box in Custom CSS
+* Bugfix: Fix several bugs in the WordPress Posts Widget so that it correctly updates
+* Bugfix: Limit Login Attempts no longer generates false positives from xmlrpc.
+* Bugfix: Clear max_posts transient on theme switch.
+* Bugfix: Lower priority of sync to allow all CPTs to be registered.
+* Bugfix: Contact form fields emailed in correct order. 
+
+* Other bugfixes and enhancements at https://github.com/Automattic/jetpack/commits/2.9
 
 = 2.8 =
 * New Module: Markdown
@@ -116,7 +138,7 @@ Jetpack 2.8.1 fixes a security bug. Please upgrade immediately.
 * Enhancement: Stats: Improve dashboard styles in 3.8.
 * Enhancement: Stats: No longer use Quantcast.
 * Enhancement: Top Posts: Add `jetpack_top_posts_days` filter.
-* Enhancement: AtD: Add TinyMCE 4 compatability for its pending arrival in WordPress 3.9
+* Enhancement: AtD: Add TinyMCE 4 compatibility for its pending arrival in WordPress 3.9
 * Enhancement: Genericons: Update to v3.0.3
 * Enhancement: Tiled Galleries: Add alt attributes to images.
 * Enhancement: Shortcode: YouTube: Accept protocol-relative URLs.
@@ -155,7 +177,7 @@ Jetpack 2.8.1 fixes a security bug. Please upgrade immediately.
 * Bug Fix: Sharing: Add new translation width for share button, and Google Plus icons
 * Bug Fix: Shortcodes: Support Ineternational Google domains for maps
 * Bug Fix: Shortcodes: Facebook Embeds: Register alternate permalink.php URL for posts
-* Bug Fix: Subscriptions: Moved inline styles from widget email input to seperate css file
+* Bug Fix: Subscriptions: Moved inline styles from widget email input to separate css file
 * Bug Fix: Theme Tools: Fix glitch where random-redirect.php also showed as a plugin being deleted if you were deleting Jetpack
 * Bug Fix: Misc: Internationalization & RTL updates
 * Bug Fix: Misc: Prevent collisions with 'Facebook Featured Image & OG Meta Tags' plugin
