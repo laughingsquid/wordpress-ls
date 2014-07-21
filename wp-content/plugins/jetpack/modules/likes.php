@@ -10,7 +10,7 @@
  */
 
 class Jetpack_Likes {
-	var $version = '20140227';
+	var $version = '20140528';
 
 	public static function init() {
 		static $instance = NULL;
@@ -288,6 +288,7 @@ class Jetpack_Likes {
 				<div>
 			</td>
 		</tr>
+		<?php if ( ! $this->in_jetpack ) : ?>
 		<tr>
 			<th scope="row">
 				<label><?php esc_html_e( 'WordPress.com Reblog Button', 'jetpack' ); ?></label>
@@ -307,7 +308,6 @@ class Jetpack_Likes {
 				<div>
 			</td>
 		</tr>
-		<?php if ( ! $this->in_jetpack ) : ?>
 		<tr>
 			<th scope="row">
 				<label><?php esc_html_e( 'Comment Likes are', 'jetpack' ); ?></label>
