@@ -12,7 +12,7 @@
  */
 
 function jetpack_theme_supports_social_links() {
-	if ( current_theme_supports( 'social-links' ) ) {
+	if ( current_theme_supports( 'social-links' ) && function_exists( 'publicize_init' ) ) {
 		new Social_Links();
 	}
 }
@@ -75,16 +75,16 @@ class Social_Links {
 		}
 	}
 
-	function admin_setup() {
-		if ( ! is_admin() || ! current_user_can( 'manage_options' ) )
+	public function admin_setup() {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
+		}
 
-		global $publicize;
-		if ( ! is_a( $publicize, 'Publicize' ) )
+		if ( ! is_admin() && ! $this->is_customize_preview() ) {
 			return;
+		}
 
-
-		$this->publicize = $publicize;
+		$this->publicize = publicize_init();
 		$publicize_services = $this->publicize->get_services( 'connected' );
 		$this->services  = array_intersect( array_keys( $publicize_services ), $this->theme_supported_services );
 
@@ -100,7 +100,7 @@ class Social_Links {
 	 *
 	 * @return void
 	 */
-	function check_links() {
+	public function check_links() {
 		$active_links = array_intersect_key( $this->links, array_flip( $this->services ) );
 
 		if ( $active_links !== $this->links ) {
@@ -201,5 +201,13 @@ class Social_Links {
 				$choices[ $this->publicize->get_profile_link( $service, $c ) ] = $this->publicize->get_display_name( $service, $c );
 
 		return $choices;
+	}
+
+	/**
+	 * Back-compat function for versions prior to 4.0.
+	 */
+	private function is_customize_preview() {
+		global $wp_customize;
+		return is_a( $wp_customize, 'WP_Customize_Manager' ) && $wp_customize->is_preview();
 	}
 }

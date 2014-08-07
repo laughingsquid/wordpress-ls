@@ -9,20 +9,6 @@ Description: The theme for the Jetpack marketing site
 Author: Automattic
 Version: 2.0
 */
-@font-face {
-  font-family: 'automatticons';
-  src: url("fonts/automatticons-regular-webfont-webfont.eot");
-  src: url("fonts/automatticons-regular-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/automatticons-regular-webfont-webfont.woff") format("woff"), url("fonts/automatticons-regular-webfont-webfont.ttf") format("truetype"), url("fonts/automatticons-regular-webfont-webfont.svg#automatticonsregular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Jetpack';
-  src: url("fonts/jetpack.eot");
-  src: url("fonts/jetpack.eot?#iefix") format("embedded-opentype"), url("fonts/jetpack.ttf") format("truetype"), url("fonts/jetpack.woff") format("woff"), url("fonts/jetpack.svg#jetpack") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 article,
 aside,
 details,
@@ -509,7 +495,7 @@ hr {
   transition: all 0.1s ease-in-out;
 }
 
-.jp-button {
+.jp-button, .jp-button--settings {
   display: inline-block;
   position: relative;
   padding: 0.76923em 1.46154em;
@@ -521,16 +507,32 @@ hr {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-.jp-button:visited {
+.jp-button:visited, .jp-button--settings:visited {
   color: #efefef;
 }
-.jp-button:hover, .jp-button:focus {
+.jp-button:hover, .jp-button--settings:hover, .jp-button:focus, .jp-button--settings:focus {
   color: #fff;
   background: #57972d;
 }
-.jp-button:active {
+.jp-button:active, .jp-button--settings:active {
   background: #57972d;
   opacity: 0.8;
+}
+
+.jp-button--settings {
+  background: #93b45f;
+  color: #e8eedf;
+}
+.jp-button--settings:visited {
+  color: #e8eedf;
+}
+.jp-button--settings:hover, .jp-button--settings:focus {
+  background: #9fbd72;
+  color: #fff;
+}
+.jp-button--settings.current {
+  background: #3c6621;
+  color: #fff;
 }
 
 .download-jetpack {
@@ -574,7 +576,7 @@ hr {
   height: 30px;
   vertical-align: middle;
   background: url("img/connect-plug.svg") center center no-repeat;
-  -webkit-background-size: 100%;
+  -webkit-background-size: 100% 100%;
   background-size: 100%;
 }
 .download-jetpack:after {
@@ -611,6 +613,13 @@ hr {
   opacity: 0.7;
 }
 
+@font-face {
+  font-family: 'automatticons';
+  src: url("fonts/automatticons.eot");
+  src: url("fonts/automatticons.eot?#iefix") format("embedded-opentype"), url("fonts/automatticons.woff") format("woff"), url("fonts/automatticons.ttf") format("truetype"), url("fonts/automatticons.svg#automatticonsregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 .nav-horizontal a {
   display: inline-block;
 }
@@ -684,34 +693,41 @@ html {
 }
 
 .header {
-  background: #31621b;
+  background: #81a844;
   right: 0;
   left: 0;
 }
 
-.header-nav .current {
-  background: #81a844;
+.header-nav li {
+  line-height: 60px;
 }
 .header-nav a {
-  padding: 0 1.07143em;
-  color: #fff;
-  line-height: 46px;
+  padding: 0 0.71429em;
+  line-height: 24px;
 }
-.header-nav a:hover {
-  background: #81a844;
-}
-.header-nav .jetpack-logo {
+.header-nav .jetpack-logo a {
+  display: inline-block;
   position: relative;
-  width: 15.28571em;
-  height: 3.28571em;
-  margin-left: 8px;
+  width: 214px;
+  margin-left: 6px;
+  -webkit-background-size: 183px 32px;
+  background-size: 183px 32px;
+  color: #fff;
+  line-height: 60px;
+  font-weight: normal;
+  text-indent: -9999px;
+}
+.header-nav .jetpack-logo a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
   background: url(images/jetpack-logo.png) center center no-repeat;
   background: url(images/jetpack-logo.svg) center center no-repeat, none;
   -webkit-background-size: 183px 32px;
   background-size: 183px 32px;
-  color: #fff;
-  font-weight: normal;
-  text-indent: -9999px;
 }
 
 .main-nav {
@@ -1141,7 +1157,7 @@ html {
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   background: url("img/new-badge.svg") center center no-repeat;
-  -webkit-background-size: 100%;
+  -webkit-background-size: 100% 100%;
   background-size: 100%;
   border-radius: 50%;
   -webkit-background-clip: padding-box;
@@ -1736,7 +1752,13 @@ html {
   content: '\f107';
 }
 
-@media (max-width: 1130px) {
+.modules h3.custom-content-types:before,
+.jetpack-modules #custom-content-types .info a:before {
+  content: '\f498';
+  font: normal 20px "dashicons";
+}
+
+@media (max-width: 1147px) {
   .feature,
   .module {
     margin: .75% 1.5% .75% 0;

@@ -50,7 +50,7 @@
 	 * The modal details.
 	 */
 
-	show_modal = function( module, tab ) {
+	show_modal = function( module ) {
 		$jp_frame.children( '.modal, .shade' ).show();
 		$( '.modal ').empty().html( wp.template( 'modal' )( items[ module ] ) );
 	};
@@ -103,8 +103,12 @@
 		modules.trigger( 'change' );
 	} );
 
-	$the_search.on( 'keyup search', function() {
-		modules.trigger( 'change' );
+	$the_search.on( 'keyup search', function( e ) {
+		// Don't trigger change on tab, since it's only used for accessibility
+		// anyway, and will remove all checked boxes
+		if ( e.keyCode !== 9 ) {
+			modules.trigger( 'change' );
+		}
 	} );
 
 	$the_search.prop( 'placeholder', i18n.search_placeholder );

@@ -77,6 +77,7 @@ class Jetpack {
 			'Livefyre'                       => 'livefyre-comments/livefyre.php',
 			'Comments Evolved for WordPress' => 'gplus-comments/comments-evolved.php',
 			'Google+ Comments'               => 'google-plus-comments/google-plus-comments.php',
+			'WP-SpamShield Anti-Spam'        => 'wp-spamshield/wp-spamshield.php',
 		),
 		'contact-form'      => array(
 			'Contact Form 7'                 => 'contact-form-7/wp-contact-form-7.php',
@@ -131,66 +132,71 @@ class Jetpack {
 
 	/**
 	 * Plugins for which we turn off our Facebook OG Tags implementation.
+	 *
+	 * Note: All in One SEO Pack and All in One SEO Pack Pro automatically deactivate
+	 * Jetpack's Open Graph tags via filter when their Social Meta modules are active.
+	 *
+	 * Plugin authors: If you'd like to prevent Jetpack's Open Graph tag generation in your plugin, you can do so via this filter:
+	 * add_filter( 'jetpack_enable_open_graph', '__return_false' );
 	 */
 	private $open_graph_conflicting_plugins = array(
-		'facebook/facebook.php',                                 // Official Facebook plugin
-		'wordpress-seo/wp-seo.php',                              // WordPress SEO by Yoast
+		'2-click-socialmedia-buttons/2-click-socialmedia-buttons.php',
+		                                                         // 2 Click Social Media Buttons
 		'add-link-to-facebook/add-link-to-facebook.php',         // Add Link to Facebook
+		'add-meta-tags/add-meta-tags.php',                       // Add Meta Tags
+		'easy-facebook-share-thumbnails/esft.php',               // Easy Facebook Share Thumbnail
+		'facebook/facebook.php',                                 // Facebook (official plugin)
 		'facebook-awd/AWD_facebook.php',                         // Facebook AWD All in one
+		'facebook-featured-image-and-open-graph-meta-tags/fb-featured-image.php',
+		                                                         // Facebook Featured Image & OG Meta Tags
+		'facebook-meta-tags/facebook-metatags.php',              // Facebook Meta Tags
+		'facebook-revised-open-graph-meta-tag/index.php',        // Facebook Revised Open Graph Meta Tag
+		'facebook-thumb-fixer/_facebook-thumb-fixer.php',        // Facebook Thumb Fixer
+		'facebook-and-digg-thumbnail-generator/facebook-and-digg-thumbnail-generator.php',
+		                                                         // Fedmich's Facebook Open Graph Meta
 		'header-footer/plugin.php',                              // Header and Footer
+		'network-publisher/networkpub.php',                      // Network Publisher
 		'nextgen-facebook/nextgen-facebook.php',                 // NextGEN Facebook OG
+		'social-networks-auto-poster-facebook-twitter-g/NextScripts_SNAP.php',
+		                                                         // NextScripts SNAP
+		'opengraph/opengraph.php',                               // Open Graph
+		'open-graph-protocol-framework/open-graph-protocol-framework.php',
+		                                                         // Open Graph Protocol Framework
 		'seo-facebook-comments/seofacebook.php',                 // SEO Facebook Comments
 		'seo-ultimate/seo-ultimate.php',                         // SEO Ultimate
 		'sexybookmarks/sexy-bookmarks.php',                      // Shareaholic
 		'shareaholic/sexy-bookmarks.php',                        // Shareaholic
-		'social-discussions/social-discussions.php',             // Social Discussions
-		'social-networks-auto-poster-facebook-twitter-g/NextScripts_SNAP.php',
-		                                                         // NextScripts SNAP
-		'wordbooker/wordbooker.php',                             // Wordbooker
-		'socialize/socialize.php',                               // Socialize
-		'simple-facebook-connect/sfc.php',                       // Simple Facebook Connect
-		'social-sharing-toolkit/social_sharing_toolkit.php',     // Social Sharing Toolkit
-		'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',   // WP Facebook Open Graph protocol
-		'opengraph/opengraph.php',                               // Open Graph
 		'sharepress/sharepress.php',                             // SharePress
-		'wp-facebook-like-send-open-graph-meta/wp-facebook-like-send-open-graph-meta.php',
-		                                                         // WP Facebook Like Send & Open Graph Meta
-		'network-publisher/networkpub.php',                      // Network Publisher
-		'wp-ogp/wp-ogp.php',                                     // WP-OGP
-		'open-graph-protocol-framework/open-graph-protocol-framework.php',
-		                                                         // Open Graph Protocol Framework
-		'all-in-one-seo-pack/all_in_one_seo_pack.php',           // All in One SEO Pack
-		'facebook-featured-image-and-open-graph-meta-tags/fb-featured-image.php',
-		                                                         // Facebook Featured Image & OG Meta Tags
-		'add-meta-tags/add-meta-tags.php',                       // Add Meta Tags
+		'simple-facebook-connect/sfc.php',                       // Simple Facebook Connect
+		'social-discussions/social-discussions.php',             // Social Discussions
+		'social-sharing-toolkit/social_sharing_toolkit.php',     // Social Sharing Toolkit
+		'socialize/socialize.php',                               // Socialize
 		'only-tweet-like-share-and-google-1/tweet-like-plusone.php',
 		                                                         // Tweet, Like, Google +1 and Share
-		'easy-facebook-share-thumbnails/esft.php',               // Easy Facebook Share Thumbnail
-		'2-click-socialmedia-buttons/2-click-socialmedia-buttons.php',
-		                                                         // 2 Click Social Media Buttons
-		'facebook-thumb-fixer/_facebook-thumb-fixer.php',        // Facebook Thumb Fixer
-		'zoltonorg-social-plugin/zosp.php',                      // Zolton.org Social Plugin
-		'wp-caregiver/wp-caregiver.php',                         // WP Caregiver
-		'facebook-revised-open-graph-meta-tag/index.php',        // Facebook Revised Open Graph Meta Tag
-		'facebook-and-digg-thumbnail-generator/facebook-and-digg-thumbnail-generator.php',
-		                                                         // Fedmich's Facebook Open Graph Meta
-		'facebook-meta-tags/facebook-metatags.php',              // Facebook Meta Tags
+		'wordbooker/wordbooker.php',                             // Wordbooker
+		'wordpress-seo/wp-seo.php',                              // WordPress SEO by Yoast
 		'wordpress-seo-premium/wp-seo-premium.php',              // WordPress SEO Premium by Yoast
 		'wpsso/wpsso.php',                                       // WordPress Social Sharing Optimization
+		'wp-caregiver/wp-caregiver.php',                         // WP Caregiver
+		'wp-facebook-like-send-open-graph-meta/wp-facebook-like-send-open-graph-meta.php',
+		                                                         // WP Facebook Like Send & Open Graph Meta
+		'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',   // WP Facebook Open Graph protocol
+		'wp-ogp/wp-ogp.php',                                     // WP-OGP
+		'zoltonorg-social-plugin/zosp.php',                      // Zolton.org Social Plugin
 	);
 
 	/**
 	 * Plugins for which we turn off our Twitter Cards Tags implementation.
 	 */
 	private $twitter_cards_conflicting_plugins = array(
-		'twitter-cards/twitter-cards.php',           // Twitter Cards
-		'twitter-cards-meta/twitter-cards-meta.php', // Twitter Cards Meta
+		'eewee-twitter-card/index.php',              // Eewee Twitter Card
 		'ig-twitter-cards/ig-twitter-cards.php',     // IG:Twitter Cards
 		'jm-twitter-cards/jm-twitter-cards.php',     // JM Twitter Cards
-		'wp-twitter-cards/twitter_cards.php',        // WP Twitter Cards
-		'eewee-twitter-card/index.php',              // Eewee Twitter Card
 		'kevinjohn-gallagher-pure-web-brilliants-social-graph-twitter-cards-extention/kevinjohn_gallagher___social_graph_twitter_output.php',
 		                                             // Pure Web Brilliant's Social Graph Twitter Cards Extension
+		'twitter-cards/twitter-cards.php',           // Twitter Cards
+		'twitter-cards-meta/twitter-cards-meta.php', // Twitter Cards Meta
+		'wp-twitter-cards/twitter_cards.php',        // WP Twitter Cards
 	);
 
 	/**
@@ -725,12 +731,14 @@ class Jetpack {
 		}
 
 		foreach ( $modules as $module ) {
-			// If not connected and we're in dev mode, disable modules requiring a connection
-			if ( ! Jetpack::is_active() ) {
+			// If we're in dev mode, disable modules requiring a connection
+			if ( Jetpack::is_development_mode() ) {
+				// Prime the pump if we need to
 				if ( empty( $modules_data[ $module ] ) ) {
 					$modules_data[ $module ] = Jetpack::get_module( $module );
 				}
-				if ( $modules_data[ $module ]['requires_connection'] || ! Jetpack::is_development_mode() ) {
+				// If the module requires a connection, but we're in local mode, don't include it.
+				if ( $modules_data[ $module ]['requires_connection'] ) {
 					continue;
 				}
 			}
@@ -1019,7 +1027,13 @@ class Jetpack {
 
 		Jetpack::state( 'message', 'modules_activated' );
 		Jetpack::activate_default_modules( $jetpack_version, JETPACK__VERSION, $reactivate_modules );
-		wp_safe_redirect( Jetpack::admin_url( 'page=jetpack' ) );
+
+		$page = 'jetpack'; // make sure we redirect to either settings or the jetpack page
+		if( isset( $_GET['page'] ) && in_array( $_GET['page'] , array( 'jetpack', 'jetpack_modules' ) ) ) {
+			$page = $_GET['page'];
+		}
+
+		wp_safe_redirect( Jetpack::admin_url( 'page='.$page ) );
 		exit;
 	}
 
@@ -2022,7 +2036,7 @@ p {
 				'content'	=>
 					'<p><strong>' . __( 'Jetpack by WordPress.com', 'jetpack' ) . '</strong></p>' .
 					'<p>' . __( 'Jetpack supercharges your self-hosted WordPress site with the awesome cloud power of WordPress.com.', 'jetpack' ) . '</p>' .
-					'<p>' . __( 'On this page, you are able to view the modules available within Jetpack and learn more about them.', 'jetpack' ) . '</p>',
+					'<p>' . __( 'On this page, you are able to view the modules available within Jetpack, learn more about them, and activate or deactivate them as needed.', 'jetpack' ) . '</p>',
 			)
 		);
 
@@ -2114,7 +2128,7 @@ p {
 
 	function plugin_action_links( $actions ) {
 		return array_merge(
-			array( 'settings' => sprintf( '<a href="%s">%s</a>', Jetpack::admin_url(), __( 'Settings', 'jetpack' ) ) ),
+			array( 'settings' => sprintf( '<a href="%s">%s</a>', Jetpack::admin_url( 'page=jetpack_modules' ), __( 'Settings', 'jetpack' ) ) ),
 			$actions
 		);
 		return $actions;
@@ -2281,6 +2295,7 @@ p {
 			case 'register' :
 				check_admin_referer( 'jetpack-register' );
 				Jetpack::log( 'register' );
+				Jetpack::maybe_set_version_option();
 				$registered = Jetpack::try_registration();
 				if ( is_wp_error( $registered ) ) {
 					$error = $registered->get_error_code();
@@ -2803,7 +2818,7 @@ p {
 		$args     = wp_parse_args( $args, $defaults );
 		$base_url = apply_filters(
 			'jetpack_stats_base_url',
-			set_url_scheme( 'http://stats.wordpress.com/g.gif' )
+			set_url_scheme( 'http://pixel.wp.com/g.gif' )
 		);
 		$url      = add_query_arg( $args, $base_url );
 		return $url;
@@ -3552,12 +3567,12 @@ p {
 		add_action( 'pre_update_jetpack_option_register', array( 'Jetpack_Options', 'delete_option' ) );
 		$secrets = Jetpack::init()->generate_secrets();
 
-		Jetpack_Options::update_option( 'register', $secrets[0] . ':' . $secrets[1].
-		':' . $secrets[2] );
+		Jetpack_Options::update_option( 'register', $secrets[0] . ':' . $secrets[1] . ':' . $secrets[2] );
 
 		@list( $secret_1, $secret_2, $secret_eol ) = explode( ':', Jetpack_Options::get_option( 'register' ) );
-		if ( empty( $secret_1 ) || empty( $secret_2 ) || empty( $secret_eol ) || $secret_eol < time() )
+		if ( empty( $secret_1 ) || empty( $secret_2 ) || empty( $secret_eol ) || $secret_eol < time() ) {
 			return new Jetpack_Error( 'missing_secrets' );
+		}
 
 		$timeout = Jetpack::init()->get_remote_query_timeout_limit();
 
@@ -3607,8 +3622,6 @@ p {
 		else
 			$json = false;
 
-
-
 		if ( empty( $json->jetpack_secret ) || ! is_string( $json->jetpack_secret ) )
 			return new Jetpack_Error( 'jetpack_secret', '', $code );
 
@@ -3629,6 +3642,19 @@ p {
 		return true;
 	}
 
+	/**
+	 * If the db version is showing something other that what we've got now, bump it to current.
+	 *
+	 * @return bool: True if the option was incorrect and updated, false if nothing happened.
+	 */
+	public static function maybe_set_version_option() {
+		list( $version ) = explode( ':', Jetpack_Options::get_option( 'version' ) );
+		if ( JETPACK__VERSION != $version ) {
+			Jetpack_Options::update_option( 'version', JETPACK__VERSION . ':' . time() );
+			return true;
+		}
+		return false;
+	}
 
 /* Client Server API */
 
@@ -4050,7 +4076,7 @@ p {
 	// Make sure the POSTed request is handled by the same action
 	function preserve_action_in_login_form_for_json_api_authorization() {
 		echo "<input type='hidden' name='action' value='jetpack_json_api_authorization' />\n";
-		echo "<input type='hidden' name='jetpack_json_api_original_query' value='" . site_url( stripslashes( $_SERVER['REQUEST_URI'] ) ) . "' />\n";
+		echo "<input type='hidden' name='jetpack_json_api_original_query' value='" . esc_url( set_url_scheme( $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ) ) . "' />\n";
 	}
 
 	// If someone logs in to approve API access, store the Access Code in usermeta
@@ -4353,7 +4379,7 @@ p {
 	 */
 	public static function maybe_min_asset( $url, $path, $plugin ) {
 		// Short out on things trying to find actual paths.
-		if ( ! $path ) {
+		if ( ! $path || empty( $plugin ) ) {
 			return $url;
 		}
 
@@ -4421,7 +4447,7 @@ p {
 		if ( false !== strpos( current_filter(), 'jetpack_activate_module_' ) ) {
 			self::check_privacy( $module_slug );
 		}
-	 
+
 	}
 
 	/**
@@ -4439,10 +4465,10 @@ p {
 		$deprecated_list = array(
 			'jetpack_bail_on_shortcode' => 'jetpack_shortcodes_to_include',
 		);
-		
+
 		// This is a silly loop depth. Better way?
 		foreach( $deprecated_list AS $hook => $hook_alt ) {
-			if( in_array( $hook, array_keys( $wp_filter ) ) ) {
+			if( isset( $wp_filter[ $hook ] ) && is_array( $wp_filter[ $hook ] ) ) {
 				foreach( $wp_filter[$hook] AS $func => $values ) {
 					foreach( $values AS $hooked ) {
 						_deprecated_function( $hook . ' used for ' . $hooked['function'], null, $hook_alt );
