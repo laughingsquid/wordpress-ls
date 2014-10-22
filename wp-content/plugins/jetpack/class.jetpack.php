@@ -86,9 +86,6 @@ class Jetpack {
 			'Easy Contact Forms'             => 'easy-contact-forms/easy-contact-forms.php',
 			'Fast Secure Contact Form'       => 'si-contact-form/si-contact-form.php',
 		),
-		'gplus-authorship'  => array(
-			'WP SEO by Yoast'                => 'wordpress-seo/wp-seo.php',
-		),
 		'minileven'         => array(
 			'WPtouch'                        => 'wptouch/wptouch.php',
 		),
@@ -133,7 +130,7 @@ class Jetpack {
 	/**
 	 * Plugins for which we turn off our Facebook OG Tags implementation.
 	 *
-	 * Note: WordPress SEO by Yoast, WordPress SEO Premium by Yoast, All in One SEO Pack and All in One SEO Pack Pro automatically deactivate
+	 * Note: WordPress SEO by Yoast and WordPress SEO Premium by Yoast automatically deactivate
 	 * Jetpack's Open Graph tags via filter when their Social Meta modules are active.
 	 *
 	 * Plugin authors: If you'd like to prevent Jetpack's Open Graph tag generation in your plugin, you can do so via this filter:
@@ -144,6 +141,7 @@ class Jetpack {
 		                                                         // 2 Click Social Media Buttons
 		'add-link-to-facebook/add-link-to-facebook.php',         // Add Link to Facebook
 		'add-meta-tags/add-meta-tags.php',                       // Add Meta Tags
+		'all-in-one-seo-pack/all_in_one_seo_pack.php',           // All in One SEO Pack
 		'easy-facebook-share-thumbnails/esft.php',               // Easy Facebook Share Thumbnail
 		'facebook/facebook.php',                                 // Facebook (official plugin)
 		'facebook-awd/AWD_facebook.php',                         // Facebook AWD All in one
@@ -303,6 +301,13 @@ class Jetpack {
 					trigger_error( sprintf( 'Jetpack::plugin_upgrade found no user_id in user_token "%s"', $user_token ), E_USER_WARNING );
 				}
 			}
+		}
+
+		// Clean up legacy G+ Authorship data.
+		if ( get_option( 'gplus_authors' ) ) {
+			delete_option( 'gplus_authors' );
+			delete_option( 'hide_gplus' );
+			delete_metadata( 'post', 0, 'gplus_authorship_disabled', null, true );
 		}
 	}
 
@@ -619,6 +624,13 @@ class Jetpack {
 	}
 
 	/**
+	 * Whether Jetpack's version maps to a public release, or a development version.
+	 */
+	public static function is_development_version() {
+		return ! preg_match( '/^\d+(\.\d+)+$/', JETPACK__VERSION );
+	}
+
+	/**
 	 * Is a given user (or the current user if none is specified) linked to a WordPress.com user?
 	 */
 	public static function is_user_connected( $user_id = false ) {
@@ -630,18 +642,32 @@ class Jetpack {
 	}
 
 	/**
-	 * Get the wpcom email of the current connected user.
+	 * Get the wpcom email of the current|specified connected user.
 	 */
-	public static function get_connected_user_email() {
+	public static function get_connected_user_email( $user_id = null ) {
+		if ( ! $user_id ) {
+			$user_id = get_current_user_id();
+		}
 		Jetpack::load_xml_rpc_client();
 		$xml = new Jetpack_IXR_Client( array(
-			'user_id' => get_current_user_id()
+			'user_id' => $user_id,
 		) );
 		$xml->query( 'wpcom.getUserEmail' );
 		if ( ! $xml->isError() ) {
 			return $xml->getResponse();
 		}
 		return false;
+	}
+
+	/**
+	 * Get the wpcom email of the master user.
+	 */
+	public static function get_master_user_email() {
+		$master_user_id = Jetpack_Options::get_option( 'master_user' );
+		if ( $master_user_id ) {
+			return self::get_connected_user_email( $master_user_id );
+		}
+		return '';
 	}
 
 	function current_user_is_connection_owner() {
@@ -1153,8 +1179,9 @@ class Jetpack {
 	 */
 	function handle_deprecated_modules( $modules ) {
 		$deprecated_modules = array(
-			'debug' => null,  // Closed out and moved to ./class.jetpack-debugger.php
-			'wpcc'  => 'sso', // Closed out in 2.6 -- SSO provides the same functionality.
+			'debug'            => null,  // Closed out and moved to ./class.jetpack-debugger.php
+			'wpcc'             => 'sso', // Closed out in 2.6 -- SSO provides the same functionality.
+			'gplus-authorship' => null,  // Closed out in 3.2 -- Google dropped support.
 		);
 
 		// Don't activate SSO if they never completed activating WPCC.
@@ -1301,17 +1328,9 @@ class Jetpack {
 	}
 
 	public static function translate_module_tag( $untranslated_tag ) {
+		// Tags are aggregated by tools/build-module-headings-translations.php
+		// and output in modules/module-headings.php
 		return _x( $untranslated_tag, 'Module Tag', 'jetpack' );
-
-		// Calls here are to populate translation files.
-		_x( 'Photos and Videos',   'Module Tag', 'jetpack' );
-		_x( 'Social',              'Module Tag', 'jetpack' );
-		_x( 'WordPress.com Stats', 'Module Tag', 'jetpack' );
-		_x( 'Writing',             'Module Tag', 'jetpack' );
-		_x( 'Appearance',          'Module Tag', 'jetpack' );
-		_x( 'Developers',          'Module Tag', 'jetpack' );
-		_x( 'Mobile',              'Module Tag', 'jetpack' );
-		_x( 'Other',               'Module Tag', 'jetpack' );
 	}
 
 	/**
@@ -1321,7 +1340,7 @@ class Jetpack {
 		$active = Jetpack_Options::get_option( 'active_modules' );
 		if ( ! is_array( $active ) )
 			$active = array();
-		if ( is_admin() ) {
+		if ( is_admin() && ( class_exists( 'VaultPress' ) || function_exists( 'vaultpress_contact_service' ) ) ) {
 			$active[] = 'vaultpress';
 		} else {
 			$active = array_diff( $active, array( 'vaultpress' ) );
@@ -4480,8 +4499,10 @@ p {
 	 *
 	 * Attached to `style_loader_tag` filter.
 	 *
-	 * @param string $tag    The tag that would link to the external asset.
+	 * @param string $tag The tag that would link to the external asset.
 	 * @param string $handle The registered handle of the script in question.
+	 *
+	 * @return string
 	 */
 	public static function maybe_inline_style( $tag, $handle ) {
 		global $wp_styles;
@@ -4610,7 +4631,9 @@ p {
 	 *  - Domain root relative URLs `/feh.png`
 	 *
 	 * @param $css string: The raw CSS -- should be read in directly from the file.
-	 * @param $css_file_url: The URL that the file can be accessed at, for calculating paths from.
+	 * @param $css_file_url : The URL that the file can be accessed at, for calculating paths from.
+	 *
+	 * @return mixed|string
 	 */
 	public static function absolutize_css_urls( $css, $css_file_url ) {
 		$pattern = '#url\((?P<path>[^)]*)\)#i';
@@ -4722,6 +4745,11 @@ p {
 			return;
 		}
 
+		// Do not use the imploded file if SCRIPT_DEBUG is set.
+		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+			return;
+		}
+
 		/*
 		 * Now we assume Jetpack is connected and able to serve the single
 		 * file.
@@ -4737,7 +4765,6 @@ p {
 		$to_dequeue = array(
 			'jetpack-carousel',
 			'grunion.css',
-			'gplus',
 			'the-neverending-homepage',
 			'jetpack_likes',
 			'jetpack_related-posts',
@@ -4755,10 +4782,9 @@ p {
 
 		$wp_styles->remove( $to_dequeue );
 
-		if( is_rtl() ) {
-			wp_enqueue_style( 'jetpack_css', plugins_url( 'css/jetpack-rtl.css', __FILE__ ) );
-		} else {
-			wp_enqueue_style( 'jetpack_css', plugins_url( 'css/jetpack.css', __FILE__ ) );
-		}
+		$version = Jetpack::is_development_version() ? filemtime( JETPACK__PLUGIN_DIR . 'css/jetpack.css' ) : JETPACK__VERSION;
+
+		wp_enqueue_style( 'jetpack_css', plugins_url( 'css/jetpack.css', __FILE__ ), array(), $version );
+		wp_style_add_data( 'jetpack_css', 'rtl', 'replace' );
 	}
 }
