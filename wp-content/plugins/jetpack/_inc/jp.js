@@ -140,7 +140,7 @@
 
 		// create the map
 		for ( i = 0, length = modules.length; i < length; i++ ) {
-			if( modules[i].module_tags.indexOf(prop) !== -1 ) {
+			if( modules[i].feature.indexOf(prop) !== -1 ) {
 				val = modules[i].name.toLowerCase();
 				result.push( {
 					index: i,
@@ -265,8 +265,7 @@
 					});
 				});
 
-				$( '#jumpstart-success' ).html( response );
-				$( '.spinner, .jstart' ).hide();
+				$( '.spinner, .jstart, #jumpstart-cta' ).hide();
 				$( '.jumpstart-message, .miguel' ).toggle();
 
 				// Log Jump Start event in MC Stats

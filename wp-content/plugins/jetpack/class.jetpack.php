@@ -356,14 +356,28 @@ class Jetpack {
 			update_option( 'jetpack_options', $jetpack_options );
 		}
 
-		if ( Jetpack::is_active() && Jetpack::maybe_set_version_option() ) {
-			do_action( 'jetpack_sync_all_registered_options' );
+		if ( Jetpack::is_active() ) {
+			list( $version ) = explode( ':', Jetpack_Options::get_option( 'version' ) );
+			if ( JETPACK__VERSION != $version ) {
+				add_action( 'init', array( __CLASS__, 'activate_new_modules' ) );
+				do_action( 'jetpack_sync_all_registered_options' );
+			}
 		}
 
 		if ( get_option( 'jetpack_json_api_full_management' ) ) {
 			delete_option( 'jetpack_json_api_full_management' );
-			self::activate_module( 'manage', false, false );
+			self::activate_manage();
 		}
+	}
+
+	static function activate_manage( ) {
+
+		if ( did_action( 'init' ) || current_filter() == 'init' ) {
+			self::activate_module( 'manage', false, false );
+		} else if ( !  has_action( 'init' , array( __CLASS__, 'activate_manage' ) ) ) {
+			add_action( 'init', array( __CLASS__, 'activate_manage' ) );
+		}
+
 	}
 
 	/**
@@ -496,6 +510,8 @@ class Jetpack {
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 
 		add_action( 'wp_dashboard_setup', array( $this, 'wp_dashboard_setup' ) );
+		// Filter the dashboard meta box order to swap the new one in in place of the old one.
+		add_filter( 'get_user_option_meta-box-order_dashboard', array( $this, 'get_user_option_meta_box_order_dashboard' ) );
 
 		add_action( 'wp_ajax_jetpack-check-news-subscription', array( $this, 'check_news_subscription' ) );
 		add_action( 'wp_ajax_jetpack-subscribe-to-news', array( $this, 'subscribe_to_news' ) );
@@ -551,7 +567,7 @@ class Jetpack {
 	/**
 	 * The callback for the Jump Start ajax requests.
 	 */
-	public static function jetpack_jumpstart_ajax_callback() {
+	function jetpack_jumpstart_ajax_callback() {
 		// Check for nonce
 		if ( ! isset( $_REQUEST['jumpstartNonce'] ) || ! wp_verify_nonce( $_REQUEST['jumpstartNonce'], 'jetpack-jumpstart-nonce' ) )
 			wp_die( 'permissions check failed' );
@@ -565,14 +581,23 @@ class Jetpack {
 			// Loops through the requested "Jump Start" modules, and activates them.
 			// Custom 'no_message' state, so that no message will be shown on reload.
 			$modules = $_REQUEST['jumpstartModSlug'];
+			$module_slugs = array();
 			foreach( $modules as $module => $value ) {
-				Jetpack::log( 'activate', $value['module_slug'] );
-				Jetpack::activate_module( $value['module_slug'], false, false );
+				$module_slugs[] = $value['module_slug'];
+			}
+
+			// Check for possible conflicting plugins
+			$module_slugs_filtered = $this->filter_default_modules( $module_slugs );
+
+			foreach ( $module_slugs_filtered as $module_slug ) {
+				Jetpack::log( 'activate', $module_slug );
+				Jetpack::activate_module( $module_slug, false, false );
 				Jetpack::state( 'message', 'no_message' );
 			}
 
-			// Set the default sharing buttons if none have been set.
+			// Set the default sharing buttons and set to display on posts if none have been set.
 			$sharing_services = get_option( 'sharing-services' );
+			$sharing_options  = get_option( 'sharing-options' );
 			if ( empty( $sharing_services['visible'] ) ) {
 				// Default buttons to set
 				$visible = array(
@@ -581,6 +606,18 @@ class Jetpack {
 					'google-plus-1',
 				);
 				$hidden = array();
+
+				// Set some sharing settings
+				$sharing = new Sharing_Service();
+				$sharing_options['global'] = array(
+					'button_style'  => 'icon',
+					'sharing_label' => $sharing->default_sharing_label,
+					'open_links'    => 'same',
+					'show'          => array( 'post' ),
+					'custom'        => isset( $sharing_options['global']['custom'] ) ? $sharing_options['global']['custom'] : array()
+				);
+
+				update_option( 'sharing-options', $sharing_options );
 
 				// Send a success response so that we can display an error message.
 				$success = update_option( 'sharing-services', array( 'visible' => $visible, 'hidden' => $hidden ) );
@@ -1459,7 +1496,7 @@ class Jetpack {
 		return $files;
 	}
 
-	public function activate_new_modules() {
+	public static function activate_new_modules( $redirect = false ) {
 		if ( ! Jetpack::is_active() && ! Jetpack::is_development_mode() ) {
 			return;
 		}
@@ -1509,13 +1546,15 @@ class Jetpack {
 		Jetpack::state( 'message', 'modules_activated' );
 		Jetpack::activate_default_modules( $jetpack_version, JETPACK__VERSION, $reactivate_modules );
 
-		$page = 'jetpack'; // make sure we redirect to either settings or the jetpack page
-		if( isset( $_GET['page'] ) && in_array( $_GET['page'] , array( 'jetpack', 'jetpack_modules' ) ) ) {
-			$page = $_GET['page'];
-		}
+		if ( $redirect ) {
+			$page = 'jetpack'; // make sure we redirect to either settings or the jetpack page
+			if ( isset( $_GET['page'] ) && in_array( $_GET['page'], array( 'jetpack', 'jetpack_modules' ) ) ) {
+				$page = $_GET['page'];
+			}
 
-		wp_safe_redirect( Jetpack::admin_url( 'page='.$page ) );
-		exit;
+			wp_safe_redirect( Jetpack::admin_url( 'page=' . $page ) );
+			exit;
+		}
 	}
 
 	/**
@@ -1710,6 +1749,7 @@ class Jetpack {
 			'requires_connection'   => 'Requires Connection',
 			'auto_activate'         => 'Auto Activate',
 			'module_tags'           => 'Module Tags',
+			'feature'               => 'Feature',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -1719,8 +1759,9 @@ class Jetpack {
 			return false;
 		}
 
-		$mod['name']                    = translate( $mod['name'], 'jetpack' );
-		$mod['description']             = translate( $mod['description'], 'jetpack' );
+		$mod['jumpstart_desc']          = _x( $mod['jumpstart_desc'], 'Jumpstart Description', 'jetpack' );
+		$mod['name']                    = _x( $mod['name'], 'Module Name', 'jetpack' );
+		$mod['description']             = _x( $mod['description'], 'Module Description', 'jetpack' );
 		$mod['sort']                    = empty( $mod['sort'] ) ? 10 : (int) $mod['sort'];
 		$mod['recommendation_order']    = empty( $mod['recommendation_order'] ) ? 20 : (int) $mod['recommendation_order'];
 		$mod['deactivate']              = empty( $mod['deactivate'] );
@@ -1739,6 +1780,13 @@ class Jetpack {
 			$mod['module_tags'] = array_map( array( __CLASS__, 'translate_module_tag' ), $mod['module_tags'] );
 		} else {
 			$mod['module_tags'] = array( self::translate_module_tag( 'Other' ) );
+		}
+
+		if ( $mod['feature'] ) {
+			$mod['feature'] = explode( ',', $mod['feature'] );
+			$mod['feature'] = array_map( 'trim', $mod['feature'] );
+		} else {
+			$mod['feature'] = array( self::translate_module_tag( 'Other' ) );
 		}
 
 		return $mod;
@@ -2127,7 +2175,7 @@ p {
 
 		if ( ! $old_version ) { // For new sites
 			// Setting up jetpack manage
-			Jetpack::activate_module( 'manage' );
+			Jetpack::activate_manage();
 		}
 	}
 
@@ -3039,7 +3087,7 @@ p {
 		}
 
 		if ( ! $error = $error ? $error : Jetpack::state( 'error' ) ) {
-			$this->activate_new_modules();
+			self::activate_new_modules( true );
 		}
 
 		switch ( $error ) {
@@ -5662,6 +5710,36 @@ p {
 				$wp_meta_boxes['dashboard']['normal']['core'] = array_merge( $ours, $dashboard );
 			}
 		}
+	}
+
+	/**
+	 * @param mixed $result Value for the user's option
+	 * @return mixed
+	 */
+	function get_user_option_meta_box_order_dashboard( $sorted ) {
+		if ( ! is_array( $sorted ) ) {
+			return $sorted;
+		}
+
+		foreach ( $sorted as $box_context => $ids ) {
+			if ( false === strpos( $ids, 'dashboard_stats' ) ) {
+				// If the old id isn't anywhere in the ids, don't bother exploding and fail out.
+				continue;
+			}
+
+			$ids_array = explode( ',', $ids );
+			$key = array_search( 'dashboard_stats', $ids_array );
+
+			if ( false !== $key ) {
+				// If we've found that exact value in the option (and not `google_dashboard_stats` for example)
+				$ids_array[ $key ] = 'jetpack_summary_widget';
+				$sorted[ $box_context ] = implode( ',', $ids_array );
+				// We've found it, stop searching, and just return.
+				break;
+			}
+		}
+
+		return $sorted;
 	}
 
 	public static function dashboard_widget() {

@@ -8,6 +8,7 @@
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: WordPress.com Stats, Recommended
+ * Feature: Recommended
  */
 
 if ( defined( 'STATS_VERSION' ) ) {
@@ -59,10 +60,13 @@ function stats_load() {
 
 	add_action( 'jetpack_admin_menu', 'stats_admin_menu' );
 
+	// Map stats caps
+	add_filter( 'map_meta_cap', 'stats_map_meta_caps', 10, 4 );
+
 	if ( isset( $_GET['oldwidget'] ) ) {
 		// Old one.
 		add_action( 'wp_dashboard_setup', 'stats_register_dashboard_widget' );
-	} else {
+	} elseif ( current_user_can( 'view_stats' ) ) {
 		// New way.
 		add_action( 'admin_head', 'stats_dashboard_head' );
 		add_action( 'wp_dashboard_setup', 'stats_register_widget_control_callback' ); // hacky but works
@@ -71,8 +75,6 @@ function stats_load() {
 
 	add_filter( 'jetpack_xmlrpc_methods', 'stats_xmlrpc_methods' );
 
-	// Map stats caps
-	add_filter( 'map_meta_cap', 'stats_map_meta_caps', 10, 4 );
 
 	add_filter( 'pre_option_db_version', 'stats_ignore_db_version' );
 }
@@ -280,6 +282,7 @@ function stats_admin_path() {
 function stats_reports_load() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'postbox' );
+	wp_enqueue_script( 'underscore' );
 
 	add_action( 'admin_print_styles', 'stats_reports_css' );
 
@@ -1141,7 +1144,7 @@ function stats_get_csv( $table, $args = null ) {
 	$args['table'] = $table;
 	$args['blog_id'] = Jetpack_Options::get_option( 'id' );
 
-	$stats_csv_url = add_query_arg( $args, 'https://stats.wordpress.com/csv.php' );
+	$stats_csv_url = add_query_arg( $args, 'http://stats.wordpress.com/csv.php' );
 
 	$key = md5( $stats_csv_url );
 
