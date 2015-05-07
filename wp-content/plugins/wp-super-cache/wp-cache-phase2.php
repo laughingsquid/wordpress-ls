@@ -556,14 +556,14 @@ function wp_cache_get_ob(&$buffer) {
 			wp_cache_debug( "Gzipping dynamic buffer for display.", 5 );
 			wp_cache_add_to_buffer( $buffer, "Compression = gzip" );
 			$gzdata = gzencode( $buffer, 6, FORCE_GZIP );
-			$gzsize = function_exists( 'mb_strlen' ) ? mb_strlen( $gzdata, '8bit' ) : strlen( $gzdata );
+			$gzsize = defined( 'WPSC_MB_STRLEN' ) ? mb_strlen( $gzdata, '8bit' ) : strlen( $gzdata );
 		}
 	} else {
 		if ( $gz || $wp_cache_gzip_encoding ) {
 			wp_cache_debug( "Gzipping buffer.", 5 );
 			wp_cache_add_to_buffer( $buffer, "Compression = gzip" );
 			$gzdata = gzencode( $buffer, 6, FORCE_GZIP );
-			$gzsize = function_exists( 'mb_strlen' ) ? mb_strlen( $gzdata, '8bit' ) : strlen( $gzdata );
+			$gzsize = defined( 'WPSC_MB_STRLEN' ) ? mb_strlen( $gzdata, '8bit' ) : strlen( $gzdata );
 
 			$wp_cache_meta[ 'headers' ][ 'Content-Encoding' ] = 'Content-Encoding: ' . $wp_cache_gzip_encoding;
 			$wp_cache_meta[ 'headers' ][ 'Vary' ] = 'Vary: Accept-Encoding, Cookie';
@@ -1144,6 +1144,8 @@ function wp_cache_post_change( $post_id ) {
 				prune_super_cache( $dir . $cache_file, true, true ); 
 			}
 			do_action( 'gc_cache', 'prune', 'homepage' );
+		} else {
+			wp_cache_debug( "wp_cache_post_change: not deleting all pages.", 4 );
 		}
 		if( $all == true && get_option( 'show_on_front' ) == 'page' ) {
 			wp_cache_debug( "Post change: deleting page_on_front and page_for_posts pages.", 4 );
@@ -1155,6 +1157,8 @@ function wp_cache_post_change( $post_id ) {
 				prune_super_cache( $dir . $permalink . $cache_file, true, true ); 
 			}
 			do_action( 'gc_cache', 'prune', $permalink );
+		} else {
+			wp_cache_debug( "wp_cache_post_change: not deleting front static page.", 4 );
 		}
 	}
 
