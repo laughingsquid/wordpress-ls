@@ -1,6 +1,15 @@
 php_value upload_max_filesize 100M
 php_value post_max_size 100M
-php_value memory_limit 128M
+php_value memory_limit 256M
+
+# Protect wp-config.php
+<Files wp-config.php>
+order allow,deny
+deny from all
+</Files>
+
+# Disable Directory Browsing
+Options All -Indexes
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
