@@ -357,7 +357,13 @@ function wp_cache_late_loader() {
 }
 
 function wp_cache_get_cookies_values() {
-	$string = '';
+	static $string = '';
+
+	if ( $string != '' ) {
+		wp_cache_debug( "wp_cache_get_cookies_values: cached: $string" );
+		return $string;
+	}
+
 	$regex = "/^wp-postpass|^comment_author_";
 	if ( defined( 'LOGGED_IN_COOKIE' ) )
 		$regex .= "|^" . preg_quote( constant( 'LOGGED_IN_COOKIE' ) );
@@ -506,7 +512,7 @@ function wp_cache_debug( $message, $level = 1 ) {
 		return false;
 
 	// Log message: Date URI Message
-	$log_message = date('H:i:s') . " {$_SERVER['REQUEST_URI']} {$message}\n\r";
+	$log_message = date('H:i:s') . " " . getmypid() . " {$_SERVER['REQUEST_URI']} {$message}\n\r";
 	// path to the log file in the cache folder
 	$log_file = $cache_path . str_replace('/', '', str_replace('..', '', $wp_cache_debug_log));
 
@@ -535,7 +541,7 @@ function get_supercache_dir( $blog_id = 0 ) {
 	} else {
 		$home = get_blog_option( $blog_id, 'home' );
 	}
-	return apply_filters( 'wp_super_cache_supercachedir', $cache_path . 'supercache/' . trailingslashit( strtolower( preg_replace( '/:.*$/', '', str_replace( 'http://', '', str_replace( 'https://', '', $home ) ) ) ) ) );
+	return trailingslashit( apply_filters( 'wp_super_cache_supercachedir', $cache_path . 'supercache/' . trailingslashit( strtolower( preg_replace( '/:.*$/', '', str_replace( 'http://', '', str_replace( 'https://', '', $home ) ) ) ) ) ) );
 }
 function get_current_url_supercache_dir( $post_id = 0 ) {
 	global $cached_direct_pages, $cache_path, $wp_cache_request_uri, $WPSC_HTTP_HOST, $wp_cache_home_path;
