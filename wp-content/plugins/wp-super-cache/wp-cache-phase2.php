@@ -710,6 +710,10 @@ function prune_super_cache( $directory, $force = false, $rename = false ) {
 	global $cache_max_time, $cache_path, $cache_rebuild_files, $blog_cache_dir;
 	static $log = 0;
 
+	if ( false == @file_exists( $directory ) ) {
+		wp_cache_debug( "prune_super_cache: exiting as file/dir does not exist: $directory" );
+		return $log;
+	}
 	if( !isset( $cache_max_time ) )
 		$cache_max_time = 3600;
 
@@ -750,14 +754,18 @@ function prune_super_cache( $directory, $force = false, $rename = false ) {
 							wp_cache_debug( "gc: deleted $entry, older than $cache_max_time seconds", 2 );
 						}
 					}
+				} elseif ( in_array( $entry, $protected_directories ) ) {
+					wp_cache_debug( "gc: could not delete $entry as it's protected.", 2 );
 				}
 			}
 			closedir($dh);
 		}
 	} elseif( is_file($directory) && ($force || @filemtime( $directory ) + $cache_max_time <= $now ) ) {
 		$oktodelete = true;
-		if( in_array( $directory, $protected_directories ) )
+		if ( in_array( $directory, $protected_directories ) ) {
+			wp_cache_debug( "gc: could not delete $entry as it's protected.", 2 );
 			$oktodelete = false;
+		}
 		if( $oktodelete && !$rename ) {
 			wp_cache_debug( "prune_super_cache: deleted $directory", 5 );
 			@unlink( $directory );
@@ -766,7 +774,11 @@ function prune_super_cache( $directory, $force = false, $rename = false ) {
 			wp_cache_debug( "prune_super_cache: wp_cache_rebuild_or_delete( $directory )", 5 );
 			wp_cache_rebuild_or_delete( $directory );
 			$log++;
+		} else {
+			wp_cache_debug( "prune_super_cache: did not delete file: $directory" );
 		}
+	} else {
+			wp_cache_debug( "prune_super_cache: did not delete file as it wasn't a directory or file and not forced to delete new file: $directory" );
 	}
 	return $log;
 }
@@ -778,7 +790,7 @@ function wp_cache_rebuild_or_delete( $file ) {
 	if( $cache_rebuild_files && substr( $file, -14 ) != '.needs-rebuild' ) {
 		if( @rename($file, $file . '.needs-rebuild') ) {
 			@touch( $file . '.needs-rebuild' );
-			wp_cache_debug( "rebuild_or_gc: rename to {$file}.needs-rebuild", 2 );
+			wp_cache_debug( "rebuild_or_gc: rename file to {$file}.needs-rebuild", 2 );
 		} else {
 			@unlink( $file );
 			wp_cache_debug( "rebuild_or_gc: deleted $file", 2 );
@@ -1062,7 +1074,7 @@ function wp_cache_post_edit($post_id) {
 	// Some users are inexplicibly seeing this error on scheduled posts. 
 	// define this constant to disable the post status check.
 	if ( false == defined( 'WPSCFORCEUPDATE' ) && $post->post_status != 'publish' ) {
-		wp_cache_debug( "wp_cache_post_edit: draft post, not deleting any cache files.", 4 );
+		wp_cache_debug( "wp_cache_post_edit: draft post, not deleting any cache files. status: " . $post->post_status, 4 );
 		return $post_id;
 	}
 
@@ -1150,13 +1162,14 @@ function wp_cache_post_change( $post_id ) {
 	$permalink = trailingslashit( str_replace( get_option( 'siteurl' ), '', post_permalink( $post_id ) ) );
 	if( $super_cache_enabled ) {
 		$dir = get_supercache_dir();
-		$siteurl = trailingslashit( strtolower( preg_replace( '/:.*$/', '', str_replace( 'http://', '', get_option( 'home' ) ) ) ) );
+		$siteurl = trailingslashit( strtolower( preg_replace( '/:.*$/', '', str_replace( 'https://', '', str_replace( 'http://', '', get_option( 'home' ) ) ) ) ) );
 		// make sure the front page has a rebuild file
 		wp_cache_post_id_gc( $siteurl, $post_id );
 		if ( $all == true ) {
-			wp_cache_debug( "Post change: deleting cache files in " . $cache_path . 'supercache/' . $siteurl, 4 );
+			wp_cache_debug( "Post change: supercache enabled: deleting cache files in " . $cache_path . 'supercache/' . $siteurl, 4 );
 			$files_to_check = get_all_supercache_filenames( $dir );
 			foreach( $files_to_check as $cache_file ) {
+				wp_cache_debug( "Post change: deleting cache file: " . $dir . $cache_file, 4 );
 				prune_super_cache( $dir . $cache_file, true, true ); 
 			}
 			do_action( 'gc_cache', 'prune', 'homepage' );
@@ -1178,6 +1191,7 @@ function wp_cache_post_change( $post_id ) {
 		}
 	}
 
+	wp_cache_debug( "wp_cache_post_change: checking {$blog_cache_dir}meta/", 4 );
 	$matches = array();
 	if ( ($handle = @opendir( $blog_cache_dir . 'meta/' )) ) { 
 		while ( false !== ($file = readdir($handle))) {
