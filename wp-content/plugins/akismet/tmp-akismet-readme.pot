@@ -50,7 +50,7 @@ msgid "1, 2, 3: You're done!"
 msgstr ""
 
 #. Found in changelog list item.
-msgid "Notify users when their account status changes after previously being successfully set up."
+msgid "Notify users when their account status changes after previously being successfully set up. This should help any users who are seeing blank Akismet settings screens."
 msgstr ""
 
 #. Found in changelog list item.
@@ -599,6 +599,10 @@ msgstr ""
 
 #. Found in changelog list item.
 msgid "Provide additional blog information in Akismet API calls"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "<em>Release Date - 6 July 2015</em>"
 msgstr ""
 
 #. Found in changelog paragraph.
