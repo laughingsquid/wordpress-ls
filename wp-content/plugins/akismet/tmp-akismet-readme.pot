@@ -50,6 +50,18 @@ msgid "1, 2, 3: You're done!"
 msgstr ""
 
 #. Found in changelog list item.
+msgid "Fixed a bug that was preventing some users from automatically connecting using Jetpack if they didn't have a current Akismet subscription."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Error messages and instructions have been simplified to be more understandable."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Link previews are enabled for all links inside comments, not just the author's website link."
+msgstr ""
+
+#. Found in changelog list item.
 msgid "Notify users when their account status changes after previously being successfully set up. This should help any users who are seeing blank Akismet settings screens."
 msgstr ""
 
