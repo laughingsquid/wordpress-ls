@@ -346,6 +346,7 @@ class WPCOM_JSON_API_Update_Post_v1_2_Endpoint extends WPCOM_JSON_API_Update_Pos
 		}
 
 		// Set like status for the post
+		/** This filter is documented in modules/likes.php */
 		$sitewide_likes_enabled = (bool) apply_filters( 'wpl_is_enabled_sitewide', ! get_option( 'disabled_likes' ) );
 		if ( $new ) {
 			if ( $sitewide_likes_enabled ) {
@@ -481,10 +482,17 @@ class WPCOM_JSON_API_Update_Post_v1_2_Endpoint extends WPCOM_JSON_API_Update_Pos
 			}
 		}
 
-		if ( !empty( $publicize_custom_message ) )
-			update_post_meta( $post_id, $GLOBALS['publicize_ui']->publicize->POST_MESS, trim( $publicize_custom_message ) );
+		if ( ! is_null( $publicize_custom_message ) ) {
+			if ( empty( $publicize_custom_message ) ) {
+				delete_post_meta( $post_id, $GLOBALS['publicize_ui']->publicize->POST_MESS );
+			} else {
+				update_post_meta( $post_id, $GLOBALS['publicize_ui']->publicize->POST_MESS, trim( $publicize_custom_message ) );
+			}
+		}
 
-		set_post_format( $post_id, $insert['post_format'] );
+		if ( ! empty( $insert['post_format'] ) ) {
+			set_post_format( $post_id, $insert['post_format'] );
+		}
 
 		if ( isset( $featured_image ) ) {
 			parent::parse_and_set_featured_image( $post_id, $delete_featured_image, $featured_image );
@@ -564,6 +572,7 @@ class WPCOM_JSON_API_Update_Post_v1_2_Endpoint extends WPCOM_JSON_API_Update_Pos
 			}
 		}
 
+		/** This action is documented in json-endpoints/class.wpcom-json-api-update-post-endpoint.php */
 		do_action( 'rest_api_inserted_post', $post_id, $insert, $new );
 
 		$return = $this->get_post_by( 'ID', $post_id, $args['context'] );
@@ -581,6 +590,7 @@ class WPCOM_JSON_API_Update_Post_v1_2_Endpoint extends WPCOM_JSON_API_Update_Pos
 		if ( ! empty( $media_results['errors'] ) )
 			$return['media_errors'] = $media_results['errors'];
 
+		/** This action is documented in json-endpoints/class.wpcom-json-api-site-settings-endpoint.php */
 		do_action( 'wpcom_json_api_objects', 'posts' );
 
 		return $return;

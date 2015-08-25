@@ -2,7 +2,7 @@
 /**
  * Module Name: Subscriptions
  * Module Description: Allow users to subscribe to your posts and comments and receive notifications via email.
- * Jumpstart Description: give visitors two easy subscription options — while commenting, or via a separate email subscription widget you can display.
+ * Jumpstart Description: Give visitors two easy subscription options — while commenting, or via a separate email subscription widget you can display.
  * Sort Order: 9
  * Recommendation Order: 8
  * First Introduced: 1.2
@@ -43,7 +43,7 @@ function jetpack_subscriptions_configuration_load() {
 }
 
 class Jetpack_Subscriptions {
-	var $jetpack = false;
+	public $jetpack = false;
 
 	public static $hash;
 
@@ -87,6 +87,10 @@ class Jetpack_Subscriptions {
 
 		// Catch comment posts and check for subscriptions.
 		add_action( 'comment_post', array( $this, 'comment_subscribe_submit' ), 50, 2 );
+
+		// Adds post meta checkbox in the post submit metabox
+		add_action( 'post_submitbox_misc_actions', array( $this, 'subscription_post_page_metabox' ) );
+		add_action( 'save_post', array( $this, 'save_subscribe_meta' ) );
 	}
 
 	function post_is_public( $the_post ) {
@@ -112,6 +116,52 @@ class Jetpack_Subscriptions {
 				'jetpack.subscriptions.subscribe' => array( $this, 'subscribe' ),
 			)
 		);
+	}
+
+	/*
+	 * Disable Subscribe on Single Post
+	 * Register post meta
+	 */
+	function subscription_post_page_metabox() {
+		global $post;
+		$disable_subscribe_value = get_post_meta( $post->ID, '_jetpack_dont_email_post_to_subs', true );
+		// Nonce it
+		wp_nonce_field( 'disable_subscribe', 'disable_subscribe_nonce' );
+		// only show checkbox if post hasn't been published and is a 'post' post type.
+		if ( get_post_status( $post->ID ) !== 'publish' && get_post_type( $post->ID ) == 'post' ) : ?>
+			<div class="misc-pub-section">
+				<label for="_jetpack_dont_email_post_to_subs"><?php _e( 'Jetpack Subscriptions:', 'jetpack' ); ?></label><br>
+				<input type="checkbox" name="_jetpack_dont_email_post_to_subs" id="jetpack-per-post-subscribe" value="1" <?php checked( $disable_subscribe_value, 1, true ); ?> />
+				<?php _e( 'Don&#8217;t send this to subscribers', 'jetpack' ); ?>
+			</div>
+		<?php endif;
+	}
+
+	/*
+	 * Disable Subscribe on Single Post
+	 * Save the meta
+	 *
+	 * @return post object, post ID, or false if error
+	 */
+	function save_subscribe_meta(){
+		global $post;
+		if ( ! is_object( $post ) ) {
+			return false;
+		}
+		// Check nonce
+		if ( empty( $_POST['disable_subscribe_nonce'] ) || ! wp_verify_nonce( $_POST['disable_subscribe_nonce'], 'disable_subscribe' ) ) {
+			return false;
+		}
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $post->ID;
+		}
+
+		if ( isset( $_POST['_jetpack_dont_email_post_to_subs'] ) ) {
+			update_post_meta( $post->ID, '_jetpack_dont_email_post_to_subs', $_POST['_jetpack_dont_email_post_to_subs'] );
+		} else {
+			delete_post_meta( $post->ID, '_jetpack_dont_email_post_to_subs' );
+		}
+		return $post;
 	}
 
 	/**
@@ -564,12 +614,18 @@ class Jetpack_Subscriptions_Widget extends WP_Widget {
 		$widget_ops  = array( 'classname' => 'jetpack_subscription_widget', 'description' => __( 'Add an email signup form to allow people to subscribe to your blog.', 'jetpack' ) );
 		$control_ops = array( 'width' => 300 );
 
-		parent::__construct( 'blog_subscription', __( 'Blog Subscriptions (Jetpack)', 'jetpack' ), $widget_ops, $control_ops );
+		parent::__construct(
+			'blog_subscription',
+			/** This filter is documented in modules/widgets/facebook-likebox.php */
+			apply_filters( 'jetpack_widget_name', __( 'Blog Subscriptions', 'jetpack' ) ),
+			$widget_ops,
+			$control_ops
+		);
 	}
 
 	function widget( $args, $instance ) {
 		if ( ( ! defined( 'IS_WPCOM' ) || ! IS_WPCOM )
-		    && false === apply_filters( 'jetpack_auto_fill_logged_in_user', false )
+			&& false === apply_filters( 'jetpack_auto_fill_logged_in_user', false )
 		) {
 			$subscribe_email = '';
 		} else {
@@ -681,20 +737,20 @@ class Jetpack_Subscriptions_Widget extends WP_Widget {
 				}
 
 				// Make sure the email value is filled in before allowing submit
-				var form = d.getElementById('subscribe-blog-<?php echo $widget_id; ?>'), 
+				var form = d.getElementById('subscribe-blog-<?php echo $widget_id; ?>'),
 					input = d.getElementById('<?php echo esc_attr( $subscribe_field_id ) . '-' . esc_attr( $widget_id ); ?>'),
 					handler = function( event ) {
 						if ( '' === input.value ) {
 							input.focus();
-							
+
 							if ( event.preventDefault ){
 								event.preventDefault();
 							}
-							
-							return false; 
+
+							return false;
 						}
-					}; 
-			
+					};
+
 				if ( window.addEventListener ) {
 					form.addEventListener( 'submit', handler, false );
 				} else {

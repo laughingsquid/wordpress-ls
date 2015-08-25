@@ -12,12 +12,14 @@ abstract class Jetpack_JSON_API_Themes_Endpoint extends Jetpack_JSON_API_Endpoin
 
 	protected $bulk = true;
 	protected $log;
+	protected $current_theme_id;
 
 	static $_response_format = array(
 		'id'           => '(string) The theme\'s ID.',
 		'screenshot'   => '(string) A theme screenshot URL',
 		'name'         => '(string) The name of the theme.',
 		'description'  => '(string) A description of the theme.',
+		'author'       => '(string) The author of the theme.',
 		'tags'         => '(array) Tags indicating styles and features of the theme.',
 		'log'          => '(array) An array of log strings',
 		'autoupdate'   => '(bool) Whether the theme is automatically updated',
@@ -93,6 +95,7 @@ abstract class Jetpack_JSON_API_Themes_Endpoint extends Jetpack_JSON_API_Endpoin
 		$fields = array(
 			'name'        => 'Name',
 			'description' => 'Description',
+			'author'      => 'Author',
 			'tags'        => 'Tags',
 			'version'     => 'Version'
 		);
@@ -100,7 +103,8 @@ abstract class Jetpack_JSON_API_Themes_Endpoint extends Jetpack_JSON_API_Endpoin
 		$id = $theme->get_stylesheet();
 		$formatted_theme = array(
 			'id'          => $id,
-			'screenshot'  => jetpack_photon_url( $theme->get_screenshot(), array(), 'network_path' )
+			'screenshot'  => jetpack_photon_url( $theme->get_screenshot(), array(), 'network_path' ),
+			'active'      => $id === $this->current_theme_id,
 		);
 
 		foreach( $fields as $key => $field ) {
@@ -151,6 +155,8 @@ abstract class Jetpack_JSON_API_Themes_Endpoint extends Jetpack_JSON_API_Endpoin
 			$themes = array_slice( $themes, (int) $args['offset'] );
 		if ( isset( $args['limit'] ) )
 			$themes = array_slice( $themes, 0, (int) $args['limit'] );
+
+		$this->current_theme_id = wp_get_theme()->get_stylesheet();
 
 		return array_map( array( $this, 'format_theme' ), $themes );
 	}

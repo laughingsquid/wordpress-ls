@@ -42,11 +42,17 @@ class Jetpack_Autoupdate {
 			add_action( 'shutdown', array( $this, 'log_results' ) );
 		}
 
-		// Anytime WordPress saves update data, we'll want to update our Jetpack option as well.
 		if ( is_main_site() ) {
+			// Anytime WordPress saves update data, we'll want to update our Jetpack option as well.
 			add_action( 'set_site_transient_update_plugins', array( $this, 'save_update_data' ) );
 			add_action( 'set_site_transient_update_themes', array( $this, 'save_update_data' ) );
 			add_action( 'set_site_transient_update_core', array( $this, 'save_update_data' ) );
+
+			// Anytime a connection to jetpack is made, sync the update data
+			add_action( 'jetpack_site_registered', array( $this, 'save_update_data' ) );
+
+			// Anytime the Jetpack Version changes, sync the the update data
+			add_action( 'updating_jetpack_version', array( $this, 'save_update_data' ) );
 		}
 
 	}
@@ -91,21 +97,34 @@ class Jetpack_Autoupdate {
 
 	/**
 	 * Calculates available updates and saves them to a Jetpack Option
-	 * Update data is saved in the following schema:
+	 *
+	 * jetpack_updates is saved in the following schema:
 	 *
 	 * array (
-	 *      'plugins'                       => (int) number of plugin updates available
-	 *      'themes'                        => (int) number of theme updates available
-	 *      'wordpress'                     => (int) number of wordpress core updates available
-	 *      'translations'                  => (int) number of translation updates available
-	 *      'total'                         => (int) total of all available updates
-	 *      'wp_version'                    => (string) the current version of WordPress that is running
-	 *      'wp_update_version'             => (string) the latest available version of WordPress, only present if a WordPress update is needed
-	 *      'site_is_version_controlled'    => (bool) is the site under version control
+	 *      'plugins'                       => (int) Number of plugin updates available.
+	 *      'themes'                        => (int) Number of theme updates available.
+	 *      'wordpress'                     => (int) Number of WordPress core updates available.
+	 *      'translations'                  => (int) Number of translation updates available.
+	 *      'total'                         => (int) Total of all available updates.
+	 *      'wp_update_version'             => (string) The latest available version of WordPress, only present if a WordPress update is needed.
 	 * )
+	 *
+	 * jetpack_update_details is saved in the following schema:
+	 *
+	 * array (
+	 *      'update_core'       => (array) The contents of the update_core transient.
+	 *      'update_themes'     => (array) The contents of the update_themes transient.
+	 *      'update_plugins'    => (array) The contents of the update_plugins transient.
+	 * )
+	 *
 	 */
 	function save_update_data() {
-		global $wp_version;
+
+		if ( ! current_user_can( 'update_plugins' ) || ! current_user_can( 'update_core') || ! current_user_can( 'update_themes') ) {
+			// `wp_get_updated_data` will not return useful information if a user does not have the capabilities.
+			// We should should therefore bail to avoid saving incomplete data.
+			return;
+		}
 
 		$update_data = wp_get_update_data();
 
@@ -113,9 +132,6 @@ class Jetpack_Autoupdate {
 		if ( isset( $update_data['counts'] ) ) {
 			$updates = $update_data['counts'];
 		}
-
-		// Stores the current version of WordPress.
-		$updates['wp_version'] = $wp_version;
 
 		// If we need to update WordPress core, let's find the latest version number.
 		if ( ! empty( $updates['wordpress'] ) ) {
@@ -125,32 +141,15 @@ class Jetpack_Autoupdate {
 			}
 		}
 
-		$updates['site_is_version_controlled'] = (bool) $this->is_version_controlled();
 		Jetpack_Options::update_option( 'updates', $updates );
-	}
 
-	/**
-	 * Finds out if a site is using a version control system.
-	 * We'll store that information as a transient with a 24 expiration.
-	 * We only need to check once per day.
-	 *
-	 * @return string ( '1' | '0' )
-	 */
-	function is_version_controlled() {
-		$is_version_controlled = get_transient( 'jetpack_site_is_vcs' );
-
-		if ( false === $is_version_controlled ) {
-			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-			$updater = new WP_Automatic_Updater();
-			$is_version_controlled  = strval( $updater->is_vcs_checkout( $context = ABSPATH ) );
-			// transients should not be empty
-			if ( empty( $is_version_controlled ) ) {
-				$is_version_controlled = '0';
-			}
-			set_transient( 'jetpack_site_is_vcs', $is_version_controlled, DAY_IN_SECONDS );
-		}
-
-		return $is_version_controlled;
+		// Let's also store and sync more details about what updates are needed.
+		$update_details = array(
+			'update_core' => get_site_transient( 'update_core' ),
+			'update_plugins' => get_site_transient( 'update_plugins' ),
+			'update_themes' => get_site_transient( 'update_themes' ),
+		);
+		Jetpack_Options::update_option( 'update_details', $update_details );
 	}
 
 	/**
@@ -190,26 +189,38 @@ class Jetpack_Autoupdate {
 	 * @param $items 'plugin' or 'theme'
 	 */
 	function log_items( $items ) {
-		$items_updated = 0;
-		$items_failed  = 0;
-		$item_results  = $this->get_successful_updates( $items );
+		$num_items_updated = 0;
+		$num_items_failed  = 0;
+		$item_results      = $this->get_successful_updates( $items );
+		$items_failed      = array();
 
 		foreach( $this->autoupdate_expected[ $items ] as $item ) {
 			if ( in_array( $item, $item_results ) ) {
-				$items_updated++;
+				$num_items_updated++;
 				$this->log[ $items ][ $item ] = true;
 			} else {
-				$items_failed++;
+				$num_items_failed++;
 				$this->log[ $items ][ $item ] = new WP_Error( "$items-fail", $this->get_error_message( $item, $type = $items ) );
+				$items_failed[] = $item;
 			}
 		}
 
-		if ( $items_updated ) {
-			$this->jetpack->stat( "autoupdates/$items-success", $items_updated );
+		if ( $num_items_updated ) {
+			$this->jetpack->stat( "autoupdates/$items-success", $num_items_updated );
 		}
 
-		if ( $items_failed ) {
-			$this->jetpack->stat( "autoupdates/$items-fail", $items_failed );
+		if ( $num_items_failed ) {
+			// bump stats
+			$this->jetpack->stat( "autoupdates/$items-fail", $num_items_failed );
+			Jetpack::load_xml_rpc_client();
+			$xml = new Jetpack_IXR_Client( array(
+				'user_id' => get_current_user_id()
+			) );
+			$request = array(
+				'plugins' => $items_failed,
+				'blog_id' => Jetpack_Options::get_option( 'id' ),
+			);
+			$xml->query( 'jetpack.debug_autoupdate', $request );
 		}
 
 	}
