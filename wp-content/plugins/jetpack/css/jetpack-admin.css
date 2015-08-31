@@ -3298,7 +3298,8 @@ a.what-is-primary {
 }
 
 .form-toggle[type="checkbox"] {
-  display: none;
+  opacity: 0;
+  position: absolute;
 }
 
 .form-toggle__switch {
@@ -3351,12 +3352,9 @@ a.what-is-primary {
   color: #81a844;
 }
 
-.form-toggle:focus + .form-toggle__label .form-toggle__switch {
-  box-shadow: 0 0 0 2px #81a844;
-}
-
+.form-toggle:focus + .form-toggle__label .form-toggle__switch,
 .form-toggle:focus:checked + .form-toggle__label .form-toggle__switch {
-  box-shadow: 0 0 0 2px #bdd597;
+  box-shadow: 0 0 0 2px #0087be;
 }
 
 .form-toggle:checked + .form-toggle__label .form-toggle__switch {
