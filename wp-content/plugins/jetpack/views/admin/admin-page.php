@@ -146,7 +146,7 @@
 									<label class="form-toggle__label" for="active-manage">
 										<img class="module-spinner-manage" style="display: none;" width="16" height="16" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" alt="Loading ..." />
 										<label class="plugin-action__label" for="active-manage">
-											<?php ( $manage_active ) ? esc_html_e( 'Active', 'jetpack' ) : esc_html_e( 'inactive', 'jetpack' ); ?>
+											<?php ( $manage_active ) ? esc_html_e( 'Active', 'jetpack' ) : esc_html_e( 'Inactive', 'jetpack' ); ?>
 										</label>
 										<span class="form-toggle__switch"></span>
 									</label>
@@ -195,31 +195,16 @@
 				);
 			?>
 			<p><?php _e( 'Need help? The Jetpack team is here for you!', 'jetpack' ); ?></p>
-			<p><?php
-				$jetpack_support_url = sprintf(
-					'<a href="http://jetpack.me/support/" target="_blank" title="%1$s">%1$s</a>',
-					esc_attr__( 'View our support page', 'jetpack' )
-				);
-
-				$jetpack_forum_url = sprintf(
-					'<a href="https://wordpress.org/support/plugin/jetpack" target="_blank" title="%1$s">%1$s</a>',
-					esc_attr__( 'check the forums for answers', 'jetpack' )
-				);
-
-				$jetpack_contact_url = sprintf(
-					'<a href="http://jetpack.me/contact-support/" target="_blank" title="%1$s">%1$s</a>',
-					esc_attr__( 'contact us directly', 'jetpack' )
-				);
-
+			<p><?php _e( 'We offer free, full support to all of our Jetpack users. Our support team is always around to help you.' );
+				echo ' ';
 				printf(
-					_x(
-						'We offer free, full support to all of our Jetpack users. Our support team is always around to help you. %1$s, %2$s, or %3$s',
-						'1: View our support page; 2: check the forums for answers, 3: contact us directly',
+					__(
+						'<a href="%1$s" target="_blank">View our support page</a>, <a href="%2$s" target="_blank">check the forums for answers</a>, or <a href="%3$s" target="_blank">contact us directly</a>',
 						'jetpack'
 					),
-					$jetpack_support_url,
-					$jetpack_forum_url,
-					$jetpack_contact_url
+					'http://jetpack.me/support/',
+					'https://wordpress.org/support/plugin/jetpack',
+					'http://jetpack.me/contact-support/'
 				);
 			?></p>
 			</div>
