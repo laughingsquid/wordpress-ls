@@ -1,22 +1,10 @@
-#1441044226
-cd wordpress-ls/
-#1441044229
-./wpup.sh 
-#1441226851
-cd Laughing\ Squid/wordpress-ls/
-#1441226853
-./wpup.sh 
-#1441726434
-cd wordpress-ls/
-#1441726436
-./wpup.sh 
-#1441820594
-cd Laughing\ Squid/wordpress-ls/
-#1441820596
-./wpup.sh 
-#1442244857
-cd wordpress-ls/
-#1442244859
-./wpup.sh 
-#1442244920
+#1442244954
+rm _z
+#1442244967
+ls
+#1442244969
+cat _z
+#1442245064
+mate .gitignore 
+#1442245073
 git add .
