@@ -1,0 +1,4446 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "Jetpack by WordPress.com"
+msgstr ""
+
+#. Short description.
+msgid "Your WordPress, Streamlined."
+msgstr ""
+
+#. Screenshot description.
+msgid "Stats chart."
+msgstr ""
+
+#. Screenshot description.
+msgid "Sharing buttons."
+msgstr ""
+
+#. Screenshot description.
+msgid "Subscriptions widget."
+msgstr ""
+
+#. Screenshot description.
+msgid "Gravatar Hovercards settings."
+msgstr ""
+
+#. Screenshot description.
+msgid "Spelling and Grammar demo."
+msgstr ""
+
+#. Screenshot description.
+msgid "Gallery Carousel."
+msgstr ""
+
+#. Screenshot description.
+msgid "CSS Editor"
+msgstr ""
+
+#. Screenshot description.
+msgid "Mobile Theme"
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Customization.</strong> Make your WordPress site uniquely yours with <em>Custom CSS</em>, <em>Carousels</em>, spam-free <em>Contact Forms</em>, <em>Sidebar Widgets</em>, <em>Infinite Scroll</em>, and <em>Tiled Galleries</em>."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Mobile theme.</strong> Instant and customizable lightweight responsive theme designed for phones and tablets."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Content tools.</strong> Create and publish richer content with <em>Post by Email</em>, <em>Shortcode Embeds</em>, <em>Markdown</em>, <em>Beautiful Math</em>, <em>Spelling</em>, and <em>VideoPress</em>."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Visitor engagement.</strong> Increase your traffic and keep visitors coming back with <em>Enhanced Distribution</em>, spam-free <em>Comments</em>, <em>Shortlinks</em>, <em>Likes</em>, <em>Notifications</em>, <em>Related Posts</em>, <em>Publicize</em>, <em>Social Sharing</em>, <em>Subscriptions</em>, and <em>Site Verification Tools</em>."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Site performance.</strong> Speed up image delivery with the <em>Photon CDN</em> and access to visitor <em>Stats</em>."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Security.</strong> Keep your WordPress site up, safe, and protected with <em>Single Sign On</em>, <em>Jetpack Monitor</em>, and <em>Akismet</em> anti-spam."
+msgstr ""
+
+#. Found in description list item.
+msgid "Simple, concise stats with no additional load on your server."
+msgstr ""
+
+#. Found in description list item.
+msgid "Email subscriptions for your blog's posts and your post's comments."
+msgstr ""
+
+#. Found in description list item.
+msgid "Social networking enabled comment system."
+msgstr ""
+
+#. Found in description list item.
+msgid "Likes, allowing your readers to show their appreciation of your posts."
+msgstr ""
+
+#. Found in description list item.
+msgid "Monitor and manage your site's activity with Notifications."
+msgstr ""
+
+#. Found in description list item.
+msgid "Simple, Akismet-backed contact forms."
+msgstr ""
+
+#. Found in description list item.
+msgid "The WP.me URL shortener."
+msgstr ""
+
+#. Found in description list item.
+msgid "Hovercard popups for your commenters via Gravatar."
+msgstr ""
+
+#. Found in description list item.
+msgid "Easily embedded media from popular sites like YouTube, Digg, and Vimeo."
+msgstr ""
+
+#. Found in description list item.
+msgid "The ability to post to your blog from any email client."
+msgstr ""
+
+#. Found in description list item.
+msgid "Integration with social networks including Twitter, Facebook, Tumblr, Path, and LinkedIn."
+msgstr ""
+
+#. Found in description list item.
+msgid "For the Math geeks, a simple way to include beautiful mathematical expressions."
+msgstr ""
+
+#. Found in description list item.
+msgid "A widget for displaying recent tweets."
+msgstr ""
+
+#. Found in description list item.
+msgid "Your readers can easily share your posts via email or their favorite social networks."
+msgstr ""
+
+#. Found in description list item.
+msgid "Improved writing thanks to an AI-based spell, style, and grammar checker."
+msgstr ""
+
+#. Found in description list item.
+msgid "Turn WordPress  galleries into a gorgeous full-screen photo browsing experience."
+msgstr ""
+
+#. Found in description list item.
+msgid "A CSS editor that lets you customize your site design without modifying your theme."
+msgstr ""
+
+#. Found in description list item.
+msgid "A mobile theme that automatically streamlines your site for visitors on mobile devices."
+msgstr ""
+
+#. Found in description list item.
+msgid "Mobile push notifications for new comments via WordPress mobile apps."
+msgstr ""
+
+#. Found in description list item.
+msgid "Allowing applications to securely authenticate and access your site with your permission."
+msgstr ""
+
+#. Found in description list item.
+msgid "Creative formats for your image galleries: mosaic, circles, squares, and a slideshow view."
+msgstr ""
+
+#. Found in description list item.
+msgid "Add post sliders and other highlights to your theme with Featured Content."
+msgstr ""
+
+#. Found in description list item.
+msgid "Omnisearch: Search posts, pages, comments, media, and plugins from one search box."
+msgstr ""
+
+#. Found in description list item.
+msgid "Configure widgets to appear only on certain pages."
+msgstr ""
+
+#. Found in description list item.
+msgid "Upload and insert videos into your posts thanks to VideoPress."
+msgstr ""
+
+#. Found in description list item.
+msgid "Link WordPress and your Google+ Profile to add multiple Google features to your site."
+msgstr ""
+
+#. Found in description list item.
+msgid "Sign in to your self-hosted WordPress site using your WordPress.com account."
+msgstr ""
+
+#. Found in description list item.
+msgid "Receive alerts the moment that site downtime is detected."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<a href=\"http://jetpack.me/\">Jetpack</a> adds powerful features previously only available to WordPress.com users including customization, traffic, mobile, content, and performance tools."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Features include:</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<strong>Our users love:</strong>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Install Jetpack either via the WordPress.org plugin directory, or by uploading the files to your server."
+msgstr ""
+
+#. Found in installation list item.
+msgid "After activating Jetpack, connect to WordPress.com to enable the Jetpack features."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Click the Connect button and log in to a WordPress.com account to authorize the Jetpack connection."
+msgstr ""
+
+#. Found in installation list item.
+msgid "If you don't yet have a WordPress.com account, you can quickly create one after clicking the Connect button."
+msgstr ""
+
+#. Found in installation list item.
+msgid "That's it.  You're ready to go!"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "If you need additional help <a href=\"http://jetpack.me/support/installing-jetpack/\">read our detailed instructions, including a video walkthrough</a>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New admin page interface to easily configure Jetpack"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added staging site support for testing a connected Jetpack site"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: CLI: Added a possibility to change all options with confirmation for some of them"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Gallery: Added filters to allow new gallery types to be declared"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Added inline documentation for actions, filters, etc."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Changed class variable declarations keyword from var to public"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Made the Settings page module toggle buttons more accessible"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: The admin bar now loads new notifications popout"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Renamed some modules to avoid redundant prefixes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Switched to the WordPress Core's spinner image"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Updated the bot list"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Manage: Added the ability to activate a network-wide plugin on a single site from WordPress.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Added a way to check image URLs against custom domains"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Added prompts on the media upload page telling the user about Photon"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Publicize: Added width and height values to OpenGraph tags for default images"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Related Posts: Added a filter to allow disabling nofollow"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: REST API: Added new API endpoints to extend API functionality"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: REST API: Added new fields to existing API endpoints"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Added a possibility to opt-out of sharing for a single post"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Added bbPress support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Added more configuration to the Likes modal"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Made the reddit button open a new tab"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Removed unused files"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Added auto embed option inside comments"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Added autohide parameter to the YouTube shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscriptions: added an action that triggers at the end of the subscription process"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: VideoPress: Videos are now embedded using a new player"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widget Visibility: Added parent page logic"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widget Visibility: Added support for split terms"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Added actions to the Social Media widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Switched the Display Posts widget to the new API version"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fixed scrolling to top after modal window closing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Added a check for cases when output buffering is disabled"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Added translation to the copyright message"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Manage: Fixed automatic update synchronization on WordPress multisite network admin"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Manage: Redirects back to WordPress.com are allowed from the customizer view"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Media: Fixed duplicate images bug in the Media Extractor"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Made it possible to remove previously set message"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Added a thumbnail image to OpenGraph tags on pages with DailyMotion embeds"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fixed Twitter Cards tags escaping"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Made OpenGraph tags for title and description use proper punctuation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Made sure Likes can be disabled on the front page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Fixed Facebook embeds by placing the scipt in the footer"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Fixed PollDaddy shortcode issues over SSL connections"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Made responsive video wrappers only wrap video embeds"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Made SoundCloud accept percents for dimensions"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Social Links: Fixed a possible conflict with another class"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Made sure the Stats URL is always escaped properly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Fully compatible with upcoming WordPress 4.3"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Site Icon: Start to deprecate Site Icon in favor of Core's version (if available)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: You can now use more than one Subscription form on a single page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Quieted PHP notices and warnings with the JSON API, Display Posts Widget and Gallery Widget (slideshow mode)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correct permissions check for connection panel"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Hardening: Increase permissions checks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "CLI: Add a number of Jetpack CLI improvements: see http://jetpack.me/support/jetpack-cli"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New Jetpack admin page for connection management"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New Social Media Icons widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "FB Like Box: A visual refresh of the Facebook likebox widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Protect: When your IP is blocked, use a math captcha as a fallback instead of a complete block"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Add more Flexbox support and other enhancements"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Extra Sidebar Widgets: Top Posts Widget: Choose what Post Types to display"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Save on some requests! print CSS inline when there isn't much of it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Likes can now be shown on all post types"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Minileven: Add Featured Image to Gallery Post Format and Pages"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Theme: Add div wrapping View Mobile Site link to allow for easier CSS customizations"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Omnisearch: Link to edit post in titles"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Protect: Learn Trusted Headers locally and cache blocks properly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: REST API: Add locale support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Retire StumbleUpon"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Upgrade to reCAPTCHA 2.0 for Email Sharing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode Embeds: Add Mesh oembed support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode Embeds: New Wufoo Shortcode from WordPress.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode Embeds: Mixcloud: handle accented characters in URLs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Site Logo: Adding itemprops to support logo schema."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Slideshow Gallery: New parameters <em>size</em> and <em>autostart</em>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Slideshow Gallery: Use more reliable CSS for resizing instead of js"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: No longer track stats for preview pages"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Gallery: Improve the shapes and distributions of shapes in the Tiled Gallery, based on observations for its usage."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Protect: Whitelist for multisite globally and locally"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: LinkedIn always uses https for share counts. (saved extra http request)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Jetpack Carousel now supports HTML5 gallery"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Extra Sidebar Widgets: Choose Images button works in accessibility mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fix: Cannot remove hooks from filter 'jetpack_get_available_modules'"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Check that search terms exist before matching against post title. fixes #2075"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Never double show on search results"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications: Notifications didn't load on wp-admin/network pages"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fix Facebook share button not showing for Australian &amp; Canadian locale"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcode Embed: Slideshare Shortcode now fixed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: SSO: Hide login no matter what when using the filter to do so"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subs Widget: Don't hide email input if submit failed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Gallery: Show columns setting for Thumbnail Grid when Tiled Mosaic galleries are the default"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Cards: Remove deprecated card types"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Security Hardening: Remove Genericons example.html file."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Changes Facebook share count endpoint"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Changes Facebook share count method per Facebook API change"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Remove .po files to reduce plugin size"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Remove identity crisis notification"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Correct required input validation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Security hardening"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Change security reporting to use a transient instead of option to reduce backup load"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Improve module search"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Allow users to manage menus through WordPress.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Reduce spam through email sharing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Improve recall of CSS revisions"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Extra Sidebar Widgets: Change class name for Contact Info widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Extra Sidebar Widgets: Fix errors when adding widgets via the customizer"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Extra Sidebar Widgets: Fix PHP notices in RSS widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fix redirect loop on activation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Styling fixes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Protect: Add IP translation fallback when inet_pton is not available"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Protect: Always allow login from local IDs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Protect: Sanitize displayed IP after block"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Prevent generating Facebook profile links for app-scoped user IDs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Improve error handling"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Theme Tools: Include breadcrumb code"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Misc: Extra Sidebar Widgets: Remove Readmill Widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Security hardening."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact info widget namespacing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Javascript errors on wp-admin due to stats display code"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Potential fatal error from improperly called function"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Potential fatal error when protect servers are unreachable for WordPress Multisite"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Modules not displaying properly in non-English installs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Manage: Some installs showing a transient fatal error"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Protect: Protect module not auto-activating for users who upgrade"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Omnisearch: Some installs not properly reporting WP version number, causing Omnisearch error"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Top posts/pages widget not loading"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Info Widget: Fix conflict with Avada theme"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Config Settings: provide a notification for users that update features settings"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Contact Form: Use the predefined $title variable in the anchor tag in grunion contact form button"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Contact Form: Use the predefined $title variable in the anchor tag in the button on admin"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: Add all Custom Post Types to Omnisearch"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: Add option to add Testimonial Custom Content Type in admin"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: bring consistency between the portfolio and testimonial shared codebase"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: code cleanup"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: register namespaced 'jetpack_portfolio' shortcode/use a prefix for shortcode for Portfolio"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: set shortcode image size to 'large' and add jetpack_portfolio_thumbnail_size filter to allow themes to set their own size for Portfolio"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Custom Content Type: testimonial shortcode enhancement"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Extra Sidebar Widgets: Add subscription widget wildcard"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Extra Sidebar Widgets: Likes and Sharing Shortcodes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Extra Sidebar Widgets: Minor fixes to Facebook widget plugin for SSL"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Fix/update jetpack version"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : General: Add DNS Prefetching"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : General: Add Jetpack admin dashboard widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : GlotPress: Update GP_Locales and GP_Locale classes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Improved control over Nova Theme Menu output markup"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Infinite Scroll: Adds a <code>button</code> wrapper for the infinity handle."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Infinite Scroll: Check for response.html before using indexOf"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Integrate BruteProtect for protection against Brute Force attacks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : JSON API Manage: Added Mock Jetpack Option to Sync options that don't have to live in the Database"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : JSON API: Add/empty trash days option to sync"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Jump Start: Add \"Jump Start\" interface for new users"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Manage: Add \"modified_before\" and \"modified_after\" parameters to /sites/%s/posts/ via JSON API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Mobile Theme: Add filter for choosing mobile theme menu"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Notifications: Changes to load the new notifications client."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Protect: Add a filter so that user can add thier own bots"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Protect: Add security reporting"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Protect: Add/whitelist endpoints via JSON API for Jetpack Protect"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Publicize: update connection confirmation message"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Sharing: Add custom service name as a class"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Sharing: display name of custom service in link title"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Sharing: Remove default post types for showing share links"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Sharing: use Jetpack version number when enqueing sharing.js"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Shortcodes Team Partnerships: Backport fixes from SoundCloud 2.3.1 through 3.0.2"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Shortlinks: use HTTPS when possible"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Stats: Make loading of stats async"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Subscriptions: Added settings field for comment sub text"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Subscriptions: Hide Form After Submit"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Subscriptions: remove label from widget title"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement : Subscriptions: Update subscriptions.php"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Contact form: Increase CSS specificity for Contact Forms in widgets"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Custom Content Type: Testimonial Custom Content Type: use core <code>WP_Customize_Image_Control</code> instead of custom..."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Extra Sidebar Widgets: add missing &amp; to if statement for widget visibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Extra Sidebar Widgets: Don't require height/width values in the Twitter Timeline widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Extra Sidebar Widgets: Upload images from the customizer/Extra Sidebar Widgets Tiled Galleries for Gallery Widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : General: Fix bug that was preventing modules from displaying properly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Manage: When calling /sites/%s/posts/ include all attachments not just the first five via JSON API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Mobile Theme: Minileven; Start after DOM ready"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Sharing: Open sharing in same window"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Stats language"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix : Subscritpions: fix invalid field when no email address"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Updated translation files."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Heartbeat: Correctly stat new datasets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widget Visibility: Correct some caching of visibility results that may get evaluated too soon."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Hardening."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Make sure our gallery filter can parse array inputs as well as the default html."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Minor versioning data."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Markdown: Re-run KSES after processing to account for syntax changes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Media Extractor: Don't call a gallery a gallery if it hasn't got any pictures!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Module Management: Handle a core api change for folks running trunk."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Related Posts: CSS -- better clear rows."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Including sharing account on Pinterest unofficial buttons as well."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Properly version external assets by Jetpack release version."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Soundcloud: Backport API compatibility fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Flickr: Tidy up our regex url pattern matching."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Don't add 'Email Address' as the value -- we have placeholders!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gallery Widget: Allow folks to upload images from the widget area in the customizer."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Adds responsive video support to BuddyPress."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom Content Types: Added 'order' and 'orderby' options to portfolio shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Display notice when Jetpack Development Mode is on."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Update compatibility with Twenty Fifteen."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Image URL can now be overwritten with the <code>jetpack_images_fit_image_url_override</code> filter after dimensions are set by Photon."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Add Endpoint for trigger Plugin Autoupdates."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: General Improvements. Documentation on http://developer.wordpress.com/"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Updated the code to accept arbitrary CPTs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Related Posts: Allow filter by <code>post_format</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: add new <code>jetpack_sharing_counts</code> filter for option to turn off sharing counts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Use the Site Logo Theme Tool and the Site Icon as fallbacks for image tags."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Made the code more readable by using output buffers instead of string concatenation."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Site Logo: Add alias functions to provide backward compatibility for themes expecting the old function calls."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Slideshow: Add title and alt text to images."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscription Form: Do not display the logged in user's email address by default."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Top Posts Widget: Refactor to allow conditional loading of the css."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Top Posts: Add <code>jetpack_top_posts_widget_count</code> filter to control number of displayed posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Change subscribe_text from <code>p</code> to <code>div</code> so that it can contain block-level elements."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fonts: Change path to look for the svg in the right directory."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Increase CSS specificity for Contact Forms in widgets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Plugins Update: Make sure the plugin doesn't get deactivated."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Fixes issues where likes don't load, load master iframe after scripts are loaded."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notes Module: Avoid a PHP Notice in cli scripts when the request doesn't contain a User-Agent header."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Nova Menu CPT: fix notice when we have no taxonomies."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Nova Menus: Use current instance to maintain object context."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Related Posts: Add filter for <code>_enabled_for_request()</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Prevent duplicate @ in shared Tweets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Site Logo: <code>get_site_logo()</code> now properly returns the site logo ID when provided in the <code>$show</code> argument."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Site Logo: Correct evaluation of the Display Header Text in Customizer preview."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: More object vars passed back to some queries. Documentation on http://developer.wordpress.com/"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Pass back correct author in <code>me/posts</code> data."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Don't check if a post is freshly pressed on remote Jetpack sites where the function doesn't exist."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Site Logo: Add backward-compatible template tags to match the standalone release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Don't use <strong>DIR</strong> -- it's 5.3+ only, and WordPress supports back to 5.2."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Retool how we remove the source styles when using the concatenated version."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: TED: Correct default language code from <code>eng</code> to <code>en</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Gallery Widget: Add a default background color."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscription Notifications: Remove the label."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: enqueue Genericons on static front page as well if selected."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Speed Improvements (woohoo!)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add site icons: an avatar for your blog."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improvements to API endpoints."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add oEmbed sources (Twitter, SoundCloud, Instagram, DailyMotion, Vine)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add indicators to make it easier to see which modules are active."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improve debug tool."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add new 'Site Logos' code to theme tools, for themes that opt in to support it."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improved caching for related posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added \"Remember Me\" functionality to Single Sign On."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improved accessibility."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added additional filters to Widget Visibility."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed PHP Notice errors for Likes, Widget Visibility."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Improvements to the testimonials CPT."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Improved RTL on VideoPress admin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Removed Google+ Authorship module (discontinued by Google)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed use of deprecated function in mobile theme."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various fixes to Tiled Galleries."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various fixes to Contact Form."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various fixes to oEmbed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various fixes to Single Sign On."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed styles in ShareDaddy."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Better match protocols (http/https) to the site."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Update translation files for strings that had been submitted/approved since release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Social Links: Add a function check to better degrade if Publicize isn't around."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Add WordPress SEO back to the blacklist, until they update how they opt us out."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Asset Minification: Add another caveat ( empty $plugin ) to short out on."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Deprecated Hooks: Fixing our expectations where something that should be an array occasionally wasn't."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Add extra whitelist rule for -o-keyframe rules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New Custom Content Types module."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New Jetpack Logo."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New optional JSON API endpoints for viewing updates and managing plugins and themes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New Custom Post Type: Portfolio!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Rearranged buttons on the modules modals for easier management."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Jetpack Settings have improved keyboard accessibility."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improved RTL support for After the Deadline, Carousel, Contact Form, Comics CPT, Custom CSS, Omnisearch, Publicize, Related Posts, Slideshow short code, Tiled Gallery, Widget-Visibility and Widgets Gallery."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: Add an \"Empty Spam\" option."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: i18n: Change the priority of where plugin_textdomain is hooked so that the plugins can better translate Jetpack."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Monitor: Displays how often the site is checked for downtime."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Added Mixcloud shortcode and oEmbed support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Social Links: Improved handling of customizer hooks in non-admin context."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: The smiley image is gone by default."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: Added link to the configure page for stats so that the stats settings page is easier to find."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Theme Tools: Added the responsive videos to theme tools so that themes can support responsive videos more easily."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update: Updated Genericons to version 3.1, new icons for website, ellipsis, foursquare, x-post, sitemap, hierarchy and paintbrush."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Prefix function to avoid conflicts with other plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Admin UI has a responsive layout."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Custom $content_width value doesn't overwrite theme's $content_width."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Feedback link takes you to the form page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Confirms an avatar is returned by get_avatar before displaying."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: Don't remove setting validation."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Google Universal Analytics support added."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Multisite: Add message when updating multisite settings."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Photon will no longer upscale images larger than the original size."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Check that the image exists before rewriting the image URL to utilize Photon."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Pinterest adds attribute to display share count."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Respect an empty sharing title."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Share buttons now appear in the bbPress forms."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Support for multiple meta html tag og:image values."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Single Sign On: Logout allows override of forcing Single Sign On."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Single Sign On: Remove the lost password link on auto-forward logout."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Social Links: Do not use anonymous function for compatibility with PHP 5.2."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries: Update jQuery mouseover caption effect to reduce flickering."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets Visibility: Works better in the customizer admin view."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Make module categories filter more visible when active."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Updated translation files with more strings added since the last release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: General: Allow deep-linking to the Contact Support form."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: RTL Jetpack Admin UI looks better."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fixed PHP warning when bulk deactivating modules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Removed an unnecessary description."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Resolved an SSL error on Jetpack Admin UI."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fix error comparing signatures when the WordPress installation is using site_url filters (applied mostly to WPEngine sites)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Resolved PHP strict error on the mobile menu."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Fix timing of conditional checks, so that calling developer mode via a plugin works again."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: General: Main page categories tab now properly translates module names."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Related Posts: Fix a typo, the \"more info\" link now works."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Improve button styling."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Remove unused UI for Reblog settings on social settings page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Updated to no longer use a deprecated Akismet function."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Sends email to the administrator that is not marked as spam again."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Resolved PHP warning on open graph gallery pages when the gallery is empty."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: AtD: A wpcom-only function got synced by mistake and caused a few errors. Fixed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Post By Email: Add static keyword to a function."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: ShareDaddy: In the admin-side configuration of sharing links, we used a Path icon instead of Pinterest. Oops!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: ShareDaddy: We inadvertently appended <code>via @jetpack</code> to some twitter shares. This is no longer the case."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Related Posts: Tidying up and relocation of the <code>resync</code> button formerly on the more info modal."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Work better with core's MediaElement.js"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Heartbeat: Undeclared variable fixed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New User Interface for managing modules and settings"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New Module: Verfication Tools"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New look for the Sharing module"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Multiple improvements on which Twitter handle a Twitter card will display"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add option to hide Google+ Authorship banner while still receiving the benefits"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Many Infinite Scroll enhancements to improve performance"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll will use your CPT's display name instead of \"Older Posts\""
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API added /media/new endpoint"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added filter to assign new default image for Open Graph tags"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New [jetpack-related-posts] shortcode to add Related Posts to page instead of default placement"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added SSO option to turn off login form completely, to use WordPress.com login exclusively"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: The [googlemaps] shortcode allows for Google Maps Engine"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: YouTube shortcode allows HD playback"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Smoother, Faster Tiled Galleries!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New languages! Use Jetpack in Irish, Fulah, and Tigrinya"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Use your browser's Back and Forward buttons when naviagating a Carousel"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various Related Posts fixes and improvements for added flexibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: WordPress 3.9: Restores ability to edit Contact Forms"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: WordPress 3.9: Restores Gallery Widget compatability"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Ensure Markdown is kept when Bulk Editing posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Improved Jetpack's Multisite Network Admin page for networks with a large number of sites"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Ensure Sharing settings persist when Bulk Editing a post"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various other shortcode improvements"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Important security update. CVE-2014-0173"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: When publishing from a mobile app or third-party client, Publicize now works again."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: After the Deadline: Fix a Javascript glitch that could prevent publishing of posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: SSO: Disable the implementation of an option that had been removed before release.  This would have only been an issue if a site administrator had enabled the module during an early beta of 2.9."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added Multisite network functionality"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New Module: Related Posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Single Sign On"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mixcloud shortcode and oEmbed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Gist shortcode and oEmbed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Modify Facebook Like Box widget to support new Facebook parameters"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Rolled the Push Notifications module into the Notes module"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Update kses with Markdown"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Adding keyboard accessibility to sharing buttons config page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Pull WordPress testing bits from the new official git mirror at WordPress.org"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widget Visibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Revisions box in Custom CSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix several bugs in the WordPress Posts Widget so that it correctly updates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Limit Login Attempts no longer generates false positives from xmlrpc."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Clear max_posts transient on theme switch."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Lower priority of sync to allow all CPTs to be registered."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "<p>Bug Fix: Contact form fields emailed in correct order.</p>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "<p>Other bugfixes and enhancements at https://github.com/Automattic/jetpack/commits/2.9</p>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New Module: Markdown"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Module Update: Jetpack Monitor"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: Keep track of $current_day between requests so the_date() works well."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Embeds: New filter to turn off embeds in comments."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: Add placeholder support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widget: Gravatar Profile: Added filters to allow users to customize headings and fixed output of personal links."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Facebook OG Tags: Add <code>published_time</code>, <code>modified_time</code>, and <code>author</code> if the post type supports it."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Display buttons on CPT archive pages."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Add <code>get_share_title</code> function and filter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Add filter <code>sharing_display_link</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Twitter Timeline: Flesh out tweet limit option."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Social Links: Add Google+ to the list of supported services."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: Improve dashboard styles in 3.8."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: No longer use Quantcast."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Top Posts: Add <code>jetpack_top_posts_days</code> filter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: AtD: Add TinyMCE 4 compatibility for its pending arrival in WordPress 3.9"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Genericons: Update to v3.0.3"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Galleries: Add alt attributes to images."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: YouTube: Accept protocol-relative URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Slideshow: Add white background option."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: YouTube: Add support for the two closed-caption arguments."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Vimeo: Update the regex to support the new embed code."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Google Maps: Update the regex to handle new format for embeds."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Avoid a PHP Notice when $_POST['post_type'] is not set in meta_box_save."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Smush images to save on file size."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Publicize: Enable opt-in publicizing of custom post types."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Random Redirect: Further namespace to avoid conflicts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Timeline: Resolve undefined index notice."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: Add extra class_exists() check to be extra careful."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Facebook OG Tags: Change OG type of Home and Front Page to 'website'"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widget Visibility: Add support for old-style single use widgets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Google Authorship: Support apostrophe in author names."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Media Extractor: Assorted graceful failure caveats."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: 'Link to None' bug fixed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Embeds: Bandcamp: Switch escaping function for album and track IDs to handle (int)s greater than PHP_INT_MAX"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Some plugins trying to catch brute-force attacks mistakenly flagged the Jetpack connection as one."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Google+ Publicize"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Cloudup as an oEmbed provider"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscriptions: Add subscribe_field_id filter to allow updated ids when using multiple widgets"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: TwentyFourteen Support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Fix warning when form is called outside the loop"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: Moving Settings to Customizer, provide option to set default tag as fallback, specify all supported post-types rather than just additional ones. Description Updates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: Compat with 'additional_post_types' theme support argument. Comment updates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: Make sure $term is an object before we treat it as one"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: GlotPress: Merge with latest GlotPress"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: prevent Undefined index notice that can cause IS to fail when user has WP_DEBUG set to true"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Improved compatibility with Carousel, Tiled Galleries, VideoPress, and the <code>[audio]</code> and <code>[video]</code> shortcodes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Stop manually including version.php and trust the global. Some whitespace fixes, and if it's an attachment, follow the post_status of the parent post"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Display password field for Gallery format protected posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Add new translation width for share button, and Google Plus icons"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Support Ineternational Google domains for maps"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Facebook Embeds: Register alternate permalink.php URL for posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Moved inline styles from widget email input to separate css file"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Theme Tools: Fix glitch where random-redirect.php also showed as a plugin being deleted if you were deleting Jetpack"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Misc: Internationalization &amp; RTL updates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Misc: Prevent collisions with 'Facebook Featured Image &amp; OG Meta Tags' plugin"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: minor styling fix in pre- and post-MP6/3.8 UI changes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: spinner gif url fix when the user is viewing it over https."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Switch to esc_html from htmlspecialchars in error message -- better to be native"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Media Extractor: some hosts don't compile unicode for preg_match_all, so we temporarily removed the block that depended on it."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Media Extractor: Add in some error handling for malformed URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Cards: treat single-image galleries as a photo-type."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Update conflicting plugins for OG tags and Twitter Cards."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correct max supported version number -- had been 3.6, update to 3.7.1"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: WPCC / now called <a href=\"http://jetpack.me/support/sso/\">SSO</a>: refactored."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Monitor: new module which will notify you if your site goes down(http://jetpack.me/support/monitor/)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: replace Ace editor with Codemirror."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: new “Display Posts” widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: WP-CLI: add commands to disconnect a site and manage modules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: new filters, <code>grunion_contact_form_field_html</code> and <code>grunion_should_send_email</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom Post Types: new restaurant post type."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Genericons: update to version 3.0.2."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: many improvements and fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: performance improvements."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: MP6: Jetpack icons are now compatible with WordPress 3.8."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Open Graph: better descriptions, fallback images, and media extraction from video posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Publicize: new background token tests for connected publicize services and display problems on settings sharing and add new post."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: updated Bandcamp shortcode to support the <code>tracklist</code> and <code>minimal</code> attributes, as well as more <code>artwork</code> attribute values."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortlinks: add Custom Post Type support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscriptions: add more ways to customize the subscriptions widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Twitter Cards: better media management and card type detection, and better handling of conflicts with other Twitter Cards plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: better handling of conflicts with other plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: After the Deadline: add a typeof check for <code>tinyMCEPreInit.mceInit</code> to prevent js errors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: speed improvements and several bugfixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: remove nonce creating issues with caching plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom Post Types: Testimonials: return if featured image is empty so it can be removed after it’s been set."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Featured Content: add additional post type support through the <code>additional_post_types</code> argument."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Google Authorship: support apostrophes in Google+ profiles."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Google Authorship: use a regexp Instead of using <code>mb_convert_encoding</code>, which doesn’t enjoy universal support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Heartbeat: ensure that it never triggers more than once per week."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: add new <code>?meta=</code> parameter that allows you to expand the data found in the <code>meta-&gt;links</code> responses."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: add new <code>is_private</code> response to the sites endpoint and <code>global_ID</code> response to the reader and post endpoints."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: allow small images to display inline."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: fix fatal errors for missing <code>minileven_header</code> function."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: fix errors when an image is not uploaded properly."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: improvements to Archives, Google+, Presentations, Vine and Youtube."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries: improve display of panoramic images and fix errors when an image is not uploaded properly."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Connect your Google+ profile and WordPress site to prove authorship of posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improved sharing buttons display."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Comment on your posts using Google+ to signin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Embed Google+ posts into your posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added event logging capabilities for debugging"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: LaTeX is now available in dev mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Introduced gallery widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added new module: VideoPress"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Updated identity crisis checker"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Gallery widget added"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Google +1 button changed to Google+ Share button, to avoid confusion"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added check to ensure Google+ authorship accounts have disconnected properly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added the ability to embed Facebook posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Redirect issue with G+ authorship when WordPress is not in the root directory"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Better security if carousel to prevent self-XSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Better handling of cookies for subsites on multisite installs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Check for post in G+ authorship before accessing it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Converted to module headers to detect Auto-Activating modules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: WPCC: Added 'Close' link to deactivate WPCC in the admin nag."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Add User Nicename to the user data."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Stopped using a short tag."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Changed CSS selector to catch MP6 stylings."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Dropped <strong>FILE</strong> references in class.jetpack.php in favor of JETPACK__PLUGIN_DIR constant, now code that deactivates the plugin from the connect nag works again."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Random Redirect: Add random-redirect to the plugins overriden list, in case someone is using Matt's Random Redirect plugin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Gallery: Revert r757178 relating to tiled gallery defaults."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Return false, not zero, if $GLOBALS['content_width'] isn't defined."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: WPCC: Don't call wp_login_url() in the constructor -- if someone is running a custom login page, that can break things if their plugin runs get_permalink as a filter before init."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Gallery: Add fallback if post_parent == 0 due to infinite_scroll_load_other_plugins_scripts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Set the ACE gutter z-index to 1."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom Post Types: Switch from wp_redirect() to wp_safe_redirect()."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Set overflow:hidden; on the likes adminbar item."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Migrate where/when the custom header stuff is included."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Slideshow Shortcode: Add a height of 410px."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Don't auto-activate WPCC."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: WordPress.com Connect (WPCC): New Module."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widget Visibility: New Module."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Addition of new Twitter Timeline shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Addition of new Presentation shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcode: Addition of new Vine shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom Post Types: CPTs are available."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscriptions: Add 'jetpack_is_post_mailable' filter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: OpenGraph: Add Twitter Cards meta tags as well."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Update lessc and scssc preprocessors to 0.4.0 and 0.0.7 respectively."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Omnisearch: Add Media results."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Use a protocol-agnostic iframe, instead of forced HTTPS."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Top Posts: Increase post limit."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Publicize: Updated JS and UI."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: New filter to let site admins/owners enable photon for HTTPS urls."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New jetpack_get_available_modules filter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Subscriptions: Antispam measures."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Add inline style to keep plugins/themes from inadvertently hiding the Connect box."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Respect the new wp_revisions_to_keep filter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Only hook jetpack_photon_url into the filter if the user has Photon active."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Heartbeat: Used wrong object, occasinally fatal-erroring out for the cron."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Add an empty debug.php file to the /modules/ folder, to solve some update issues where it never got deleted."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Added Path support to Publicize."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correct when output occurs with CSV export for feedback."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tidy up the Heartbeat API."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: User Agent: Improve detecting of bots."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Genericons: Make sure we're pulling the freshest version from genericons.com on each release."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Open up replies/new endpoints so that users can comment on blogs that are not in their access token."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Apply to <code>get_post_gallery()</code> function as well."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Galleries: Add a default bottom margin to be more robust out of the box."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Translations: Adding in fresher translation files."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Deprecation: Removing the retinization code for 3.4, as it was included in WordPress trunk from 3.5 onwards."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: We were inadvertently overwriting cron schedules with our Jetpack heartbeat. This should now be fixed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: New Facebook Sharing icons."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Minor update to the Minileven stylesheet."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed an issue where Facebook Pages were not available when connecting a Publicize account."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: For some web hosts, fixed an issue where 'Jetpack ID' error would occur consistently on connecting to WordPress.com."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Adding some new stats and heartbeat checking to Jetpack."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Social Links: Retooling the class for better consistency and performance behind the scenes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Omnisearch: Make it easier to search Custom Post Types.  No longer need to extend the class, if all you want is a basic display.  Just call <code>new Jetpack_Omnisearch_Posts( 'cpt' );</code>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing Buttons: LinkedIn: Use the official button's sharing link on the Jetpack implementation for a more consistent sharing experience and produce better results on LinkedIn's end."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Debug / Connection: Better logic in determining whether the server can use SSL to connect to WPCOM servers."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Twitter: Calculate the size of the Tweet based on the short URL rather than the full URL size."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Debug: More readable and understandable messages."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Including some MP6 styles."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Comments: Add new core classes to comment form.  See http://core.trac.wordpress.org/changeset/24525"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Omnisearch: Don't load everything initially, run the providers off admin_init, and then issue an action for folks to hook into."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Omnisearch: Modify some child class functions to match the parent's parameters and avoid strict notices in newer versions of PHP."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Omnisearch: Hide the search form in the module description if the current user can't use it."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Comment Form: Use edit_pages, not edit_page (fixes glitch in previous beta, never publicly released)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Timeline Widget: Additional testing of values and casting to default if they are nonconforming."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Pinterest: Make the button wider if there's a count to avoid overlapping with others."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Post By Email: Change configuration_redirect to static."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Don't call configuration_redirect as a static, do it as a method."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Add some further security measures to module activation."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Omnisearch: Search once, get results from everything! Omnisearch is a single search box that lets you search many different things"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Debugger: this module helps you debug connection issues right from your dashboard, and contact the Jetpack support team if needed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Social Links: this module is a canonical source, based on Publicize, that themes can use to let users specify where social icons should link to"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: It’s now easier to find out if a module is active or note, thanks to the new Jetpack::is_module_active()"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: You are now able to customize the submit button text thanks to the submit_button_text parameter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Comments: We've added a filter to let users customize the Comment Reply label, and users can now also customize the prompt on the comment form again."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Theme: Add genericons.css and registering it so it’s easily accessible to other modules that may want it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Galleries: You can now customize the captions, thanks to the jetpack_slideshow_slide_caption filter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Twitter Timeline: Add the noscrollbar option"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Facebook Like Box Widget: add a show_border attribute"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: FB Like Box: let Jetpack users override the iframe background color set in an inline style attribute by using the jetpack_fb_likebox_bg filter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Fix a bug where double-clicking a gallery thumbnail broke the carousel functionality"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Comments: Change “must-log-in” to class from ID"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Make the Add Contact Form link a button, ala Add Media in core"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Fix encoding of field labels"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Remove references to missing images"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix 2 XSS vulnerabilities"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Minor fixes for bbPress compatibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Fix metadata bugs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Add a new hook that is fired when a post is posted using the API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Prefork/REST: update path normalizer to accept versions other than 1"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Remove extra parenthesis in CSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Move content width filters higher up so that they’re active for all users, not just logged-in admins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: All CSS properties that accept images as values need to be allowed to be declared multiple times so that cross-browser gradients work"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Allow themes to define a custom function to render the IS footer"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Fix up Twenty Thirteen styles for RTL and small viewports."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Fix ‘Call to undefined function’"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Add scrolling no to iframe to make sure that like button in admin bar does not show scrollbars"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Remove setInterval( JetpackLikesWidgetQueueHandler, 250 ) call that was causing heavy CPU load"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Remove unused variable &amp; function call"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Fix LinkedIn profile URL generation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Better refresh handling for services such as LinkedIn and Facebook"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Audio shortcode: Treat src as element 0. Fixes audio shortcodes created by wp_embed_register_handler when an audio url is on a line by itself"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Bandcamp: Updates to the Bandcamp shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Fix missing function get_editable_roles on non-admin page loads"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Twitter Timeline: Fix HTML links in admin; set default values for width/height; change some of the sanitization functions"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Top Posts Widget: Exclude attachments"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Top Posts Widget: fix data validation for number of posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix PHP warnings non-static method called dynamically"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed an issue in image extraction from HTML content"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Change default minimum size for og:image too 200×200"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: The old Twitter widget was removed in favour of Twitter Timeline widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Add is_module_active() to make it easier to detect what is and what isn’t"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Compressing images via lossless methods"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Tidying up jetpack’s CSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Set the max DB version for our retina overrides that were meant to stop for WordPress 3.5"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Updating spin.js to the current version, and shifting to the canonical jquery.spin.js library"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Adding Jetpack_Options class, and abstracting out options functions to it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: Counting of registered users' views can now be enabled for specific roles"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Security tightening for metadata support in the REST API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Update the method for checking Twitter Timeline widget_id and update coding standards"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Allow the content width setting to be larger than the theme's content width"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Fix possible missing argument warning."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API compat file include was not assigning a variable correctly, thus throwing errors. This has been resolved."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Comments - Add the reply-title H3 to the comment form so that themes or user CSS can style it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS - Support for the CSS @viewport"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API - Support for i_like, is_following, and is_reblogged"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Custom Post Type Support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Meta Data Support"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Bundled Support for bbPress"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Additions of following, reblog, and like status for post endpoints."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes - Add Bandcamp shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Galleries - Add code to get blog_id"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel - Support relative image paths incase a plugin is filtering attachment URLs to be relative instead of absolute"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel - Add likes widget to images / Respect comment settings for name/email"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel - Make name and email optional if the setting in the admin area says they are"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - Bug fixes, including a fix for WP-CLI"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - Remove deprecated .live calls, delegate lazily to jQuery(document) since it's all in an iframe modal"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - RTL styles"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - Better handle MP6 icons"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - array_shift() took a variable by reference, so avoid passing it the result of a function"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Allow case-insensitive CSS properties (<a href=\"http://wordpress.org/support/topic/two-issues-with-jetpack-css-module?replies=9\">ref</a>)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Maintain main query's <code>post__not_in</code> values when querying posts for IS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Ensure that IS's <code>pre_get_posts</code> method isn't applied in the admin. Also fixes an incorrect use of <code>add_filter()</code> where <code>add_action()</code> was meant. Fixes #1696-plugins"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - CSS update - IS footer was too large in Firefox"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Add bundled support for Twenty Thirteen default theme"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Include posts table's prefix when modifying the SQL WordPress generates to retrieve posts for Infinite Scroll"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API - Use wp_set_comment_status to change the comment status, to make sure actions are run where needed"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes - Update style and logic for matching id's"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme - Ensure that <code>minileven_actual_current_theme()</code> is child-theme compatible + other updates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme - Update method for finding currently active theme."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Remove the postmessage.js enqueue since this feature solely supports native postMessage"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Clean up script enqueues and use core versions of underscore and backbone on wpcom as fallbacks"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Enqueue v2 scripts and style"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Prefix module-specific scripts and style to prevent collision"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Include lang and dir attributes on #wpnt-notes-panel so the notifications iframe can use these to display correctly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Use the profile OG type instead of author. Add tags for first/last names"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize - Remove the Yahoo! service because they stopped supporting that API entirely"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize - fix fatal errors caused by using a method on a non-object. Props @ipstenu"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing - Adding 2x graphics for Pocket sharing service"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing - Bug fixes, and a new filter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes - Audio: make sure that the Jetpack audion shortcode does not override the 3.6 core audio shortcode. Also, we need to filter the old Jetpack-style shortcode to properly set the params for the Core audio shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes - Audio: Re-enable the flash player"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes - Slideshow: RTL styling update"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries - Fix IE8 display bug where it doesn't honor inline CSS for width on images"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries - Remove depreacted hover call, use mouseenter mouseleave instead"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Twitter Timeline Widget: New JavaScript based widget. Old one will discontinue May 7th."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Theme: Add controls for custom CSS."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Add Pocket to the available services."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Update the method for generating content width setting."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Security updates."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes: Add settings for email notifications and misc style updates."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications: Add the post types to sync after init."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: RTL styling."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: security fixes and function prefixing."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Update wording on the Top Posts widget for clarity."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Jetpack Post Images security fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Development Mode: Define the <code>JETPACK_DEV_DEBUG</code> constant to <code>true</code> to enable an offline mode for localhost development. Only modules that don't require a WordPress.com connection can be enabled in this mode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Added the number of likes to the wp-admin/edit.php screens."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Theme - design refresh"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes - Add a filter to the shortcode loading section so that a plugin can override what Jetpack loads for shortcodes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets - Filter Jetpack's widgets so that a plugin can control which widgets get loaded"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Comments - Add in a wrapper div with id='commentform'"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - Added date field with datepicker"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form - Allowed non-text widgets to use contact forms by running their output through the widget_text filter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Allowing color values to be defined multiple times"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Dynamically loading the correct CSS/LESS/SCSS mode for the CSS editor if the user changes the preprocessor"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Using the unminified worker CSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Added rule: reminder about using .custom-background on body selector"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Modified rule: Removed portion of overqualification rule that deems 'a.foo' overqualified if there are no other 'a' rules"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Ensuring that the editor and the textarea behind it are using the same font so that the cursor appears in the correct location"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Fix a bug that caused some sites to always ignore the base theme's CSS when in preview mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Run stripslashes() before passing CSS to save()"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS - Moving inline CSS and JavaScript into external files"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Use the <code>is_main_query()</code> function and query method"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Remove unused styles and an unnecessary margin setting"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll - Allow the query used with IS to be filtered, so IS can be applied to a new query within a page template"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API - Catch the 'User cannot view password protected post' error from can_view_post and bypass it for likes actions if the user has the password entered"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Likes - Bump cache buster, Don't show likes for password protected posts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications - Remove a redundant span closing tag"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon - If an image is already served from Photon but the anchor tag that surrounds it hasn't had its <code>href</code> value rewritten to use Photon, do so. Accounts for WP galleries whose individual items are linked to the original image files"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize - Allows GLOBAL_CAP to be filtered, Adds an AYS to connection deletion, UI improvement for MP6 (and in general)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharedaddy - Fire the sharing redirect earlier for increased plugin compatibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats - Move the display:none CSS output to wp_head so it gets written inside the HEAD tag if the option to hide the stats smilie is active"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries - A more descriptive name for the default gallery type"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries - Hide the Columns setting for gallery types that don't support it"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Run the admin_menu action late so that plugins hooking into it get a chance to run"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Prophylactic strict equality check"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Likes: Allow your readers to show their appreciation of your posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: SoundCloud: Update to version 2.3 of the SoundCloud plugin (HTML5 default player, various fixes)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Subscriptions: Add a shortcode to enable placement of a subscription signup form in a post or page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharedaddy: Allow selecting multiple images from a post using the Pinterest share button."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: Allow feedbacks to be marked spam in bulk."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Readmill Widget: Give your visitors a link to send your book to their Readmill library."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: Notifications: Discontinue support for Internet Explorer 7 and below."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Fix authorization problems that some users were experiencing."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Sticky posts were not being sorted correctly in /posts requests."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: sync stats_options so server has roles array needed for view_stats cap check."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Display improvements."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: WordPress compatibility fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Only rewrite iamge urls if the URL is compatible with Photon."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Account for registered image sizes with one or more dimesions set to zero."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Make HTML markup more valid."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Fixed notices displayed in debug mode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: CSS warnings and errors should now work in environments where JavaScript is concatenated or otherwise modified before being served."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Hovercards: WordPress compatibility fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Improved image handling for the Sharing and Publicize modules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Display and Scrollbar fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries: Restrict images in tiled galleries from being set larger than their containers."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gravatar Profile: CSS fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Strip HTML comments from the data we send to the third party services."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications: Dropped support for IE7 and below in the notifications menu."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS Editor: Allow custom themes to save CSS more easily."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Waits until the DOM is ready before loading the scrolling code."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: If the user has disabled the custom header text color, show the default black header text color."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Fix for the \"View Full Site\" link."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Use a filter to modify the output of wp_title()."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Twitter: Re-enable character count turning red when more than 140 characters are typed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: Introduce filters for Infinite Scroll."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: TED shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Make sure to use large image sizes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Clicking the back button in your browser after exiting a carousel gallery brings you back to the gallery."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Fix a scrollbar issue."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Comments: Move the get_avatar() function out of the base class."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Prevent the form from displaying i18n characters."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Remove the !important CSS rule."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Main query arguments are not respected when using default permalink."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Trap 'wp_die' for new comments and image uploads."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Use a better array key for the user_ID."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Make the class instantiable only once, but multi-use."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Fix lookup of pages by page slug."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Updates for post likes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Remove Android download link for BB10 and Playbook."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Stop using Loop functions to get post data for meta tags."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Suppress and check for warnings when pasing_url and using it."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Ensure full image size can be used."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Resolve Photon / YouTube embed conflict."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Fix dimension parsing from URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Make sure that width/height atts are greater than zero."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharedaddy: Layout fixes for share buttons."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharedaddy: Always send Facebook a language locale."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharedaddy: Don't look up share counts for empty URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Ensure that images don't overflow their containers in the slideshow shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: only enqueue jquery if archive supports Infinite Scroll in the Audio Shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries: Use a more specific class for gallery item size to avoid conflicts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tiled Galleries: Fixing scrolling issue when tapping on a Tiled Gallery on Android."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gravatar profile widget typo."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Add (Jetpack) to widget titles."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Twitter wasn't wrapping links in the t.co shortener."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Facebook Likebox updates to handling the language locale."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Top Posts: Fixed a WP_DEBUG notice."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gravatar Profile Widget: transient names must be less than 45 characters long."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: typo in delete_post_action function."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Load rendered LaTeX image on same protocol as its page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix for an error appearing for blogs updating from Jetpack 1.9.2 or earlier to 2.1."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Tiled Galleries: Show off your photos with cool mosaic galleries."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Slideshow gallery type: Display any gallery as a slideshow."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Allow zoom property."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: Show WordPress.com subscribers in stats."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix errors shown after connecting Jetpack to WordPress.com."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Fix bug causing errors to be shown in some posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Convert all images in posts when Photon is active."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Improved compatibility with the other modules."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Updated editor to fix missing file errors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Don't show the Facebook profile option if this is a Page-only account."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: A fix for photos appearing shrunken if they didn't load quickly enough."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: A compatibility fix for posts that only have partial featured image data."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize/Sharing: For sites without a static homepage, don't set the OpenGraph url value to the first post permalink."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Better compatibility with the customizer on mobile devices."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Don't show sharing options on front page if that option is turned off."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Fix PHP warning shown when adding a Contact Form in WordPress 3.5."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Handle images with relative paths."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Fix compatibility with the Shortcode Embeds module."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Open Graph: Correct a bug that prevents Jetpack from being activated if the SharePress plugin isn't installed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: support <a href=\"http://wordpress.org/extend/plugins/video/\">VideoPress</a> plugin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Apply to all images retrieved from the Media Library."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Retina image support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Refined editor interface."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Support <a href=\"http://sass-lang.com/\">Sass</a> and <a href=\"http://lesscss.org/\">LESS</a> with built-in preprocessors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Open Graph: Better checks for other plugins that may be loading Open Graph tags to prevent Jetpack from doubling meta tag output."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Respect relative image dimensions."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Detect custom-cropped images and use those with Photon, rather than trying to use the original."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Fix for bug preventing @import from working with url()-style URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Remove an erroneous PHP short open tag with the full tag to correct fatal errors under certain PHP configurations."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Support for the <a href=\"http://wordpress.org/extend/plugins/lazy-load/\">Lazy Load</a> plugin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Fix warped images with un- or under-specified dimensions."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Photon: Fix warped images with pre-photonized URLs; don't try to photonize them twice."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Check a child theme's parent theme for infinite scroll support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Infinite Scroll: Correct a bug with archives that resulted in posts appearing on archives that they didn't belong on."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Publicize: Send the correct shortlink to Twitter (et al.) if your site uses a shortener other than wp.me."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Improved theme compatibility for the Google+ button."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Notifications: Use locally-installed Javascript libraries if available."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Publicize: Connect your site to popular social networks and automatically share new posts with your friends."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Post By Email: Publish posts to your blog directly from your personal email account."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Photon: Images served through the global WordPress.com cloud."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Infinite Scroll: Better/faster browsing by pulling the next set of posts into view automatically when the reader approaches the bottom of the page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Open Graph: Provides more detailed information about your posts to social networks."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: New parameters for creating and viewing posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Improved compatibility for the upcoming WordPress 3.5."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: When you set your sharing buttons to use icon, text, or icon + text mode, the Google+ button will display accordingly."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Gravatar Profile Widget: Allow basic HTML to be displayed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: Error handling fixes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Improved theme compatibility"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: JSON API: Fixed error when creating some posts in some versions of PHP."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Only sync options on upgrade once."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Notifications feature is enabled for logged-out users when the module is active &amp; the toolbar is shown by another plugin."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Use proper CDN addresses to avoid SSL cert issues."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Prioritize syncing comments over deleting comments on WordPress.com. Fixes comment notifications marked as spam appearing to be trashed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Notifications: Display Notifications in the toolbar and support reply/moderation of comment notifications."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Push Notifications: Added support for mobile push notifications of new comments for users that linked their accounts to WordPress.com accounts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: JSON API: Allows applications to send API requests via WordPress.com (see <a href=\"http://developer.wordpress.com/docs/api/\">the docs</a> )"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sync: Modules (that require the data) sync full Post/Comment to ensure consistent data on WP.com (eg Stats)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sync: Improve syncing of site options to WP.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sync: Sync attachment parents to WP.com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sync: Add signing of WP.com user ids for Jetpack Comments"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sync: Mark and obfuscate private posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Privacy: Default disable enhanced-distribution and json-api modules if site appears to be private."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: allow applying Custom CSS to mobile theme."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: On HTTPS pageloads, load as much of the sharing embeds as possible from HTTPS URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Contact Form: Overhaul of the contact form code to fix incompatibilites with other plugins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Only allow users with manage_options permission to enable/disable modules"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: allow '/' in media query units; e.g. (-o-min-device-pixel-ratio: 3/2)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: leave comments alone in CSS when editing but minify on the frontend"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Keep \"more\" pane open so Google+ Button isn't obscured"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: Make sure the original size is used, even when it is exceedingly large."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Exclude iPad from Twitter on iPhone mobile browsing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sync: On .org user role changes synchronize the change to .com"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: Fix a bug where some web hosts would reject mail from the contact form due to email address spoofing."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Fix a bug where subscriptions were not being sent from the blog."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter: Fix a bug where the Twitter username was being saved as blank."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix a bug where Contact Form notification emails were not being sent."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Fix a bug where subscriptions were not sent for posts and comments written by some authors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Fix CSS that was uglifying some themes (like P2)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Improve Top Posts and Pages styling."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Make the default \"Welcome\" message translatable."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix Lithuanian translation."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Fixed a bug preventing some users from viewing stats."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Fixed some disabled toolbar buttons."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Top Posts widget: Fixed a bug preventing the usage of the Top Posts widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Fixed a bug that broke some sites when the Subscriptions module was not enabled and the Mobile Theme module was enabled."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Made mobile app promos in the Mobile Theme footer opt-in."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: A fix to prevent malware warnings."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Mobile Theme: Fixed a bug that caused errors for some users with custom header images."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Theme: Automatically serve a slimmed down version of your site to users on mobile devices."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Multiuser: Allow multiple users to link their accounts to WordPress.com accounts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Custom CSS: Added support for object-fit, object-position, transition, and filter properties."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Twitter Widget: Added Follow button"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Added Top Posts and Pages widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Mobile Push Notifications: Added support for mobile push notifications on new comments."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: VideoPress: Shortcodes now support the HD option, for default HD playback."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: Fixed tweet permalinks in the Twitter widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: @import rules and external images are no longer stripped out of custom CSS"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Custom CSS: Fixed warnings and notices displayed in debug mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fixed double-encoding of image URLs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fix Google +1 button HTML validation issues (again :))"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Gravatar Profile Widget: Reduce size of header margins"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: CSS Editor: Customize your site's design without modifying your theme."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Comments: Submit the comment within the iframe.  No more full page load to jetpack.wordpress.com."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Share counts for Twitter, Facebook, LinkedIn"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Improve styling"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Add support for ReCaptcha"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Better extensability through filters"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Twitter: Attempt to reduce errors by storing a long lasting copy of the data. Thanks, kareldonk :)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Regression Fix: Sharing: Properly store and display the sharing label option's default value."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: remove worse-than-useless nonce."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: remove worse-than-useless nonce."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Don't show sharing buttons twice on attachment pages."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Increase width of Spanish Like button for Facebook."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Use the correct URL to the throbber."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Fix notice about undefined variable $alt"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Make Subscriptions module obey the settings of the Settngs -&gt; Discussion checkboxes for Follow Blog/Comments"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: VideoPress: Compatibility with the latest version of VideoPress"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Audio: Include JS File for HTML5 audio player"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Hovercards: Improve cache handling."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gravatar Profle: Correctly display service icons in edge cases."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Widgets: Gravatar Profle: Prevent ugly \"flash\" of too-large image when page first loads on some sites"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Carousel: CSS Compatibility with more themes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Prevent Fatal error under certain conditions in sharing module"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Add cachebuster to sharing.css"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Disable via for Twitter until more robust code is in place"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Carousel: Better image resolution selection based on available width/height."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Carousel: Load image caption, metadata, comments, et alii when a slide is clicked to switch to instead of waiting."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Carousel: Added a \"Comment\" button and handling to scroll to and focus on comment textarea."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Facebook Likebox now supports a height parameter and a better width parameter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Widgets: Better feedback when widgets are not set up properly."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Google Maps shortcode now supports percentages in the width."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Update Polldaddy shortcode for more efficient Javascript libraries."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Youtube shortcode now has playlist support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Gravatar Profile widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Update Sharedaddy to latest version, including Pinterest support."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Retinize Jetpack and much of WordPress."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Fix Audio shortcode color parameter and rename encoding function."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Don't output HTML 5 version of the Audio shortcode because of a bug with Google Reader."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Jetpack Comments: Don't overlead the addComments object if it doesn't exist. Fixes spacing issue with comment form."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Form: If send_to_editor() exists, use it. Fixes an IE9 text area issue."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Gallery Carousel feature"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Note: the Carousel module bundles http://fgnass.github.com/spin.js/ (MIT license)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Jetpack Comments: Add alternative Javascript event listener for Internet 8 users."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Remove more PHP 4 backwards-compatible code (WordPress andJetpack only support PHP 5)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Remove more WordPress 3.1 and under backwards-compatible code."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Jetpack Comments / Subscriptions: Add checkboxes and logic control for the Subscription checkboxes."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Jetpack Comments feature."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Make the sharing_label translatable."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fixed the file type on the LinkedIn graphic."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fixes for the Faceboox Like button language locales."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Updates for the \"more\" button when used with touch screen devices."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Properly scope the More button so that multiple More buttons on a page behave properly."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Update the YouTube and Audio shortcodes to better handle spaces in the URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Make the YouTube shortcode respect embed settings in Settings -&gt; Media when appropriate."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Removed the Slide.com shortcode; Slide.com no longer exists."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Match both http and https links in the [googlemaps] shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: After the Deadline: Code clean up and removal of inconsistencies."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Revert changes to the top level menu that are causing problems."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix notices caused by last update"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix Jetpack menu so that Akismet and VaultPress submenus show up."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add a new widget, the Facebook Likebox"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Sharing buttons can now be used on custom post types."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Contact Forms: Make Contact Forms widget shortcode less aggressive about the shortcodes it converts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Ensure contact forms are parsed correctly in text widgets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Connection notices now only appear on the Dashboard and plugin page."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Connection notices are now dismissable if Jetpack is not network activated."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Fix an issue that was causing errors with new BuddyPress forum posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Contact Forms feature.  Formerly Grunion Contact Forms."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Tweak YouTube autoembedder to catch more YouTube URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correctly load the Sharing CSS files."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix rare bug with static front pages"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Twitter Widget: Expand t.co URLs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Various PHP Notices."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: WordPress Deprecated <code>add_contextual_help()</code> notices"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Don't display unimportant DB errors when processing Jetpack nonces"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correctly sync data during certain MultiSite cases."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Allow sparkline img to load even when there is a DB upgrade."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Replace \"loading title\" with post title regardless of type and status."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Avoid edge case infinite redirect for <code>show_on_front=page</code> sites where the <code>home_url()</code> conatins uppercase letters."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Don't send subscriptions if the feature is turned off in Jetpack."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Fix pagination of subscribers."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Sync data about categories/tags as well to improve subscription emails."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Subscriptions: Better styling for the subscription success message."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Support for multiple Google Maps in one post.  Support for all Google Maps URLs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Improved support for youtu.be URLs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Shortcodes: Improved Vimeo embeds."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Switch to the 20px version of Google's +1 button for consistency."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Fix Google +1 button HTML validation issues."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharing: Disable sharing buttons during preview."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Spelling and Grammar: Properly handle proofreading settings."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Spelling and Grammar: Don't prevent post save when proofreading service is unavailable."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Ensure expected modules get reactivated correctly during upgrade."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Don't send subscription request during spam comment submission."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Increased theme compatibility for subscriptions."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Remove reference to unused background image."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Ensure Site Stats menu item is accessible."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fixed errors displayed during some upgrades."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix inaccurate new modules \"bubble\" in menu for some upgrades."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix VaultPress detection."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Fix link to http://jetpack.me/faq/"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Subscriptions: Subscribe to site's posts and posts' comments."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Google Maps shortcode."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add Image Widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Add RSS Links Widget."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Stats: More responsive stats dashboard."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Shortcodes: Google Maps, VideoPress"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharing: Google+, LinkedIn"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Enhanced Distribution: Added Jetpack blogs to http://en.wordpress.com/firehose/"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Spelling and Grammar: WordPress 3.3 compatibility."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Translatable module names/descriptinos."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Correctly detect host's ability to make outgoing HTTPS requests."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Increase compatibility with WordPress 3.2's new <code>wp_remote_request()</code> API."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Increase compatibility with Admin Bar."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Improved performance when creating new posts."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: Fix PHP Notice."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Sharedaddy: Fix PHP Warning."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: AtD: Add spellcheck button to Distraction Free Writing screen."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Translations: Added: Bosnian, Danish, German, Finnish, Galician, Croatian, Indonesian,  Macedonian, Norwegian (Bokmål), Russian, Slovak, Serbian, Swedish"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Translations: Updated: Spanish, French, Italian, Japanese, Brazilian Portuguese, Portuguese"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Note, store, and keep fresh the time difference between the Jetpack site's host and the Jetpack servers at WordPress.com.  Should fix all \"timestamp is too old\" errors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Improve experience on hosts capable of making outgoing HTTPS requests but incapable of verifying SSL certificates. Fixes some \"register_http_request_failed\", \"error setting certificate verify locations\", and \"error:14090086:lib(20):func(144):reason(134)\" errors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Better fallback when WordPress.com is experiencing problems."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: It's Jetpack, not JetPack :)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Remove PHP Warnings/Notices."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: AtD: JS based XSS bug.  Props markjaquith."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: AtD: Prevent stored configuration options from becoming corrupted."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Stats: Prevent missing old stats for some blogs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: Fix formatting of dates/times in PHP4."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug Fix: Twitter Widget: Cache the response from Twitter to prevent \"Twitter did not respond. Please wait a few minutes and refresh this page.\" errors."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Slightly improved RTL experience.  Jetpack 1.2 should include a much better fix."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Sharedaddy: Improve localization for Facebook Like button."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enhancement: Gravatar Hovercards: Improved experience for Windows browsers."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Initial release"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release date:"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release date: September 9th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Feature Enhancements:"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Additional changes:"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 24, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 6th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 5th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Jetpack 3.5 introduces the ability to manage your site's menus directly from WordPress.com and several bug fixes and enhancements.  This upgrade is recommended for all users."
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 20th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 19th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 19th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 18th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Post: http://jetpack.me/2015/03/17/jetpack-3-4-protect-secure-and-simplify/"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: February 19th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: February 11th, 2015"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: November 14th, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: August 7, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: June 17, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 22, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 10, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 17, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 6, 2014"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Bug Fix: Contact form fields emailed in correct order."
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Other bugfixes and enhancements at https://github.com/Automattic/jetpack/commits/2.9"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: December 3, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: September 5, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: September 4, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: August 12, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: August 6, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 26, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 25, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 2, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 1, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 26, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 5, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 28, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: February 5, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: January 5, 2013"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: December 14, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: November 21, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: October 29, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: October 23, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: October 4, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: September 28, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: August 4, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 31, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: June 20, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: June 15, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: June 14, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 24, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: May 22, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 6, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: April 5, 2012"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: December 6, 2011"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: November 18, 2011"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 19, 2011"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: July 6, 2011"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "Release Date: March 9, 2011"
+msgstr ""
+
+#. Found in faq header.
+msgid "I already have a WordPress account, but it's not working, what's going on?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How do I view my stats?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How do I contribute to Jetpack?"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Join our Beta Test group."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Give us a hand answering questions in our <a href=\"http://wordpress.org/support/plugin/jetpack\">support forum</a>."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Report bugs, with reproduction steps, or post patches on <a href=\"https://github.com/Automattic/Jetpack\">GitHub</a>."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Jetpack requires a connection to <a href=\"http://wordpress.com/\">WordPress.com</a> to enable all features. This is a different account than the one you use to log into your self-hosted WordPress. If you can log into http://wordpress.com, then you already have a WordPress.com account. If you can't, then you can easily create one as part of the installation of Jetpack."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Once you've installed Jetpack, your stats will be available via the \"Site Stats\" menu which appears in the new Jetpack menu (under your Dashboard menu within WordPress)."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Easy! There are opportunities for developers at all levels to contribute:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Learn more (and get detailed instructions) in our <a href=\"http://jetpack.me/contribute/\">contribute guide</a>."
+msgstr ""
