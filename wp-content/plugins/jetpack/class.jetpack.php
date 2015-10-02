@@ -389,7 +389,6 @@ class Jetpack {
 				 */
 				do_action( 'jetpack_sync_all_registered_options' );
 			}
-
 			//if Jetpack is connected check if jetpack_unique_connection exists and if not then set it
 			$jetpack_unique_connection = get_option( 'jetpack_unique_connection' );
 			$is_unique_connection = $jetpack_unique_connection && array_key_exists( 'version', $jetpack_unique_connection );
@@ -904,6 +903,13 @@ class Jetpack {
 			case 'jetpack_configure_modules' :
 				$caps = array( 'manage_options' );
 				break;
+			case 'jetpack_network_admin_page':
+			case 'jetpack_network_settings_page':
+				$caps = array( 'manage_network_plugins' );
+				break;
+			case 'jetpack_network_sites_page':
+				$caps = array( 'manage_sites' );
+				break;
 			case 'jetpack_admin_page' :
 				if ( Jetpack::is_development_mode() ) {
 					$caps = array( 'manage_options' );
@@ -1206,6 +1212,9 @@ class Jetpack {
 		if ( ! function_exists( 'get_filesystem_method' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/file.php' );
 		}
+
+		require_once( ABSPATH . 'wp-admin/includes/template.php' );
+
 		$filesystem_method = get_filesystem_method();
 		if ( $filesystem_method === 'direct' ) {
 			return 1;
@@ -1214,7 +1223,7 @@ class Jetpack {
 		ob_start();
 		$filesystem_credentials_are_stored = request_filesystem_credentials( self_admin_url() );
 		ob_end_clean();
-		if( $filesystem_credentials_are_stored ) {
+		if ( $filesystem_credentials_are_stored ) {
 			return 1;
 		}
 		return 0;
