@@ -217,6 +217,7 @@ class Jetpack {
 		'wp-facebook-open-graph-protocol/wp-facebook-ogp.php',   // WP Facebook Open Graph protocol
 		'wp-ogp/wp-ogp.php',                                     // WP-OGP
 		'zoltonorg-social-plugin/zosp.php',                      // Zolton.org Social Plugin
+		'wp-fb-share-like-button/wp_fb_share-like_widget.php'    // WP Facebook Like Button
 	);
 
 	/**
@@ -432,7 +433,7 @@ class Jetpack {
 		 * Do things that should run even in the network admin
 		 * here, before we potentially fail out.
 		 */
-		add_filter( 'jetpack_require_lib_dir', 		array( $this, 'require_lib_dir' ) );
+		add_filter( 'jetpack_require_lib_dir', array( $this, 'require_lib_dir' ) );
 
 		/**
 		 * We need sync object even in Multisite mode
@@ -825,7 +826,7 @@ class Jetpack {
 			Jetpack::state( 'message', 'no_message' );
 
 			//A Jetpack module is being activated through a JITM, track it
-			$this->stat( 'jitm', $module_slug.'-activated' );
+			$this->stat( 'jitm', $module_slug.'-activated-' . JETPACK__VERSION );
 			$this->do_stats( 'server_side' );
 
 			wp_send_json_success();
@@ -846,7 +847,7 @@ class Jetpack {
 			Jetpack_Options::update_option( 'hide_jitm', $jetpack_hide_jitm );
 
 			//jitm is being dismissed forever, track it
-			$this->stat( 'jitm', $module_slug.'-dismissed' );
+			$this->stat( 'jitm', $module_slug.'-dismissed-' . JETPACK__VERSION );
 			$this->do_stats( 'server_side' );
 
 			wp_send_json_success();
@@ -1021,7 +1022,7 @@ class Jetpack {
 	 *
 	 * @filter require_lib_dir
 	 */
-	function require_lib_dir( $lib_dir ) {
+	function require_lib_dir() {
 		return JETPACK__PLUGIN_DIR . '_inc/lib';
 	}
 
@@ -1693,7 +1694,7 @@ class Jetpack {
 
 		sort( $active_plugins );
 
-		return $active_plugins;
+		return array_unique( $active_plugins );
 	}
 
 	/**
@@ -2290,19 +2291,20 @@ class Jetpack {
 	 */
 	public static function get_module( $module ) {
 		$headers = array(
-			'name'                  => 'Module Name',
-			'description'           => 'Module Description',
-			'jumpstart_desc'        => 'Jumpstart Description',
-			'sort'                  => 'Sort Order',
-			'recommendation_order'  => 'Recommendation Order',
-			'introduced'            => 'First Introduced',
-			'changed'               => 'Major Changes In',
-			'deactivate'            => 'Deactivate',
-			'free'                  => 'Free',
-			'requires_connection'   => 'Requires Connection',
-			'auto_activate'         => 'Auto Activate',
-			'module_tags'           => 'Module Tags',
-			'feature'               => 'Feature',
+			'name'                      => 'Module Name',
+			'description'               => 'Module Description',
+			'jumpstart_desc'            => 'Jumpstart Description',
+			'sort'                      => 'Sort Order',
+			'recommendation_order'      => 'Recommendation Order',
+			'introduced'                => 'First Introduced',
+			'changed'                   => 'Major Changes In',
+			'deactivate'                => 'Deactivate',
+			'free'                      => 'Free',
+			'requires_connection'       => 'Requires Connection',
+			'auto_activate'             => 'Auto Activate',
+			'module_tags'               => 'Module Tags',
+			'feature'                   => 'Feature',
+			'additional_search_queries' => 'Additional Search Queries',
 		);
 
 		$file = Jetpack::get_module_path( Jetpack::get_module_slug( $module ) );
@@ -4863,6 +4865,15 @@ p {
 			)
 		);
 
+		/**
+		 * Fires when a site is registered on WordPress.com.
+		 *
+		 * @since 3.7.0
+		 *
+		 * @param int $json->jetpack_id Jetpack Blog ID.
+		 * @param string $json->jetpack_secret Jetpack Blog Token.
+		 * @param int|bool $jetpack_public Is the site public.
+		 */
 		do_action( 'jetpack_site_registered', $json->jetpack_id, $json->jetpack_secret, $jetpack_public );
 
 		// Initialize Jump Start for the first and only time.
@@ -5695,7 +5706,13 @@ p {
 			foreach( $identity_options as $identity_option ) {
 				Jetpack_Sync::sync_options( __FILE__, $identity_option );
 
-				// Fire off the sync manually
+				/**
+				 * Fires when a shadow site option is updated.
+				 * These options are updated via the Identity Crisis UI.
+				 * $identity_option is the option that gets updated.
+				 *
+				 * @since 3.7.0
+				 */
 				do_action( "update_option_{$identity_option}" );
 			}
 		}
@@ -5986,7 +6003,7 @@ p {
 							<p><?php printf( __( 'It looks like you may have changed your domain. Is <strong>%1$s</strong> still your site\'s domain, or have you updated it to <strong> %2$s </strong>?', 'jetpack' ), $errors[ $key ], (string) get_option( $key ) ); ?></p>
 							</div>
 						<div class="jp-btn-group">
-							<a href="#" class="regular site-moved"><?php _e( 'I\'ve updated it.', 'jetpack' ); ?></a> <span class="idc-separator">|</span> <a href="#" class="site-not-moved" ><?php _e( 'That\'s still my domain.', 'jetpack' ); ?></a>
+							<a href="#" class="regular site-moved"><?php printf( __( '%s is now my domain.', 'jetpack' ), $errors[ $key ] ); ?></a> <span class="idc-separator">|</span> <a href="#" class="site-not-moved" ><?php printf( __( '%s is still my domain.', 'jetpack' ), (string) get_option( $key ) ); ?></a>
 							<span class="spinner"></span>
 						</div>
 					<?php endif ; ?>
@@ -6262,9 +6279,10 @@ p {
 	 * @return boolean
 	 **/
 	private function is_ssl_required_to_visit_site() {
+		global $wp_version;
 		$ssl = is_ssl();
 
-		if ( force_ssl_login() ) {
+		if ( version_compare( $wp_version, '4.4-alpha', '<=' ) && force_ssl_login() ) { // force_ssl_login deprecated WP 4.4.
 			$ssl = true;
 		} else if ( force_ssl_admin() ) {
 			$ssl = true;
