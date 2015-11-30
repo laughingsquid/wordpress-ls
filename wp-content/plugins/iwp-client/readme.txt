@@ -48,6 +48,9 @@ Credits: [Vladimir Prelovac](http://prelovac.com/vladimir) for his worker plugin
 
 == Changelog ==
 
+= 1.4.3 =
+* Improvement: Maintenance mode status also included in reload data. This will result in the IWP Admin Panel displaying relevant status colours.
+
 = 1.4.2.2 =
 * Fix: Fatal error while calling wp_get_translation_updates() in WP versions lower than v3.7.
 
